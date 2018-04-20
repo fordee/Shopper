@@ -16,13 +16,13 @@
 		496139802082938C0083D3E8 /* ToDo+Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4961397F2082938C0083D3E8 /* ToDo+Api.swift */; };
 		4961398220829BB80083D3E8 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4961398120829BB80083D3E8 /* Colors.swift */; };
 		49613985208518240083D3E8 /* FloatingAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49613984208518240083D3E8 /* FloatingAddButton.swift */; };
+		49C01FA7208AA69900FE4C9B /* Api.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49C01FA6208AA69900FE4C9B /* Api.plist */; };
 		9948C3541E3FB33F005B0937 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 991E306E1E3F5BE60099AD2A /* Alamofire.framework */; };
 		9948C3551E3FB341005B0937 /* Arrow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 991E306C1E3F5BE40099AD2A /* Arrow.framework */; };
 		9948C3561E3FB344005B0937 /* ws.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 991E30721E3F5BEB0099AD2A /* ws.framework */; };
 		9948C3571E3FB348005B0937 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 991E30831E3F63800099AD2A /* Kingfisher.framework */; };
 		9948C3581E3FB34B005B0937 /* then.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 991E30741E3F5BEF0099AD2A /* then.framework */; };
 		9948C3591E3FB34E005B0937 /* Stevia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 991E30701E3F5BE90099AD2A /* Stevia.framework */; };
-		9964CFA61E4669B800E051AD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9964CFA31E4669B800E051AD /* Localizable.strings */; };
 		99EC7AE91E3F71DD008BBBA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99EC7ADB1E3F71DD008BBBA5 /* Assets.xcassets */; };
 		99EC7AEA1E3F71DD008BBBA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99EC7ADD1E3F71DD008BBBA5 /* LaunchScreen.storyboard */; };
 		99EC7AEB1E3F71DD008BBBA5 /* ToDo+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC7ADF1E3F71DD008BBBA5 /* ToDo+JSON.swift */; };
@@ -40,6 +40,7 @@
 		4961397F2082938C0083D3E8 /* ToDo+Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ToDo+Api.swift"; path = "Shopper/ToDo+Api.swift"; sourceTree = SOURCE_ROOT; };
 		4961398120829BB80083D3E8 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		49613984208518240083D3E8 /* FloatingAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingAddButton.swift; sourceTree = "<group>"; };
+		49C01FA6208AA69900FE4C9B /* Api.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Api.plist; sourceTree = "<group>"; };
 		991E304A1E3F57810099AD2A /* Shopper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shopper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		991E306C1E3F5BE40099AD2A /* Arrow.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Arrow.framework; path = Carthage/Build/iOS/Arrow.framework; sourceTree = "<group>"; };
 		991E306E1E3F5BE60099AD2A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
@@ -47,8 +48,6 @@
 		991E30721E3F5BEB0099AD2A /* ws.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ws.framework; path = Carthage/Build/iOS/ws.framework; sourceTree = "<group>"; };
 		991E30741E3F5BEF0099AD2A /* then.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = then.framework; path = Carthage/Build/iOS/then.framework; sourceTree = "<group>"; };
 		991E30831E3F63800099AD2A /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
-		9964CFA41E4669B800E051AD /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Resources/Languages/es.lproj/Localizable.strings; sourceTree = SOURCE_ROOT; };
-		9964CFA51E4669B800E051AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resources/Languages/en.lproj/Localizable.strings; sourceTree = SOURCE_ROOT; };
 		99EC7ADB1E3F71DD008BBBA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Source/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		99EC7ADE1E3F71DD008BBBA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99EC7ADF1E3F71DD008BBBA5 /* ToDo+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ToDo+JSON.swift"; path = "Source/ToDo+JSON.swift"; sourceTree = SOURCE_ROOT; };
@@ -152,7 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				99EC7AE81E3F71DD008BBBA5 /* Info.plist */,
-				9964CFA31E4669B800E051AD /* Localizable.strings */,
+				49C01FA6208AA69900FE4C9B /* Api.plist */,
 				99EC7ADB1E3F71DD008BBBA5 /* Assets.xcassets */,
 				99EC7ADC1E3F71DD008BBBA5 /* Base.lproj */,
 			);
@@ -232,7 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99EC7AEA1E3F71DD008BBBA5 /* LaunchScreen.storyboard in Resources */,
-				9964CFA61E4669B800E051AD /* Localizable.strings in Resources */,
+				49C01FA7208AA69900FE4C9B /* Api.plist in Resources */,
 				99EC7AE91E3F71DD008BBBA5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,15 +298,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		9964CFA31E4669B800E051AD /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9964CFA41E4669B800E051AD /* es */,
-				9964CFA51E4669B800E051AD /* en */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
 		99EC7ADD1E3F71DD008BBBA5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

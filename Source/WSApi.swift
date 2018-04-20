@@ -1,27 +1,29 @@
 //
 //  WSApi.swift
-//  StarterProject
-//
-//  Created by Sacha Durand Saint Omer on 30/01/2017.
-//  Copyright © 2017 freshOS. All rights reserved.
-//
+
+
 
 import ws
 import Alamofire
 import then
 
-// This is our JSON Api Code
-// Yes! This is all that's needed to get nice Swift models from a JSON api!!!!
-// Thanks to the power of generics, ws will return what you want! (Void, JSON, Model, [Model] etc)
-
 // Get the full documentation at https://github.com/freshOS/ws
 
 class WSApi: ApiInterface {
 
-	let ws = WS("https://shoppy.4Dware.net") // Set the Webservice base URL
+	private var baseURL: URL? = URL(string: "api.example.com")
+	let ws: WS
 
 	init() {
 		// This will print network requests & responses to the console.
+		guard
+			let path = Bundle.main.path(forResource: "Api", ofType: "plist"),
+			let values = NSDictionary(contentsOfFile: path) as? [String: Any],
+			let apiEndpoint = values["API Endpoint"] as? String
+			else {
+				fatalError("Api.plist file is missing 'API Endpoint' entry!")
+		}
+		ws = WS(apiEndpoint) // Set the Webservice base URL
 		ws.logLevels = .debug
 	}
 

@@ -3,15 +3,10 @@
 //  StarterProject
 //
 //  Created by John Forde on 15/4/18.
-//  Copyright © 2018 freshOS. All rights reserved.
+//  Copyright © 2018 4DWare. All rights reserved.
 //
 
 import Stevia
-
-// This is our custom View.
-// This is what replaces the heavy xml Storyboard file when you dev views in code.
-
-// Get the full documentation at https://github.com/freshOS/Stevia
 
 class ToDoView: UIView {
 
