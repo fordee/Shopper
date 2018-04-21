@@ -73,6 +73,10 @@ class FloatingAddButton: UIControl {
 		addLayersToControl()
 	}
 
+	override func layoutSubviews() { // This is required, because before this is called bounds is all zeros
+		super.layoutSubviews()
+		layoutLayers()
+	}
 	
 	@objc func onTouch(sender: UIButton) {
 		print("You tapped button")

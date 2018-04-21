@@ -19,4 +19,8 @@ extension ToDo {
 	func save() -> Promise<ToDo> {
 		return api.save(path: "/items", params: ["category": category, "description": description, "done": done])
 	}
+
+	func update() -> Promise<ToDo> {
+		return api.update(path: "/items", params: ["category": category, "description": description, "done": done])
+	}
 }

@@ -27,11 +27,12 @@ class ToDoVC: UIViewController {
 
 		v.refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
 		v.tableView.dataSource = self
+		v.tableView.delegate = self
 		// And we fetch the ToDos.
 		refresh()
 
 		fab = FloatingAddButton(color: UIColor.lightBlue){
-			self.viewTapped()
+			self.addItemTapped()
 		}
 		view.sv(fab)
 		view.layout(
@@ -42,10 +43,6 @@ class ToDoVC: UIViewController {
 		fab?.show()
 	}
 
-	override func viewDidLayoutSubviews() { // This seems a bit messy
-		fab.layoutLayers()
-	}
-
 	@objc
 	func refresh() {
 		ToDo.fetchToDos().then { fetchedToDos in
@@ -53,7 +50,6 @@ class ToDoVC: UIViewController {
 					return isIncluded.category == "Shopping"
 				}
 			}.onError { e in
-				// An error occured :/
 				print(e)
 			}.finally {
 				// In any case, reload the tableView
@@ -65,13 +61,12 @@ class ToDoVC: UIViewController {
 		}
 	}
 
-	private func viewTapped() {
+	private func addItemTapped() {
 		print("Tapped!")
 		let itemToSave = ToDo(category: "Shopping", description: "beers", done: "false")
 		itemToSave.save().then() {_ in 
 			self.refresh() // Refresh to get the new item
-			}.onError { e in
-			// An error occured :/
+		}.onError { e in
 			print(e)
 		}
 		fab?.hide()
@@ -91,6 +86,17 @@ extension ToDoVC: UITableViewDataSource {
 			return cell
 		}
 		return UITableViewCell()
+	}
+}
+
+extension ToDoVC: UITableViewDelegate {
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		toDos[indexPath.row].toggleDone()
+		toDos[indexPath.row].update().then() {_ in
+			self.refresh() // Refresh to get the new item
+		}.onError { e in
+				print(e)
+		}
 	}
 }
 

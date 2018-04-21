@@ -13,4 +13,12 @@ struct ToDo {
 	var category = ""
 	var description = ""
 	var done = ""
+
+	mutating func toggleDone() {
+		if done == "true" {
+			done = "false"
+		} else {
+			done = "true"
+		}
+	}
 }

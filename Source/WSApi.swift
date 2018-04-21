@@ -38,4 +38,10 @@ class WSApi: ApiInterface {
 		ws.postParameterEncoding = JSONEncoding.default
 		return ws.post(path, params: params)
 	}
+
+	func update(path: String, params: Params) -> Promise<ToDo> {
+		print("Updating \(params)...")
+		ws.postParameterEncoding = JSONEncoding.default
+		return ws.put(path, params: params)
+	}
 }
