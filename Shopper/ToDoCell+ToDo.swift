@@ -12,7 +12,7 @@ extension ToDoCell {
 
 	func render(with: ToDo) {
 		let attributedText = NSMutableAttributedString(string: with.description)
-		if with.done == "true" {
+		if with.isDone {
 			attributedText.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 1, range: NSMakeRange(0, attributedText.length))
 			shoppingItemLabel.alpha = 0.5
 		} else {

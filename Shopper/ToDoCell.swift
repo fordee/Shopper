@@ -16,6 +16,7 @@ class ToDoCell: UITableViewCell {
 
 	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
+		selectionStyle = .none
 
 		sv(
 			shoppingItemLabel.style(shoppingItemStyle)

@@ -9,13 +9,16 @@
 import Foundation
 
 // This is the bare Photo model.
-struct ToDo {
+struct ToDo: Equatable { // Equatable is free with Swift 4.1!
 	var category = ""
 	var description = ""
 	var done = ""
+	var isDone: Bool {
+		return done == "true"
+	}
 
 	mutating func toggleDone() {
-		if done == "true" {
+		if isDone {
 			done = "false"
 		} else {
 			done = "true"

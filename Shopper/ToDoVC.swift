@@ -23,14 +23,19 @@ class ToDoVC: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		title = "Shopping List"
 
+		// Setup VC
+		title = "Shopping List"
+		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(clearItems))
+
+
+		// Setup tableView
 		v.refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
 		v.tableView.dataSource = self
 		v.tableView.delegate = self
-		// And we fetch the ToDos.
 		refresh()
 
+		// Setup Floating Action Button
 		fab = FloatingAddButton(color: UIColor.lightBlue){
 			self.addItemTapped()
 		}
@@ -43,11 +48,10 @@ class ToDoVC: UIViewController {
 		fab?.show()
 	}
 
-	@objc
-	func refresh() {
+	@objc	func refresh() {
 		ToDo.fetchToDos().then { fetchedToDos in
-				self.toDos = fetchedToDos.filter() { isIncluded in
-					return isIncluded.category == "Shopping"
+				self.toDos = fetchedToDos.filter { toDo in
+					return toDo.category == "Shopping"
 				}
 			}.onError { e in
 				print(e)
@@ -61,7 +65,28 @@ class ToDoVC: UIViewController {
 		}
 	}
 
+	@objc func clearItems(sender: Any) {
+		let itemsToClear = toDos.filter { toDo in
+			return toDo.isDone
+		}
+		for toDo in itemsToClear {
+			if toDo == itemsToClear.last! { // Refresh if this is the last one.
+				toDo.delete().then {
+					self.refresh()
+				}.onError { e in
+					print(e)
+				}
+			} else {
+				toDo.delete().onError { e in
+					print(e)
+				}
+			}
+		}
+	}
+
+	// MARK: Private functions
 	private func addItemTapped() {
+		fab?.hide()
 		print("Tapped!")
 		let itemToSave = ToDo(category: "Shopping", description: "beers", done: "false")
 		itemToSave.save().then() {_ in 
@@ -69,7 +94,6 @@ class ToDoVC: UIViewController {
 		}.onError { e in
 			print(e)
 		}
-		fab?.hide()
 		fab?.show()
 	}
 }

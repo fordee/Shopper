@@ -44,4 +44,9 @@ class WSApi: ApiInterface {
 		ws.postParameterEncoding = JSONEncoding.default
 		return ws.put(path, params: params)
 	}
+
+	func delete(path: String) -> Promise<Void> {
+		print("Deleting \(path)...")
+		return ws.delete(path)
+	}
 }

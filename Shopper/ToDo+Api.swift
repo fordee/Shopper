@@ -8,8 +8,6 @@
 
 import then
 
-// This is not absolutely needed but it's nice to handle data through
-// the models.
 
 extension ToDo {
 	static func fetchToDos() -> Promise<[ToDo]> {
@@ -22,5 +20,11 @@ extension ToDo {
 
 	func update() -> Promise<ToDo> {
 		return api.update(path: "/items", params: ["category": category, "description": description, "done": done])
+	}
+
+	func delete() -> Promise<Void> {
+		let deleteString = "/items/\(description)/Shopping".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed)!
+		print("Delete String: \(deleteString)")
+		return api.delete(path: deleteString)
 	}
 }

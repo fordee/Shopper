@@ -11,7 +11,7 @@ import Stevia
 
 class FloatingAddButton: UIControl {
 
-	// MARK: Public variables
+	// MARK: Public constants
 	let controlWidth  : CGFloat = 54
 	let controlHeight : CGFloat = 54
 
@@ -20,7 +20,6 @@ class FloatingAddButton: UIControl {
 	let padding: CGFloat = 20
 
 	// MARK: Private variables
-
 	private var controlColor: UIColor = UIColor.red
 	private var completion: (()->())?
 
@@ -73,6 +72,7 @@ class FloatingAddButton: UIControl {
 		addLayersToControl()
 	}
 
+	// MARK: Overrides
 	override func layoutSubviews() { // This is required, because before this is called bounds is all zeros
 		super.layoutSubviews()
 		layoutLayers()
@@ -84,7 +84,6 @@ class FloatingAddButton: UIControl {
 	}
 
 	// MARK: Public functions
-
 	func show() {
 		alpha = 0
 		transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
@@ -110,14 +109,14 @@ class FloatingAddButton: UIControl {
 		removeFromSuperview()
 	}
 
-	func layoutLayers() {
+	// MARK: Private functions
+	private func layoutLayers() {
 		for l in [controlBackgroundLayer, controlForeground1Layer, controlForeground2Layer]  {
 			l.bounds = bounds
 		}
 		controlBackgroundLayer.cornerRadius = bounds.width / 2
 	}
 
-	// MARK: Private functions
 	private func addLayersToControl() {
 		for l in [controlBackgroundLayer, controlForeground1Layer, controlForeground2Layer]  {
 			layer.addSublayer(l)

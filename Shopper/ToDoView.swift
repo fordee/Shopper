@@ -25,7 +25,7 @@ class ToDoView: UIView {
 
 		// Configure Tablview
 		refreshControl.tintColor = UIColor.lightBlue
-		tableView.separatorColor = UIColor.lightBlue
+		tableView.separatorColor = UIColor.blue
 		tableView.register(ToDoCell.self, forCellReuseIdentifier: "ToDoCell") // Use ToDoCell
 		tableView.estimatedRowHeight = 50 // Enable self-sizing cells
 	}
