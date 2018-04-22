@@ -28,7 +28,6 @@ class ToDoVC: UIViewController {
 		title = "Shopping List"
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(clearItems))
 
-
 		// Setup tableView
 		v.refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
 		v.tableView.dataSource = self
@@ -50,9 +49,9 @@ class ToDoVC: UIViewController {
 
 	@objc	func refresh() {
 		ToDo.fetchToDos().then { fetchedToDos in
-				self.toDos = fetchedToDos.filter { toDo in
-					return toDo.category == "Shopping"
-				}
+			self.toDos = fetchedToDos.filter { toDo in
+				return toDo.category == "Shopping"
+			}
 			}.onError { e in
 				print(e)
 			}.finally {
@@ -73,8 +72,8 @@ class ToDoVC: UIViewController {
 			if toDo == itemsToClear.last! { // Refresh if this is the last one.
 				toDo.delete().then {
 					self.refresh()
-				}.onError { e in
-					print(e)
+					}.onError { e in
+						print(e)
 				}
 			} else {
 				toDo.delete().onError { e in
@@ -86,15 +85,10 @@ class ToDoVC: UIViewController {
 
 	// MARK: Private functions
 	private func addItemTapped() {
-		fab?.hide()
-		print("Tapped!")
-		let itemToSave = ToDo(category: "Shopping", description: "beers", done: "false")
-		itemToSave.save().then() {_ in 
-			self.refresh() // Refresh to get the new item
-		}.onError { e in
-			print(e)
-		}
-		fab?.show()
+		fab.hide()
+		let addItemVC = AddItemVC()
+		addItemVC.delegate = self
+		present(addItemVC, animated: true)
 	}
 }
 
@@ -118,9 +112,26 @@ extension ToDoVC: UITableViewDelegate {
 		toDos[indexPath.row].toggleDone()
 		toDos[indexPath.row].update().then() {_ in
 			self.refresh() // Refresh to get the new item
-		}.onError { e in
+			}.onError { e in
 				print(e)
 		}
+	}
+}
+
+extension ToDoVC: AddDelegate {
+	func addShoppingItem(addViewController: AddItemVC) {
+		if let item = addViewController.toDoItem {
+			item.save().then() {_ in
+				self.refresh() // Refresh to get the new item
+				}.onError { e in
+					print(e)
+			}
+		}
+		fab.show()
+	}
+
+	func close(addViewController: AddItemVC) {
+		fab.show()
 	}
 }
 

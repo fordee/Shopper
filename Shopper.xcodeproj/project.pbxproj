@@ -17,6 +17,13 @@
 		4961398220829BB80083D3E8 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4961398120829BB80083D3E8 /* Colors.swift */; };
 		49613985208518240083D3E8 /* FloatingAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49613984208518240083D3E8 /* FloatingAddButton.swift */; };
 		49C01FA7208AA69900FE4C9B /* Api.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49C01FA6208AA69900FE4C9B /* Api.plist */; };
+		49C01FA9208BFB2D00FE4C9B /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C01FA8208BFB2D00FE4C9B /* AddItemView.swift */; };
+		49C01FAB208BFD2200FE4C9B /* AddItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C01FAA208BFD2200FE4C9B /* AddItemVC.swift */; };
+		49C01FAD208C1CFE00FE4C9B /* FrequentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C01FAC208C1CFE00FE4C9B /* FrequentItem.swift */; };
+		49C01FAF208C1D7200FE4C9B /* FrequentItem+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C01FAE208C1D7200FE4C9B /* FrequentItem+JSON.swift */; };
+		49C01FB1208C273100FE4C9B /* FrequentItem+Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C01FB0208C273100FE4C9B /* FrequentItem+Api.swift */; };
+		49C01FB3208C285700FE4C9B /* FrequentItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C01FB2208C285700FE4C9B /* FrequentItemCell.swift */; };
+		49C01FB5208C28F100FE4C9B /* FrequentItemCell-FrequentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C01FB4208C28F100FE4C9B /* FrequentItemCell-FrequentItem.swift */; };
 		9948C3541E3FB33F005B0937 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 991E306E1E3F5BE60099AD2A /* Alamofire.framework */; };
 		9948C3551E3FB341005B0937 /* Arrow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 991E306C1E3F5BE40099AD2A /* Arrow.framework */; };
 		9948C3561E3FB344005B0937 /* ws.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 991E30721E3F5BEB0099AD2A /* ws.framework */; };
@@ -41,6 +48,13 @@
 		4961398120829BB80083D3E8 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		49613984208518240083D3E8 /* FloatingAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingAddButton.swift; sourceTree = "<group>"; };
 		49C01FA6208AA69900FE4C9B /* Api.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Api.plist; sourceTree = "<group>"; };
+		49C01FA8208BFB2D00FE4C9B /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
+		49C01FAA208BFD2200FE4C9B /* AddItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemVC.swift; sourceTree = "<group>"; };
+		49C01FAC208C1CFE00FE4C9B /* FrequentItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentItem.swift; sourceTree = "<group>"; };
+		49C01FAE208C1D7200FE4C9B /* FrequentItem+JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FrequentItem+JSON.swift"; sourceTree = "<group>"; };
+		49C01FB0208C273100FE4C9B /* FrequentItem+Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FrequentItem+Api.swift"; sourceTree = "<group>"; };
+		49C01FB2208C285700FE4C9B /* FrequentItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentItemCell.swift; sourceTree = "<group>"; };
+		49C01FB4208C28F100FE4C9B /* FrequentItemCell-FrequentItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FrequentItemCell-FrequentItem.swift"; sourceTree = "<group>"; };
 		991E304A1E3F57810099AD2A /* Shopper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shopper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		991E306C1E3F5BE40099AD2A /* Arrow.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Arrow.framework; path = Carthage/Build/iOS/Arrow.framework; sourceTree = "<group>"; };
 		991E306E1E3F5BE60099AD2A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
@@ -77,11 +91,16 @@
 			isa = PBXGroup;
 			children = (
 				4961397520828F0A0083D3E8 /* ToDo.swift */,
+				49C01FAC208C1CFE00FE4C9B /* FrequentItem.swift */,
 				4961397720828F660083D3E8 /* ToDoCell.swift */,
+				49C01FB2208C285700FE4C9B /* FrequentItemCell.swift */,
 				49613979208291150083D3E8 /* ToDoCell+ToDo.swift */,
+				49C01FB4208C28F100FE4C9B /* FrequentItemCell-FrequentItem.swift */,
 				4961397B208292820083D3E8 /* ToDoVC.swift */,
 				4961397D208292AC0083D3E8 /* ToDoView.swift */,
 				49613984208518240083D3E8 /* FloatingAddButton.swift */,
+				49C01FAA208BFD2200FE4C9B /* AddItemVC.swift */,
+				49C01FA8208BFB2D00FE4C9B /* AddItemView.swift */,
 			);
 			name = ToDo;
 			sourceTree = "<group>";
@@ -91,6 +110,7 @@
 			children = (
 				4961397220828DB40083D3E8 /* Api.swift */,
 				4961397F2082938C0083D3E8 /* ToDo+Api.swift */,
+				49C01FB0208C273100FE4C9B /* FrequentItem+Api.swift */,
 			);
 			name = Api;
 			sourceTree = "<group>";
@@ -143,6 +163,7 @@
 			children = (
 				99EC7AE31E3F71DD008BBBA5 /* WSApi.swift */,
 				99EC7ADF1E3F71DD008BBBA5 /* ToDo+JSON.swift */,
+				49C01FAE208C1D7200FE4C9B /* FrequentItem+JSON.swift */,
 			);
 			name = "Api Implementation";
 			sourceTree = "<group>";
@@ -280,18 +301,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49C01FAF208C1D7200FE4C9B /* FrequentItem+JSON.swift in Sources */,
 				4961397A208291150083D3E8 /* ToDoCell+ToDo.swift in Sources */,
+				49C01FB3208C285700FE4C9B /* FrequentItemCell.swift in Sources */,
 				4961398220829BB80083D3E8 /* Colors.swift in Sources */,
 				99EC7AED1E3F71DD008BBBA5 /* AppDelegate.swift in Sources */,
 				49613985208518240083D3E8 /* FloatingAddButton.swift in Sources */,
+				49C01FA9208BFB2D00FE4C9B /* AddItemView.swift in Sources */,
 				496139802082938C0083D3E8 /* ToDo+Api.swift in Sources */,
 				4961397E208292AC0083D3E8 /* ToDoView.swift in Sources */,
 				4961397C208292820083D3E8 /* ToDoVC.swift in Sources */,
 				4961397620828F0A0083D3E8 /* ToDo.swift in Sources */,
 				99EC7AEB1E3F71DD008BBBA5 /* ToDo+JSON.swift in Sources */,
+				49C01FB5208C28F100FE4C9B /* FrequentItemCell-FrequentItem.swift in Sources */,
 				4961397820828F660083D3E8 /* ToDoCell.swift in Sources */,
 				4961397320828DB40083D3E8 /* Api.swift in Sources */,
 				99EC7AEF1E3F71DD008BBBA5 /* WSApi.swift in Sources */,
+				49C01FAB208BFD2200FE4C9B /* AddItemVC.swift in Sources */,
+				49C01FB1208C273100FE4C9B /* FrequentItem+Api.swift in Sources */,
+				49C01FAD208C1CFE00FE4C9B /* FrequentItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

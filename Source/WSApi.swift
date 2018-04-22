@@ -49,4 +49,9 @@ class WSApi: ApiInterface {
 		print("Deleting \(path)...")
 		return ws.delete(path)
 	}
+
+	func fetchFrequentItems() -> Promise<[FrequentItem]> {
+		print("Fetching To Do's...")
+		return ws.get("/common-items")
+	}
 }

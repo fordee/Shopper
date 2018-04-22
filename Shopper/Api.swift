@@ -11,6 +11,8 @@ protocol ApiInterface {
 	func save(path: String, params: Params) -> Promise<ToDo>
 	func update(path: String, params: Params) -> Promise<ToDo>
 	func delete(path: String) -> Promise<Void>
+	
+	func fetchFrequentItems() -> Promise<[FrequentItem]>
 }
 
 var api: ApiInterface!
