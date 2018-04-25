@@ -11,21 +11,24 @@ import Stevia
 class MenuCell: UITableViewCell {
 
 	var menuItemLabel = UILabel()
+	var menuIcon = UIImageView(image: UIImage(named: "menu_icon"))
 
 	required init?(coder aDecoder: NSCoder) { super.init(coder: aDecoder)}
 
 	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
+
 		selectionStyle = .none
 
 		sv(
-			menuItemLabel.style(menuItemStyle)
+			menuIcon,
+			menuItemLabel.style(menuItemLabelStyle)
 		)
 
 		// Here we layout the cell.
 		layout(
 			10,
-			|-16-menuItemLabel-|,
+			|-menuIcon.centerVertically()-16-menuItemLabel.centerVertically()-(>=8)-|,
 			10
 		)
 
@@ -34,9 +37,10 @@ class MenuCell: UITableViewCell {
 		menuItemLabel.numberOfLines = 0
 	}
 
-	func menuItemStyle(l: UILabel) {
-		l.font = UIFont.mainFont
+	private func menuItemLabelStyle(l: UILabel) {
+		l.font = UIFont.menuFont
 		l.textColor = UIColor.black
+		l.textAlignment = .left
 	}
 
 }

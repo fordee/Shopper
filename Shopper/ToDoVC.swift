@@ -91,7 +91,7 @@ class ToDoVC: UIViewController {
 		let menuManager = SideMenuManager.default
 		menuManager.menuLeftNavigationController = leftNavController
 		menuManager.menuPresentMode = .menuSlideIn
-		menuManager.menuWidth = 150
+		menuManager.menuWidth = Dimensions.menuWidth
 		menuManager.menuPushStyle = .popWhenPossible
 		menuManager.menuAddPanGestureToPresent(toView: navigationController!.navigationBar)
 		menuManager.menuAddScreenEdgePanGesturesToPresent(toView: navigationController!.view)

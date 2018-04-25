@@ -22,7 +22,7 @@ class MenuView: UIView {
 		backgroundColor = UIColor.white
 		tableView.backgroundColor = UIColor.white
 
-		topImageView.height(150)
+		topImageView.height(Dimensions.menuWidth)
 		topImageView.contentMode = .scaleToFill
 		topImageView.backgroundColor = UIColor.purple
 
@@ -31,7 +31,7 @@ class MenuView: UIView {
 					 0,
 					 |tableView|,
 					 0)
-		tableView.fillContainer()
+		//tableView.fillContainer()
 
 		// Configure Tablview
 		tableView.separatorColor = UIColor.white

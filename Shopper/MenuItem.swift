@@ -6,8 +6,14 @@
 //  Copyright © 2018 4DWare. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct MenuItem {
-	var menuName = ""
+	var menuName: String
+	var icon: UIImageView
+
+	init(menuName: String, iconName: String) {
+		self.menuName = menuName
+		self.icon = UIImageView(image: UIImage(named: iconName))
+	}
 }

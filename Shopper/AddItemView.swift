@@ -41,7 +41,7 @@ class AddItemView: UIView {
 			t.autocapitalizationType = .none
 			t.tintColor = UIColor.blue
 			t.textColor = UIColor.black
-			t.font = UIFont.titleFont//UIFont(name: "AmericanTypewriter", size: 18)
+			t.font = UIFont.titleFont
 			t.becomeFirstResponder()
 		}
 

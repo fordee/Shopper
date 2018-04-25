@@ -12,6 +12,7 @@ extension MenuCell {
 
 	func render(with: MenuItem) {
 		menuItemLabel.text = with.menuName
+		menuIcon = with.icon
 	}
 
 }

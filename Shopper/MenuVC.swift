@@ -21,13 +21,21 @@ class MenuVC: UIViewController {
 	}
 
 	// We need to store an array of MenuItems
-	var menuItems: [MenuItem] = [MenuItem(menuName: "Setup Shop"), MenuItem(menuName: "Switch Shop"), MenuItem(menuName: "Set Theme")]
+	var menuItems: [MenuItem] = [MenuItem(menuName: "Edit Frequent Items", iconName: "menu_icon"),
+															 MenuItem(menuName: "Switch Shop", iconName: "menu_icon"),
+															 MenuItem(menuName: "Set Theme", iconName: "menu_icon")]
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		view.backgroundColor = UIColor.white
 		v.tableView.dataSource = self
 		v.tableView.delegate = self
+
+		for family in UIFont.familyNames.sorted() {
+			let names = UIFont.fontNames(forFamilyName: family)
+			print("Family: \(family) Font names: \(names)")
+		}
+
 	}
 
 }

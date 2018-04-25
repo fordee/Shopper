@@ -34,6 +34,8 @@
 		49A747F7208FD56B003F259A /* MenuCell+MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A747F6208FD56B003F259A /* MenuCell+MenuItem.swift */; };
 		49A747FA208FF34E003F259A /* ShopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A747F9208FF34E003F259A /* ShopVC.swift */; };
 		49A747FC208FF359003F259A /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A747FB208FF359003F259A /* ShopView.swift */; };
+		49A747FE2090F967003F259A /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A747FD2090F967003F259A /* Dimensions.swift */; };
+		49A7480020910406003F259A /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49A747FF20910405003F259A /* Roboto-Regular.ttf */; };
 		49C01FA7208AA69900FE4C9B /* Api.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49C01FA6208AA69900FE4C9B /* Api.plist */; };
 		49C01FA9208BFB2D00FE4C9B /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C01FA8208BFB2D00FE4C9B /* AddItemView.swift */; };
 		49C01FAB208BFD2200FE4C9B /* AddItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C01FAA208BFD2200FE4C9B /* AddItemVC.swift */; };
@@ -84,6 +86,8 @@
 		49A747F6208FD56B003F259A /* MenuCell+MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuCell+MenuItem.swift"; sourceTree = "<group>"; };
 		49A747F9208FF34E003F259A /* ShopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopVC.swift; sourceTree = "<group>"; };
 		49A747FB208FF359003F259A /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
+		49A747FD2090F967003F259A /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
+		49A747FF20910405003F259A /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		49C01FA6208AA69900FE4C9B /* Api.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Api.plist; sourceTree = "<group>"; };
 		49C01FA8208BFB2D00FE4C9B /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
 		49C01FAA208BFD2200FE4C9B /* AddItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemVC.swift; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 			children = (
 				49613984208518240083D3E8 /* FloatingAddButton.swift */,
 				4961398120829BB80083D3E8 /* Themes.swift */,
+				49A747FD2090F967003F259A /* Dimensions.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -283,6 +288,7 @@
 		999127BB1E461FBC007E9B00 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				49A747FF20910405003F259A /* Roboto-Regular.ttf */,
 				99EC7AE81E3F71DD008BBBA5 /* Info.plist */,
 				49C01FA6208AA69900FE4C9B /* Api.plist */,
 				99EC7ADB1E3F71DD008BBBA5 /* Assets.xcassets */,
@@ -365,6 +371,7 @@
 			files = (
 				99EC7AEA1E3F71DD008BBBA5 /* LaunchScreen.storyboard in Resources */,
 				49C01FA7208AA69900FE4C9B /* Api.plist in Resources */,
+				49A7480020910406003F259A /* Roboto-Regular.ttf in Resources */,
 				99EC7AE91E3F71DD008BBBA5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,6 +452,7 @@
 				49A291AC208E5B6A006675CC /* ViewAnimator.swift in Sources */,
 				99EC7AEF1E3F71DD008BBBA5 /* WSApi.swift in Sources */,
 				49C01FAB208BFD2200FE4C9B /* AddItemVC.swift in Sources */,
+				49A747FE2090F967003F259A /* Dimensions.swift in Sources */,
 				49A291B2208E5C11006675CC /* ViewAnimatorConfig.swift in Sources */,
 				49C01FB1208C273100FE4C9B /* FrequentItem+Api.swift in Sources */,
 				49C01FAD208C1CFE00FE4C9B /* FrequentItem.swift in Sources */,
