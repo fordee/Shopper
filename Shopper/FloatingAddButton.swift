@@ -26,7 +26,6 @@ class FloatingAddButton: UIControl {
 	private lazy var controlBackgroundLayer : CAShapeLayer = {
 		let layer = CAShapeLayer()
 		layer.contentsScale = UIScreen.main.scale
-		layer.backgroundColor = UIColor.lightBlue.cgColor
 		layer.shadowColor = UIColor.black.cgColor
 		layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
 		layer.shadowOpacity = 0.3
@@ -115,6 +114,7 @@ class FloatingAddButton: UIControl {
 			l.bounds = bounds
 		}
 		controlBackgroundLayer.cornerRadius = bounds.width / 2
+		controlBackgroundLayer.backgroundColor = controlColor.cgColor
 	}
 
 	private func addLayersToControl() {

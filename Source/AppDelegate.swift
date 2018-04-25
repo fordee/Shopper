@@ -2,7 +2,6 @@
 //  AppDelegate.swift
 //  StarterProject
 //
-//  Created by Sacha Durand Saint Omer on 30/01/2017.
 //  Copyright © 2017 4DWare. All rights reserved.
 //
 
@@ -17,19 +16,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 		api = WSApi()
 
-		let navigationBarAppearace = UINavigationBar.appearance()
+		let navigationBarAppearance = UINavigationBar.appearance()
+		let barButtonItemAppearance = UIBarButtonItem.appearance()
 
-		navigationBarAppearace.prefersLargeTitles = true
-		//navigationBarAppearace.tintColor  = UIColor.lightBlue
-		navigationBarAppearace.barTintColor = UIColor.lightYellow
+		navigationBarAppearance.prefersLargeTitles = false
+		navigationBarAppearance.barTintColor = UIColor.lightYellow
 
 		window = UIWindow(frame: UIScreen.main.bounds)
+
 		let navController = UINavigationController(rootViewController: ToDoVC())
-		navController.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.blue, .font: UIFont(name: "AmericanTypewriter-Bold", size: 28)!]
-		navController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.blue, .font: UIFont(name: "AmericanTypewriter-Bold", size: 18)!] // This is weirdly difficult to set a basic color
+		navController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.blue, .font: UIFont.titleFont] // This is weirdly difficult to set a basic color
+		barButtonItemAppearance.setTitleTextAttributes([.foregroundColor: UIColor.blue, .font: UIFont.backButtonFont], for: .normal)
+		navController.navigationBar.barStyle = .blackTranslucent
+
 		window?.rootViewController = navController
 		window?.makeKeyAndVisible()
 		return true
 	}
+
 }
 

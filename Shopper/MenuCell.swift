@@ -1,16 +1,16 @@
 //
-//  FrequentItemCell.swift
+//  MenuCell.swift
 //  Shopper
 //
-//  Created by John Forde on 22/4/18.
+//  Created by John Forde on 25/4/18.
 //  Copyright © 2018 4DWare. All rights reserved.
 //
 
 import Stevia
 
-class FrequentItemCell: UITableViewCell {
+class MenuCell: UITableViewCell {
 
-	var frequentItemLabel = UILabel()
+	var menuItemLabel = UILabel()
 
 	required init?(coder aDecoder: NSCoder) { super.init(coder: aDecoder)}
 
@@ -19,23 +19,23 @@ class FrequentItemCell: UITableViewCell {
 		selectionStyle = .none
 
 		sv(
-			frequentItemLabel.style(frequentItemStyle)
+			menuItemLabel.style(menuItemStyle)
 		)
 
 		// Here we layout the cell.
 		layout(
 			10,
-			|-16-frequentItemLabel-16-|,
+			|-16-menuItemLabel-|,
 			10
 		)
 
 		// Configure visual elements
-		backgroundColor = UIColor.lightYellow
-		frequentItemLabel.numberOfLines = 0
+		backgroundColor = UIColor.white
+		menuItemLabel.numberOfLines = 0
 	}
 
-	func frequentItemStyle(l: UILabel) {
-		l.font = UIFont.mainFont//UIFont(name: "AmericanTypewriter", size: 20)
+	func menuItemStyle(l: UILabel) {
+		l.font = UIFont.mainFont
 		l.textColor = UIColor.black
 	}
 

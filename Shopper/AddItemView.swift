@@ -3,7 +3,7 @@
 //  Shopper
 //
 //  Created by John Forde on 22/4/18.
-//  Copyright © 2018 freshOS. All rights reserved.
+//  Copyright © 2018 4DWare. All rights reserved.
 //
 
 import Stevia
@@ -27,8 +27,8 @@ class AddItemView: UIView {
 				closeButton,
 				tableView])
 
-		layout(50,
-					 |-(>=16)-closeButton-16-|,
+		layout(20,
+					 |-16-closeButton-(>=16)-|,
 					 4,
 					 |-16-textField-addButton-16-|,
 					 4,
@@ -39,19 +39,21 @@ class AddItemView: UIView {
 			t.backgroundColor = UIColor.white
 			t.borderStyle = .roundedRect
 			t.autocapitalizationType = .none
-			t.tintColor = UIColor.lightBlue
+			t.tintColor = UIColor.blue
 			t.textColor = UIColor.black
-			t.font = UIFont(name: "AmericanTypewriter", size: 18)
+			t.font = UIFont.titleFont//UIFont(name: "AmericanTypewriter", size: 18)
 			t.becomeFirstResponder()
 		}
 
 		addButton.style { b in
 			b.backgroundColor = UIColor.lightYellow
+			b.tintColor = UIColor.blue
 		}
 
 		closeButton.style() { b in
 			b.backgroundColor = UIColor.lightYellow
-			b.setTitleColor(UIColor.lightBlue, for: .normal)
+			b.setTitleColor(UIColor.blue, for: .normal)
+			b.titleLabel?.font = UIFont.backButtonFont
 			b.text("Close")
 		}
 

@@ -3,7 +3,7 @@
 //  Shopper
 //
 //  Created by John Forde on 22/4/18.
-//  Copyright © 2018 freshOS. All rights reserved.
+//  Copyright © 2018 4DWare. All rights reserved.
 //
 
 import UIKit
@@ -25,8 +25,15 @@ class AddItemVC: UIViewController {
 		view = v
 	}
 
+	override var prefersStatusBarHidden: Bool {
+		return true
+	}
+
 	// We need to store an array of frequent items
 	var frequentItems = [FrequentItem]()
+
+	private var items = [Any?]()
+	private let animations = [AnimationType.from(direction: .right, offset: 30.0)]
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -37,6 +44,7 @@ class AddItemVC: UIViewController {
 		v.tableView.dataSource = self
 		v.tableView.delegate = self
 		refresh()
+
 	}
 
 	@objc	func refresh() {
@@ -48,7 +56,10 @@ class AddItemVC: UIViewController {
 				self.frequentItems.sort() { lhs, rhs in
 					return lhs.frequencyInt! > rhs.frequencyInt!
 				}
+				self.items = Array(repeating: nil, count: 20)
 				self.v.tableView.reloadData()
+				UIView.animate(views: self.v.tableView.visibleCells, animations: self.animations) {
+				}
 		}
 	}
 	

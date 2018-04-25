@@ -7,7 +7,7 @@ import ws
 import Alamofire
 import then
 
-// Get the full documentation at https://github.com/freshOS/ws
+// Get the full documentation at https://github.com/4DWare/ws
 
 class WSApi: ApiInterface {
 

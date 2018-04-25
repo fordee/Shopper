@@ -35,7 +35,7 @@ class ToDoCell: UITableViewCell {
 	}
 
 	func shoppingItemStyle(l: UILabel) {
-		l.font = UIFont(name: "AmericanTypewriter", size: 20)
+		l.font = UIFont.mainFont//UIFont(name: "AmericanTypewriter", size: 20)
 		l.textColor = UIColor.black
 	}
 	
