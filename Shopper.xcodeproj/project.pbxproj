@@ -63,13 +63,13 @@
 		493A3612208FC70900E2B74E /* SideMenuManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuManager.swift; sourceTree = "<group>"; };
 		493A3613208FC70900E2B74E /* UISideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISideMenuNavigationController.swift; sourceTree = "<group>"; };
 		493A3614208FC70900E2B74E /* UITableViewVibrantCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewVibrantCell.swift; sourceTree = "<group>"; };
-		4961397220828DB40083D3E8 /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Api.swift; path = Shopper/Api.swift; sourceTree = SOURCE_ROOT; };
+		4961397220828DB40083D3E8 /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Api.swift; path = Shopper/Api/Api.swift; sourceTree = SOURCE_ROOT; };
 		4961397520828F0A0083D3E8 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		4961397720828F660083D3E8 /* ToDoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoCell.swift; sourceTree = "<group>"; };
 		49613979208291150083D3E8 /* ToDoCell+ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoCell+ToDo.swift"; sourceTree = "<group>"; };
 		4961397B208292820083D3E8 /* ToDoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoVC.swift; sourceTree = "<group>"; };
 		4961397D208292AC0083D3E8 /* ToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoView.swift; sourceTree = "<group>"; };
-		4961397F2082938C0083D3E8 /* ToDo+Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ToDo+Api.swift"; path = "Shopper/ToDo+Api.swift"; sourceTree = SOURCE_ROOT; };
+		4961397F2082938C0083D3E8 /* ToDo+Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ToDo+Api.swift"; path = "Shopper/Api/ToDo+Api.swift"; sourceTree = SOURCE_ROOT; };
 		4961398120829BB80083D3E8 /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
 		49613984208518240083D3E8 /* FloatingAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingAddButton.swift; sourceTree = "<group>"; };
 		49A291AB208E5B6A006675CC /* ViewAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAnimator.swift; sourceTree = "<group>"; };
@@ -105,9 +105,9 @@
 		991E30831E3F63800099AD2A /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		99EC7ADB1E3F71DD008BBBA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Source/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		99EC7ADE1E3F71DD008BBBA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		99EC7ADF1E3F71DD008BBBA5 /* ToDo+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ToDo+JSON.swift"; path = "Source/ToDo+JSON.swift"; sourceTree = SOURCE_ROOT; };
+		99EC7ADF1E3F71DD008BBBA5 /* ToDo+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ToDo+JSON.swift"; path = "Shopper/Api Implemetation/ToDo+JSON.swift"; sourceTree = SOURCE_ROOT; };
 		99EC7AE11E3F71DD008BBBA5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Source/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
-		99EC7AE31E3F71DD008BBBA5 /* WSApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WSApi.swift; path = Source/WSApi.swift; sourceTree = SOURCE_ROOT; };
+		99EC7AE31E3F71DD008BBBA5 /* WSApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WSApi.swift; path = "Shopper/Api Implemetation/WSApi.swift"; sourceTree = SOURCE_ROOT; };
 		99EC7AE81E3F71DD008BBBA5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -128,7 +128,82 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		493A3610208FC6A400E2B74E /* SliderMenu */ = {
+		49A748012092470D003F259A /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4961397B208292820083D3E8 /* ToDoVC.swift */,
+				49A747F0208FD28E003F259A /* MenuVC.swift */,
+				49C01FAA208BFD2200FE4C9B /* AddItemVC.swift */,
+				49A747F9208FF34E003F259A /* ShopVC.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		49A7480220924755003F259A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				49A747EE208FD249003F259A /* MenuView.swift */,
+				4961397D208292AC0083D3E8 /* ToDoView.swift */,
+				49C01FA8208BFB2D00FE4C9B /* AddItemView.swift */,
+				49A747FB208FF359003F259A /* ShopView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		49A748032092478D003F259A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4961397720828F660083D3E8 /* ToDoCell.swift */,
+				49613979208291150083D3E8 /* ToDoCell+ToDo.swift */,
+				49A747F2208FD2E8003F259A /* MenuCell.swift */,
+				49A747F6208FD56B003F259A /* MenuCell+MenuItem.swift */,
+				49C01FB2208C285700FE4C9B /* FrequentItemCell.swift */,
+				49C01FB4208C28F100FE4C9B /* FrequentItemCell+FrequentItem.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		49A74804209247C8003F259A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4961397520828F0A0083D3E8 /* ToDo.swift */,
+				49C01FAC208C1CFE00FE4C9B /* FrequentItem.swift */,
+				49A747F4208FD426003F259A /* MenuItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		49A74807209248EC003F259A /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				4961397220828DB40083D3E8 /* Api.swift */,
+				4961397F2082938C0083D3E8 /* ToDo+Api.swift */,
+				49C01FB0208C273100FE4C9B /* FrequentItem+Api.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		49A7480820924902003F259A /* Api Implemetation */ = {
+			isa = PBXGroup;
+			children = (
+				99EC7AE31E3F71DD008BBBA5 /* WSApi.swift */,
+				99EC7ADF1E3F71DD008BBBA5 /* ToDo+JSON.swift */,
+				49C01FAE208C1D7200FE4C9B /* FrequentItem+JSON.swift */,
+			);
+			path = "Api Implemetation";
+			sourceTree = "<group>";
+		};
+		49A7480A20924935003F259A /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				49613984208518240083D3E8 /* FloatingAddButton.swift */,
+				4961398120829BB80083D3E8 /* Themes.swift */,
+				49A747FD2090F967003F259A /* Dimensions.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		49A7480B20924962003F259A /* Slider Menu */ = {
 			isa = PBXGroup;
 			children = (
 				493A3612208FC70900E2B74E /* SideMenuManager.swift */,
@@ -136,61 +211,10 @@
 				493A3613208FC70900E2B74E /* UISideMenuNavigationController.swift */,
 				493A3614208FC70900E2B74E /* UITableViewVibrantCell.swift */,
 			);
-			name = SliderMenu;
+			path = "Slider Menu";
 			sourceTree = "<group>";
 		};
-		4961397420828EF40083D3E8 /* ToDo */ = {
-			isa = PBXGroup;
-			children = (
-				4961397520828F0A0083D3E8 /* ToDo.swift */,
-				4961397720828F660083D3E8 /* ToDoCell.swift */,
-				49613979208291150083D3E8 /* ToDoCell+ToDo.swift */,
-				4961397B208292820083D3E8 /* ToDoVC.swift */,
-				4961397D208292AC0083D3E8 /* ToDoView.swift */,
-			);
-			name = ToDo;
-			sourceTree = "<group>";
-		};
-		497FAAC9208FD0ED00D898F1 /* Add Item */ = {
-			isa = PBXGroup;
-			children = (
-				49C01FAA208BFD2200FE4C9B /* AddItemVC.swift */,
-				49C01FA8208BFB2D00FE4C9B /* AddItemView.swift */,
-			);
-			name = "Add Item";
-			sourceTree = "<group>";
-		};
-		497FAACA208FD12200D898F1 /* Frequent Items */ = {
-			isa = PBXGroup;
-			children = (
-				49C01FAC208C1CFE00FE4C9B /* FrequentItem.swift */,
-				49C01FB2208C285700FE4C9B /* FrequentItemCell.swift */,
-				49C01FB4208C28F100FE4C9B /* FrequentItemCell+FrequentItem.swift */,
-			);
-			name = "Frequent Items";
-			sourceTree = "<group>";
-		};
-		497FAACB208FD1BB00D898F1 /* Utility */ = {
-			isa = PBXGroup;
-			children = (
-				49613984208518240083D3E8 /* FloatingAddButton.swift */,
-				4961398120829BB80083D3E8 /* Themes.swift */,
-				49A747FD2090F967003F259A /* Dimensions.swift */,
-			);
-			name = Utility;
-			sourceTree = "<group>";
-		};
-		49981B232087C2680018D91F /* Api */ = {
-			isa = PBXGroup;
-			children = (
-				4961397220828DB40083D3E8 /* Api.swift */,
-				4961397F2082938C0083D3E8 /* ToDo+Api.swift */,
-				49C01FB0208C273100FE4C9B /* FrequentItem+Api.swift */,
-			);
-			name = Api;
-			sourceTree = "<group>";
-		};
-		49A291AA208E5B4E006675CC /* Animations */ = {
+		49A7480C2092497A003F259A /* Animations */ = {
 			isa = PBXGroup;
 			children = (
 				49A291AB208E5B6A006675CC /* ViewAnimator.swift */,
@@ -201,28 +225,7 @@
 				49A291B5208E5CB9006675CC /* AnimationType.swift */,
 				49A291B7208E5CDB006675CC /* Direction.swift */,
 			);
-			name = Animations;
-			sourceTree = "<group>";
-		};
-		49A747ED208FD228003F259A /* Menu */ = {
-			isa = PBXGroup;
-			children = (
-				49A747F0208FD28E003F259A /* MenuVC.swift */,
-				49A747EE208FD249003F259A /* MenuView.swift */,
-				49A747F2208FD2E8003F259A /* MenuCell.swift */,
-				49A747F4208FD426003F259A /* MenuItem.swift */,
-				49A747F6208FD56B003F259A /* MenuCell+MenuItem.swift */,
-			);
-			name = Menu;
-			sourceTree = "<group>";
-		};
-		49A747F8208FF32E003F259A /* Manage Shops */ = {
-			isa = PBXGroup;
-			children = (
-				49A747F9208FF34E003F259A /* ShopVC.swift */,
-				49A747FB208FF359003F259A /* ShopView.swift */,
-			);
-			name = "Manage Shops";
+			path = Animations;
 			sourceTree = "<group>";
 		};
 		991E30411E3F57810099AD2A = {
@@ -246,16 +249,15 @@
 			isa = PBXGroup;
 			children = (
 				99EC7AE11E3F71DD008BBBA5 /* AppDelegate.swift */,
-				49A747F8208FF32E003F259A /* Manage Shops */,
-				49A747ED208FD228003F259A /* Menu */,
-				497FAACB208FD1BB00D898F1 /* Utility */,
-				497FAACA208FD12200D898F1 /* Frequent Items */,
-				497FAAC9208FD0ED00D898F1 /* Add Item */,
-				493A3610208FC6A400E2B74E /* SliderMenu */,
-				49A291AA208E5B4E006675CC /* Animations */,
-				49981B232087C2680018D91F /* Api */,
-				4961397420828EF40083D3E8 /* ToDo */,
-				991E30801E3F5E690099AD2A /* Api Implementation */,
+				49A7480C2092497A003F259A /* Animations */,
+				49A7480B20924962003F259A /* Slider Menu */,
+				49A7480A20924935003F259A /* Utility */,
+				49A7480820924902003F259A /* Api Implemetation */,
+				49A74807209248EC003F259A /* Api */,
+				49A74804209247C8003F259A /* Model */,
+				49A748032092478D003F259A /* Cells */,
+				49A7480220924755003F259A /* Views */,
+				49A748012092470D003F259A /* View Controllers */,
 				999127BB1E461FBC007E9B00 /* Resources */,
 			);
 			path = Shopper;
@@ -273,16 +275,6 @@
 				991E306C1E3F5BE40099AD2A /* Arrow.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		991E30801E3F5E690099AD2A /* Api Implementation */ = {
-			isa = PBXGroup;
-			children = (
-				99EC7AE31E3F71DD008BBBA5 /* WSApi.swift */,
-				99EC7ADF1E3F71DD008BBBA5 /* ToDo+JSON.swift */,
-				49C01FAE208C1D7200FE4C9B /* FrequentItem+JSON.swift */,
-			);
-			name = "Api Implementation";
 			sourceTree = "<group>";
 		};
 		999127BB1E461FBC007E9B00 /* Resources */ = {
