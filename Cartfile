@@ -1,3 +1,4 @@
 github "freshOS/ws"
 github "freshOS/Stevia"
 github "onevcat/Kingfisher"
+github "Instagram/IGListKit" ~> 3.0

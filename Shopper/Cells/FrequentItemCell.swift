@@ -30,7 +30,7 @@ class FrequentItemCell: UITableViewCell {
 		)
 
 		// Configure visual elements
-		backgroundColor = UIColor.lightYellow
+		backgroundColor = UIColor.white//.lightYellow
 		frequentItemLabel.numberOfLines = 0
 	}
 

@@ -46,19 +46,19 @@ class AddItemView: UIView {
 		}
 
 		addButton.style { b in
-			b.backgroundColor = UIColor.lightYellow
+			b.backgroundColor = UIColor.white//.lightYellow
 			b.tintColor = UIColor.blue
 		}
 
 		closeButton.style() { b in
-			b.backgroundColor = UIColor.lightYellow
+			b.backgroundColor = UIColor.white//.lightYellow
 			b.setTitleColor(UIColor.blue, for: .normal)
 			b.titleLabel?.font = UIFont.backButtonFont
 			b.text("Close")
 		}
 
 		tableView.style { t in
-			t.backgroundColor = UIColor.lightYellow
+			t.backgroundColor = UIColor.white//.lightYellow
 			t.separatorColor = UIColor.blue
 			t.register(FrequentItemCell.self, forCellReuseIdentifier: "FrequentItemCell") // Use FrequentItemCell
 			t.estimatedRowHeight = 50 // Enable self-sizing cells

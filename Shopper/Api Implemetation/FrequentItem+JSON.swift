@@ -9,13 +9,11 @@
 import Arrow
 
 extension FrequentItem : ArrowParsable {
-	public init() {
 
-	}
-
-	public mutating func deserialize(_ json: JSON) {
+	public func deserialize(_ json: JSON) {
 		shoppingItem  <-- json["ShoppingItem"]
 		frequency <-- json["Frequency"]
+		category <-- json["Category"]
 	}
 
 }

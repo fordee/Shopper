@@ -38,7 +38,7 @@ class AddItemVC: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		view.backgroundColor = UIColor.lightYellow
+		view.backgroundColor = UIColor.white//.lightYellow
 		v.addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
 		v.closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
 		v.tableView.dataSource = self

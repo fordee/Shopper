@@ -35,7 +35,6 @@ class MenuVC: UIViewController {
 			let names = UIFont.fontNames(forFamilyName: family)
 			print("Family: \(family) Font names: \(names)")
 		}
-
 	}
 
 }
@@ -58,20 +57,14 @@ extension MenuVC: UITableViewDataSource {
 extension MenuVC: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		print("Menu Item Selected: \(indexPath.row)")
-		let vc = ShopVC()
-
-		var bc: UIColor
+		tableView.deselectRow(at: indexPath, animated: true)
 		switch indexPath.row {
 		case 0:
-			bc = UIColor.cyan
-		case 1:
-			bc = UIColor.red
-		case 2:
-			bc = UIColor.purple
+			let vc = ShopVC()
+			navigationController?.pushViewController(vc, animated: true)
 		default:
-			bc = UIColor.white
+			break
 		}
-		vc.v.tableView.backgroundColor = bc
-		navigationController?.pushViewController(vc, animated: true)
+
 	}
 }

@@ -11,6 +11,10 @@
 		493A3616208FC70900E2B74E /* SideMenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493A3612208FC70900E2B74E /* SideMenuManager.swift */; };
 		493A3617208FC70900E2B74E /* UISideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493A3613208FC70900E2B74E /* UISideMenuNavigationController.swift */; };
 		493A3618208FC70900E2B74E /* UITableViewVibrantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493A3614208FC70900E2B74E /* UITableViewVibrantCell.swift */; };
+		4947643F2093A66A008813B1 /* IGListKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4947643E2093A66A008813B1 /* IGListKit.framework */; };
+		494764412093B586008813B1 /* FrequentItemSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494764402093B586008813B1 /* FrequentItemSummaryCell.swift */; };
+		494764442093B62B008813B1 /* FrequentItemsSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494764432093B62B008813B1 /* FrequentItemsSectionController.swift */; };
+		494764462094EE5B008813B1 /* FrequentyItemDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494764452094EE5B008813B1 /* FrequentyItemDetailCell.swift */; };
 		4961397320828DB40083D3E8 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4961397220828DB40083D3E8 /* Api.swift */; };
 		4961397620828F0A0083D3E8 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4961397520828F0A0083D3E8 /* ToDo.swift */; };
 		4961397820828F660083D3E8 /* ToDoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4961397720828F660083D3E8 /* ToDoCell.swift */; };
@@ -36,6 +40,7 @@
 		49A747FC208FF359003F259A /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A747FB208FF359003F259A /* ShopView.swift */; };
 		49A747FE2090F967003F259A /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A747FD2090F967003F259A /* Dimensions.swift */; };
 		49A7480020910406003F259A /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49A747FF20910405003F259A /* Roboto-Regular.ttf */; };
+		49A7480E20924D6F003F259A /* EditFrequentItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A7480D20924D6F003F259A /* EditFrequentItemsView.swift */; };
 		49C01FA7208AA69900FE4C9B /* Api.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49C01FA6208AA69900FE4C9B /* Api.plist */; };
 		49C01FA9208BFB2D00FE4C9B /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C01FA8208BFB2D00FE4C9B /* AddItemView.swift */; };
 		49C01FAB208BFD2200FE4C9B /* AddItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C01FAA208BFD2200FE4C9B /* AddItemVC.swift */; };
@@ -44,6 +49,10 @@
 		49C01FB1208C273100FE4C9B /* FrequentItem+Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C01FB0208C273100FE4C9B /* FrequentItem+Api.swift */; };
 		49C01FB3208C285700FE4C9B /* FrequentItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C01FB2208C285700FE4C9B /* FrequentItemCell.swift */; };
 		49C01FB5208C28F100FE4C9B /* FrequentItemCell+FrequentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C01FB4208C28F100FE4C9B /* FrequentItemCell+FrequentItem.swift */; };
+		49D80DE020951E7F00AB8AFC /* PickerManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D80DDF20951E7F00AB8AFC /* PickerManger.swift */; };
+		49D80DE220952B5900AB8AFC /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D80DE120952B5900AB8AFC /* Utility.swift */; };
+		49D80DE420952CBB00AB8AFC /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49D80DE320952CB600AB8AFC /* Roboto-Bold.ttf */; };
+		49D80DE6209581E200AB8AFC /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D80DE5209581E200AB8AFC /* Category.swift */; };
 		9948C3541E3FB33F005B0937 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 991E306E1E3F5BE60099AD2A /* Alamofire.framework */; };
 		9948C3551E3FB341005B0937 /* Arrow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 991E306C1E3F5BE40099AD2A /* Arrow.framework */; };
 		9948C3561E3FB344005B0937 /* ws.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 991E30721E3F5BEB0099AD2A /* ws.framework */; };
@@ -63,6 +72,10 @@
 		493A3612208FC70900E2B74E /* SideMenuManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuManager.swift; sourceTree = "<group>"; };
 		493A3613208FC70900E2B74E /* UISideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISideMenuNavigationController.swift; sourceTree = "<group>"; };
 		493A3614208FC70900E2B74E /* UITableViewVibrantCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewVibrantCell.swift; sourceTree = "<group>"; };
+		4947643E2093A66A008813B1 /* IGListKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IGListKit.framework; path = Carthage/Build/iOS/IGListKit.framework; sourceTree = "<group>"; };
+		494764402093B586008813B1 /* FrequentItemSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentItemSummaryCell.swift; sourceTree = "<group>"; };
+		494764432093B62B008813B1 /* FrequentItemsSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentItemsSectionController.swift; sourceTree = "<group>"; };
+		494764452094EE5B008813B1 /* FrequentyItemDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentyItemDetailCell.swift; sourceTree = "<group>"; };
 		4961397220828DB40083D3E8 /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Api.swift; path = Shopper/Api/Api.swift; sourceTree = SOURCE_ROOT; };
 		4961397520828F0A0083D3E8 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		4961397720828F660083D3E8 /* ToDoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoCell.swift; sourceTree = "<group>"; };
@@ -88,6 +101,7 @@
 		49A747FB208FF359003F259A /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
 		49A747FD2090F967003F259A /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
 		49A747FF20910405003F259A /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		49A7480D20924D6F003F259A /* EditFrequentItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFrequentItemsView.swift; sourceTree = "<group>"; };
 		49C01FA6208AA69900FE4C9B /* Api.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Api.plist; sourceTree = "<group>"; };
 		49C01FA8208BFB2D00FE4C9B /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
 		49C01FAA208BFD2200FE4C9B /* AddItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemVC.swift; sourceTree = "<group>"; };
@@ -96,6 +110,10 @@
 		49C01FB0208C273100FE4C9B /* FrequentItem+Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FrequentItem+Api.swift"; sourceTree = "<group>"; };
 		49C01FB2208C285700FE4C9B /* FrequentItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentItemCell.swift; sourceTree = "<group>"; };
 		49C01FB4208C28F100FE4C9B /* FrequentItemCell+FrequentItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FrequentItemCell+FrequentItem.swift"; sourceTree = "<group>"; };
+		49D80DDF20951E7F00AB8AFC /* PickerManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerManger.swift; sourceTree = "<group>"; };
+		49D80DE120952B5900AB8AFC /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		49D80DE320952CB600AB8AFC /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		49D80DE5209581E200AB8AFC /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		991E304A1E3F57810099AD2A /* Shopper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shopper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		991E306C1E3F5BE40099AD2A /* Arrow.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Arrow.framework; path = Carthage/Build/iOS/Arrow.framework; sourceTree = "<group>"; };
 		991E306E1E3F5BE60099AD2A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
@@ -122,12 +140,21 @@
 				9948C3551E3FB341005B0937 /* Arrow.framework in Frameworks */,
 				9948C3581E3FB34B005B0937 /* then.framework in Frameworks */,
 				9948C3571E3FB348005B0937 /* Kingfisher.framework in Frameworks */,
+				4947643F2093A66A008813B1 /* IGListKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		494764422093B606008813B1 /* Section Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				494764432093B62B008813B1 /* FrequentItemsSectionController.swift */,
+			);
+			path = "Section Controllers";
+			sourceTree = "<group>";
+		};
 		49A748012092470D003F259A /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +173,7 @@
 				4961397D208292AC0083D3E8 /* ToDoView.swift */,
 				49C01FA8208BFB2D00FE4C9B /* AddItemView.swift */,
 				49A747FB208FF359003F259A /* ShopView.swift */,
+				49A7480D20924D6F003F259A /* EditFrequentItemsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -159,6 +187,8 @@
 				49A747F6208FD56B003F259A /* MenuCell+MenuItem.swift */,
 				49C01FB2208C285700FE4C9B /* FrequentItemCell.swift */,
 				49C01FB4208C28F100FE4C9B /* FrequentItemCell+FrequentItem.swift */,
+				494764402093B586008813B1 /* FrequentItemSummaryCell.swift */,
+				494764452094EE5B008813B1 /* FrequentyItemDetailCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -169,6 +199,7 @@
 				4961397520828F0A0083D3E8 /* ToDo.swift */,
 				49C01FAC208C1CFE00FE4C9B /* FrequentItem.swift */,
 				49A747F4208FD426003F259A /* MenuItem.swift */,
+				49D80DE5209581E200AB8AFC /* Category.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -199,6 +230,8 @@
 				49613984208518240083D3E8 /* FloatingAddButton.swift */,
 				4961398120829BB80083D3E8 /* Themes.swift */,
 				49A747FD2090F967003F259A /* Dimensions.swift */,
+				49D80DDF20951E7F00AB8AFC /* PickerManger.swift */,
+				49D80DE120952B5900AB8AFC /* Utility.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -249,15 +282,16 @@
 			isa = PBXGroup;
 			children = (
 				99EC7AE11E3F71DD008BBBA5 /* AppDelegate.swift */,
+				494764422093B606008813B1 /* Section Controllers */,
+				49A74804209247C8003F259A /* Model */,
+				49A748012092470D003F259A /* View Controllers */,
+				49A7480220924755003F259A /* Views */,
+				49A748032092478D003F259A /* Cells */,
+				49A74807209248EC003F259A /* Api */,
+				49A7480820924902003F259A /* Api Implemetation */,
+				49A7480A20924935003F259A /* Utility */,
 				49A7480C2092497A003F259A /* Animations */,
 				49A7480B20924962003F259A /* Slider Menu */,
-				49A7480A20924935003F259A /* Utility */,
-				49A7480820924902003F259A /* Api Implemetation */,
-				49A74807209248EC003F259A /* Api */,
-				49A74804209247C8003F259A /* Model */,
-				49A748032092478D003F259A /* Cells */,
-				49A7480220924755003F259A /* Views */,
-				49A748012092470D003F259A /* View Controllers */,
 				999127BB1E461FBC007E9B00 /* Resources */,
 			);
 			path = Shopper;
@@ -266,6 +300,7 @@
 		991E30601E3F59840099AD2A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4947643E2093A66A008813B1 /* IGListKit.framework */,
 				493A360E208FC65300E2B74E /* SideMenu.framework */,
 				991E30831E3F63800099AD2A /* Kingfisher.framework */,
 				991E30741E3F5BEF0099AD2A /* then.framework */,
@@ -281,6 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				49A747FF20910405003F259A /* Roboto-Regular.ttf */,
+				49D80DE320952CB600AB8AFC /* Roboto-Bold.ttf */,
 				99EC7AE81E3F71DD008BBBA5 /* Info.plist */,
 				49C01FA6208AA69900FE4C9B /* Api.plist */,
 				99EC7ADB1E3F71DD008BBBA5 /* Assets.xcassets */,
@@ -363,6 +399,7 @@
 			files = (
 				99EC7AEA1E3F71DD008BBBA5 /* LaunchScreen.storyboard in Resources */,
 				49C01FA7208AA69900FE4C9B /* Api.plist in Resources */,
+				49D80DE420952CBB00AB8AFC /* Roboto-Bold.ttf in Resources */,
 				49A7480020910406003F259A /* Roboto-Regular.ttf in Resources */,
 				99EC7AE91E3F71DD008BBBA5 /* Assets.xcassets in Resources */,
 			);
@@ -383,6 +420,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Arrow.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/then.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/IGListKit.framework",
 			);
 			name = "Carthage Run Script";
 			outputPaths = (
@@ -422,12 +460,16 @@
 				493A3616208FC70900E2B74E /* SideMenuManager.swift in Sources */,
 				49613985208518240083D3E8 /* FloatingAddButton.swift in Sources */,
 				49A291AE208E5B94006675CC /* UICollectionView+ViewAnimator.swift in Sources */,
+				494764412093B586008813B1 /* FrequentItemSummaryCell.swift in Sources */,
+				494764462094EE5B008813B1 /* FrequentyItemDetailCell.swift in Sources */,
+				49A7480E20924D6F003F259A /* EditFrequentItemsView.swift in Sources */,
 				49C01FA9208BFB2D00FE4C9B /* AddItemView.swift in Sources */,
 				496139802082938C0083D3E8 /* ToDo+Api.swift in Sources */,
 				4961397E208292AC0083D3E8 /* ToDoView.swift in Sources */,
 				49A747F7208FD56B003F259A /* MenuCell+MenuItem.swift in Sources */,
 				49A291B4208E5C4E006675CC /* Animation.swift in Sources */,
 				493A3617208FC70900E2B74E /* UISideMenuNavigationController.swift in Sources */,
+				494764442093B62B008813B1 /* FrequentItemsSectionController.swift in Sources */,
 				4961397C208292820083D3E8 /* ToDoVC.swift in Sources */,
 				4961397620828F0A0083D3E8 /* ToDo.swift in Sources */,
 				49A747F5208FD426003F259A /* MenuItem.swift in Sources */,
@@ -444,9 +486,12 @@
 				49A291AC208E5B6A006675CC /* ViewAnimator.swift in Sources */,
 				99EC7AEF1E3F71DD008BBBA5 /* WSApi.swift in Sources */,
 				49C01FAB208BFD2200FE4C9B /* AddItemVC.swift in Sources */,
+				49D80DE220952B5900AB8AFC /* Utility.swift in Sources */,
+				49D80DE020951E7F00AB8AFC /* PickerManger.swift in Sources */,
 				49A747FE2090F967003F259A /* Dimensions.swift in Sources */,
 				49A291B2208E5C11006675CC /* ViewAnimatorConfig.swift in Sources */,
 				49C01FB1208C273100FE4C9B /* FrequentItem+Api.swift in Sources */,
+				49D80DE6209581E200AB8AFC /* Category.swift in Sources */,
 				49C01FAD208C1CFE00FE4C9B /* FrequentItem.swift in Sources */,
 				49A747EF208FD249003F259A /* MenuView.swift in Sources */,
 				49A291B8208E5CDB006675CC /* Direction.swift in Sources */,

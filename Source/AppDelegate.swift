@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let barButtonItemAppearance = UIBarButtonItem.appearance()
 
 		navigationBarAppearance.prefersLargeTitles = false
-		navigationBarAppearance.barTintColor = UIColor.lightYellow
+		navigationBarAppearance.barTintColor = UIColor.white//.lightYellow
 
 		window = UIWindow(frame: UIScreen.main.bounds)
 

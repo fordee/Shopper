@@ -30,7 +30,7 @@ class ToDoCell: UITableViewCell {
 		)
 
 		// Configure visual elements
-		backgroundColor = UIColor.lightYellow
+		backgroundColor = UIColor.white//.lightYellow
 		shoppingItemLabel.numberOfLines = 0
 	}
 

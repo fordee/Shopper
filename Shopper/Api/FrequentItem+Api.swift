@@ -12,4 +12,8 @@ extension FrequentItem {
 	static func fetchFrequentItems() -> Promise<[FrequentItem]> {
 		return api.fetchFrequentItems()
 	}
+
+	func save() -> Promise<FrequentItem> {
+		return api.saveFrequentItem(path: "/common-items", params: ["Category": category, "ShoppingItem": shoppingItem, "Frequency": frequency])
+	}
 }

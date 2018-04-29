@@ -13,6 +13,7 @@ protocol ApiInterface {
 	func delete(path: String) -> Promise<Void>
 	
 	func fetchFrequentItems() -> Promise<[FrequentItem]>
+	func saveFrequentItem(path: String, params: Params) -> Promise<FrequentItem>
 }
 
 var api: ApiInterface!

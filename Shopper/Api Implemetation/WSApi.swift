@@ -54,4 +54,11 @@ class WSApi: ApiInterface {
 		print("Fetching To Do's...")
 		return ws.get("/common-items")
 	}
+
+	func saveFrequentItem(path: String, params: Params) -> Promise<FrequentItem> {
+		print("Adding \(params)...")
+		ws.postParameterEncoding = JSONEncoding.default
+		return ws.post(path, params: params)
+	}
+
 }

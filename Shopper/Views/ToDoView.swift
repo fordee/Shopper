@@ -18,7 +18,7 @@ class ToDoView: UIView {
 
 		// Here we use Stevia to make our constraints more readable and maintainable.
 		sv(tableView)
-		tableView.backgroundColor = UIColor.lightYellow
+		tableView.backgroundColor = UIColor.white//.lightYellow
 		tableView.fillContainer()
 
 		tableView.addSubview(refreshControl)

@@ -7,12 +7,19 @@
 //
 
 import UIKit
+import IGListKit
 
 class ShopVC: UIViewController {
 
-	let v = ShopView()
+	//let v = ShopView()
+	let v = EditFrequentItemsView()
 
-	var frequentItems: [FrequentItem] = [] //[FrequentItem(shoppingItem: "butter", frequency: "5"), FrequentItem(shoppingItem: "eggs", frequency: "2"), FrequentItem(shoppingItem: "beer", frequency: "10")]
+	var frequentItemDataSource = FrequentItemDataSource()//: [FrequentItem] = []//FrequentItem(shoppingItem: "butter", frequency: "5"), FrequentItem(shoppingItem: "eggs", frequency: "2"), FrequentItem(shoppingItem: "beer", frequency: "10")]
+
+	lazy var adapter: ListAdapter = {
+		return ListAdapter(updater: ListAdapterUpdater(), viewController: self, workingRangeSize: 0)
+	}()
+
 
 	override func loadView() {
 		view = v
@@ -21,40 +28,41 @@ class ShopVC: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		view.backgroundColor = UIColor.lightBlue
-		v.tableView.dataSource = self
+		adapter.collectionView = v.listView
+		adapter.dataSource = self
+		//v.tableView.dataSource = self
+		frequentItemDataSource.delegate = self
+		frequentItemDataSource.refresh()
 	}
 
 	override var prefersStatusBarHidden: Bool {
 		return true
 	}
 
-	@objc	func refresh() {
-		FrequentItem.fetchFrequentItems().then { fetcheditems in
-			self.frequentItems = fetcheditems
-			}.onError { e in
-				print(e)
-			}.finally {
-				self.frequentItems.sort() { lhs, rhs in
-					return lhs.frequencyInt! > rhs.frequencyInt!
-				}
-			self.v.tableView.reloadData()
-		}
+	
+	
+
+}
+
+extension ShopVC: ListAdapterDataSource {
+	func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
+		return frequentItemDataSource.frequentItems
+	}
+
+	func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
+		return FrequentItemsSectionController()
+	}
+
+	func emptyView(for listAdapter: ListAdapter) -> UIView? {
+		return nil
 	}
 }
 
-extension ShopVC: UITableViewDataSource {
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return frequentItems.count
+extension ShopVC: FrequentItemDelegate {
+
+	func frequentItemDidUpdateMessages(frequentItemDataSource: FrequentItemDataSource) {
+		adapter.performUpdates(animated: true)
 	}
 
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		if let cell = tableView.dequeueReusableCell(withIdentifier: "FrequentItemCell", for: indexPath) as? FrequentItemCell {
-			let frequentItem = frequentItems[indexPath.row]
-			cell.render(with: frequentItem)
-			return cell
-		}
-		return UITableViewCell()
-	}
+
 }
-
-
