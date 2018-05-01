@@ -20,13 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let barButtonItemAppearance = UIBarButtonItem.appearance()
 
 		navigationBarAppearance.prefersLargeTitles = false
-		navigationBarAppearance.barTintColor = UIColor.white//.lightYellow
+		navigationBarAppearance.barTintColor = UIColor.themeColor
+		navigationBarAppearance.tintColor = UIColor.textColor
+
 
 		window = UIWindow(frame: UIScreen.main.bounds)
 
 		let navController = UINavigationController(rootViewController: ToDoVC())
-		navController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.blue, .font: UIFont.titleFont] // This is weirdly difficult to set a basic color
-		barButtonItemAppearance.setTitleTextAttributes([.foregroundColor: UIColor.blue, .font: UIFont.backButtonFont], for: .normal)
+		navController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.textColor, .font: UIFont.titleFont] // This is weirdly difficult to set a basic color
+		barButtonItemAppearance.setTitleTextAttributes([.foregroundColor: UIColor.textColor, .font: UIFont.backButtonFont], for: .normal)
 		navController.navigationBar.barStyle = .blackTranslucent
 
 		window?.rootViewController = navController

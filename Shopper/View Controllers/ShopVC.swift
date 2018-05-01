@@ -14,7 +14,7 @@ class ShopVC: UIViewController {
 	//let v = ShopView()
 	let v = EditFrequentItemsView()
 
-	var frequentItemDataSource = FrequentItemDataSource()//: [FrequentItem] = []//FrequentItem(shoppingItem: "butter", frequency: "5"), FrequentItem(shoppingItem: "eggs", frequency: "2"), FrequentItem(shoppingItem: "beer", frequency: "10")]
+	var frequentItemDataSource = FrequentItemDataSource.frequentItems//()//: [FrequentItem] = []//FrequentItem(shoppingItem: "butter", frequency: "5"), FrequentItem(shoppingItem: "eggs", frequency: "2"), FrequentItem(shoppingItem: "beer", frequency: "10")]
 
 	lazy var adapter: ListAdapter = {
 		return ListAdapter(updater: ListAdapterUpdater(), viewController: self, workingRangeSize: 0)
@@ -27,12 +27,12 @@ class ShopVC: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		view.backgroundColor = UIColor.lightBlue
+		view.backgroundColor = UIColor.lightColor
 		adapter.collectionView = v.listView
 		adapter.dataSource = self
 		//v.tableView.dataSource = self
-		frequentItemDataSource.delegate = self
-		frequentItemDataSource.refresh()
+		FrequentItemDataSource.delegate = self
+		FrequentItemDataSource.refresh()
 	}
 
 	override var prefersStatusBarHidden: Bool {
@@ -46,7 +46,7 @@ class ShopVC: UIViewController {
 
 extension ShopVC: ListAdapterDataSource {
 	func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-		return frequentItemDataSource.frequentItems
+		return FrequentItemDataSource.frequentItems
 	}
 
 	func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
@@ -60,7 +60,7 @@ extension ShopVC: ListAdapterDataSource {
 
 extension ShopVC: FrequentItemDelegate {
 
-	func frequentItemDidUpdateMessages(frequentItemDataSource: FrequentItemDataSource) {
+	func frequentItemDidUpdateMessages() {
 		adapter.performUpdates(animated: true)
 	}
 

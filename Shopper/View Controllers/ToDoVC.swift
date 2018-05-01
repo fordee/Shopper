@@ -111,7 +111,7 @@ class ToDoVC: UIViewController {
 
 	private func setupFAB() {
 		// FAB = Floating Action Button
-		fab = FloatingAddButton(color: UIColor.blue){
+		fab = FloatingAddButton(color: UIColor.darkColor){
 			self.addItemTapped()
 		}
 		view.sv(fab)

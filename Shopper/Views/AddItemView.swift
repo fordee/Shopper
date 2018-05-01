@@ -17,10 +17,12 @@ class AddItemView: UIView {
 
 	convenience init() {
 		self.init(frame:CGRect.zero)
+		backgroundColor = UIColor.themeColor
 		render()
 	}
 
 	func render() {
+		backgroundColor = UIColor.themeColor
 		// Here we use Stevia to make our constraints more readable and maintainable.
 		sv([textField,
 				addButton,
@@ -32,34 +34,34 @@ class AddItemView: UIView {
 					 4,
 					 |-16-textField-addButton-16-|,
 					 4,
-					 |-tableView-|,
-					 8)
+					 |tableView|,
+					 0)
 
 		textField.style { t in
 			t.backgroundColor = UIColor.white
 			t.borderStyle = .roundedRect
 			t.autocapitalizationType = .none
-			t.tintColor = UIColor.blue
+			t.tintColor = UIColor.themeColor
 			t.textColor = UIColor.black
 			t.font = UIFont.titleFont
 			t.becomeFirstResponder()
 		}
 
 		addButton.style { b in
-			b.backgroundColor = UIColor.white//.lightYellow
-			b.tintColor = UIColor.blue
+			b.backgroundColor = UIColor.themeColor//UIColor.white
+			b.tintColor = UIColor.textColor
 		}
 
 		closeButton.style() { b in
-			b.backgroundColor = UIColor.white//.lightYellow
-			b.setTitleColor(UIColor.blue, for: .normal)
+			b.backgroundColor = UIColor.themeColor//.lightYellow
+			b.setTitleColor(UIColor.textColor, for: .normal)
 			b.titleLabel?.font = UIFont.backButtonFont
 			b.text("Close")
 		}
 
 		tableView.style { t in
-			t.backgroundColor = UIColor.white//.lightYellow
-			t.separatorColor = UIColor.blue
+			t.backgroundColor = UIColor.white
+			t.separatorColor = UIColor.lightColor
 			t.register(FrequentItemCell.self, forCellReuseIdentifier: "FrequentItemCell") // Use FrequentItemCell
 			t.estimatedRowHeight = 50 // Enable self-sizing cells
 		}

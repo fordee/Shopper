@@ -11,7 +11,7 @@ import IGListKit
 class FrequentItemsSectionController: ListSectionController {
 
 	var frequentItem: FrequentItem!
-	var expanded = false
+	var expanded = true
 
 	override init() {
 		super.init()
@@ -19,7 +19,7 @@ class FrequentItemsSectionController: ListSectionController {
 	}
 
 	override func numberOfItems() -> Int {
-		return expanded ? 2 : 1
+		return 2//expanded ? 2 : 1
 	}
 
 	override func didUpdate(to object: Any) {
@@ -53,7 +53,7 @@ class FrequentItemsSectionController: ListSectionController {
 
 	override func didSelectItem(at index: Int) {
 		print("Did Select Item at: \(index)")
-		expanded = !expanded
+		//expanded = !expanded
 		collectionContext?.performBatch(animated: true, updates: { batchContext in
 			batchContext.reload(self)
 		})

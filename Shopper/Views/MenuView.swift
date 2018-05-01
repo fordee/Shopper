@@ -11,7 +11,7 @@ import Stevia
 class MenuView: UIView {
 
 	let tableView = UITableView()
-	let topImageView = UIImageView(image: UIImage(named: "icon"))
+	let topImageView = UIImageView(image: UIImage(named: "icon2"))
 
 	convenience init() {
 		self.init(frame:CGRect.zero)

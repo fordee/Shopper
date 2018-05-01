@@ -27,10 +27,8 @@ class FrequentItemDetailCell: UICollectionViewCell {
 		}
 	}
 
-
 	static var cellHeight: CGFloat {
 		let height: CGFloat = 30
-		print("Height: \(height)")
 		return height
 	}
 
@@ -54,8 +52,8 @@ class FrequentItemDetailCell: UICollectionViewCell {
 				label.numberOfLines = 0
 			},
 			categoryButton.style { button in
-				button.backgroundColor = UIColor(hex6: 0xD81B60)
-				button.setTitleColor(UIColor.white, for: .normal)
+				button.backgroundColor = UIColor.themeColor
+				button.setTitleColor(UIColor.textColor, for: .normal)
 				button.layer.cornerRadius = 8
 				button.addTarget(self, action: #selector(categoryButtonTapped), for: .touchUpInside)
 				setButtonText("No Category", on: button)
@@ -76,15 +74,16 @@ class FrequentItemDetailCell: UICollectionViewCell {
 	}
 
 	@objc func categoryButtonTapped() {
-		let values = Category.all//["Meat", "Alcohol", "Dairy", "Canned Goods", "Produce", "Frozen Goods"]
+		let values = Category.all
 		DPPickerManager.shared.showPicker(title: "Select a Category", selected: values[0], strings: values) { value, index, cancel in
 			if !cancel {
 				guard let value = value else { return }
-				//self.setButtonText(value, on: self.categoryButton)
 				self.category = value // This will set the text on the button as well
 				print("Tapped, value: \(value), index: \(index)")
 				let item = FrequentItem(shoppingItem: self.shoppingItem, frequency: self.frequency, category: self.category)
-				item.save().onError() { e in
+				item.save().then { _ in
+					FrequentItemDataSource.updateItem(item)
+				}.onError() { e in
 					print("Error: \(e)")
 				}
 
@@ -96,9 +95,9 @@ class FrequentItemDetailCell: UICollectionViewCell {
 		print("delete button tapped.")
 	}
 
-	private func setButtonText(_ text: String, on button: UIButton, color: UIColor = UIColor.white) {
+	private func setButtonText(_ text: String, on button: UIButton, color: UIColor = UIColor.textColor) {
 		let attributedString = NSAttributedString(string: "   \(text)   ", attributes: [.font: UIFont.buttonFont,
-																																										.foregroundColor: color,
+																																										.foregroundColor: UIColor.textColor,
 																																										.underlineStyle: 0])
 		button.setAttributedTitle(attributedString, for: .normal)
 		button.sizeToFit()
