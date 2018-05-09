@@ -13,6 +13,7 @@ struct ToDo: Equatable { // Equatable is free with Swift 4.1!
 	var category = ""
 	var description = ""
 	var done = ""
+	var shoppingCategory = ""
 	var isDone: Bool {
 		return done == "true"
 	}

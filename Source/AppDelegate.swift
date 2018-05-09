@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let navController = UINavigationController(rootViewController: ToDoVC())
 		navController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.textColor, .font: UIFont.titleFont] // This is weirdly difficult to set a basic color
 		barButtonItemAppearance.setTitleTextAttributes([.foregroundColor: UIColor.textColor, .font: UIFont.backButtonFont], for: .normal)
-		navController.navigationBar.barStyle = .blackTranslucent
+		navController.navigationBar.barStyle = .blackOpaque
 
 		window?.rootViewController = navController
 		window?.makeKeyAndVisible()

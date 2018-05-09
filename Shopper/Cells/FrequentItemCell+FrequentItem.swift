@@ -12,6 +12,7 @@ extension FrequentItemCell {
 
 	func render(with: FrequentItem) {
 		frequentItemLabel.text = with.shoppingItem
+		colorBar.backgroundColor = Category.color(for: with.category)
 	}
 
 }

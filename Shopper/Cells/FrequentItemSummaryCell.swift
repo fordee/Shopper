@@ -21,6 +21,7 @@ class FrequentItemSummaryCell: UICollectionViewCell {
 
 	override init(frame: CGRect) {
 		super.init(frame: frame)
+		//roundCorners([.topLeft, .topRight], radius: Dimensions.cellRadius)
 
 		sv(
 			frequentItemLabel.style(frequentItemStyle)

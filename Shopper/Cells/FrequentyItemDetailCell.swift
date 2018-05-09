@@ -15,6 +15,8 @@ class FrequentItemDetailCell: UICollectionViewCell {
 	var categoryButton = UIButton()
 	var deleteButton = UIButton()
 
+	var spacerLabel  = UILabel()
+
 	var category: String = "No Category" {
 		didSet {
 			setButtonText(category, on: categoryButton)
@@ -28,7 +30,7 @@ class FrequentItemDetailCell: UICollectionViewCell {
 	}
 
 	static var cellHeight: CGFloat {
-		let height: CGFloat = 30
+		let height: CGFloat = 30 + 10
 		return height
 	}
 
@@ -38,6 +40,7 @@ class FrequentItemDetailCell: UICollectionViewCell {
 		super.init(frame: frame)
 		// Configure visual elements of cell
 		backgroundColor = UIColor.white
+		//roundCorners([.bottomLeft, .bottomRight], radius: Dimensions.cellRadius)
 
 		categoryLabel.text = "Category"
 
@@ -62,6 +65,10 @@ class FrequentItemDetailCell: UICollectionViewCell {
 				button.size(32)
 				button.setImage(UIImage(named: "close_icon"), for: .normal)
 				button.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
+			},
+			spacerLabel.style { label in
+				label.height(10)
+				label.backgroundColor = UIColor.darkGray
 			}
 		)
 
@@ -69,20 +76,22 @@ class FrequentItemDetailCell: UICollectionViewCell {
 		layout(
 			4,
 			|-16-numberOfItemsLabel-16-categoryLabel-16-categoryButton-(>=8)-deleteButton-8-|,
-			4
+			4,
+			|spacerLabel|,
+			0
 		)
 	}
 
 	@objc func categoryButtonTapped() {
 		let values = Category.all
-		DPPickerManager.shared.showPicker(title: "Select a Category", selected: values[0], strings: values) { value, index, cancel in
+		DPPickerManager.shared.showPicker(title: "Select a Category", selected: values[0].name, strings: values.map {$0.name}) { value, index, cancel in
 			if !cancel {
 				guard let value = value else { return }
 				self.category = value // This will set the text on the button as well
 				print("Tapped, value: \(value), index: \(index)")
 				let item = FrequentItem(shoppingItem: self.shoppingItem, frequency: self.frequency, category: self.category)
 				item.save().then { _ in
-					FrequentItemDataSource.updateItem(item)
+					CategorizedItemsDataSource.updateItem(item) // TODO: Cahneg to categorized Item Data Source
 				}.onError() { e in
 					print("Error: \(e)")
 				}

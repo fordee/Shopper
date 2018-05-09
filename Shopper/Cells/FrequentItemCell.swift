@@ -11,6 +11,7 @@ import Stevia
 class FrequentItemCell: UITableViewCell {
 
 	var frequentItemLabel = UILabel()
+	var colorBar = UIImageView()
 
 	required init?(coder aDecoder: NSCoder) { super.init(coder: aDecoder)}
 
@@ -19,14 +20,15 @@ class FrequentItemCell: UITableViewCell {
 		selectionStyle = .none
 
 		sv(
+			colorBar.style(colorBarStyle),
 			frequentItemLabel.style(frequentItemStyle)
 		)
 
 		// Here we layout the cell.
 		layout(
-			10,
-			|-16-frequentItemLabel-16-|,
-			10
+			0,
+			|colorBar-10-frequentItemLabel-16-|,
+			0
 		)
 
 		// Configure visual elements
@@ -34,9 +36,13 @@ class FrequentItemCell: UITableViewCell {
 		frequentItemLabel.numberOfLines = 0
 	}
 
-	func frequentItemStyle(l: UILabel) {
+	private func frequentItemStyle(l: UILabel) {
 		l.font = UIFont.mainFont//UIFont(name: "AmericanTypewriter", size: 20)
 		l.textColor = UIColor.black
 	}
 
+	private func colorBarStyle(i: UIImageView) {
+		i.backgroundColor = UIColor.red
+		i.width(14)
+	}
 }

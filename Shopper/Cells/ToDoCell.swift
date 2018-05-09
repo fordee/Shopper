@@ -11,6 +11,7 @@ import Stevia
 class ToDoCell: UITableViewCell {
 
 	var shoppingItemLabel = UILabel()
+	var colorBar = UIImageView()
 
 	required init?(coder aDecoder: NSCoder) { super.init(coder: aDecoder)}
 
@@ -19,14 +20,15 @@ class ToDoCell: UITableViewCell {
 		selectionStyle = .none
 
 		sv(
+			colorBar.style(colorBarStyle),
 			shoppingItemLabel.style(shoppingItemStyle)
 		)
 
 		// Here we layout the cell.
 		layout(
-			10,
-			|-16-shoppingItemLabel-16-|,
-			10
+			0,
+			|colorBar-10-shoppingItemLabel-16-|,
+			0
 		)
 
 		// Configure visual elements
@@ -34,9 +36,13 @@ class ToDoCell: UITableViewCell {
 		shoppingItemLabel.numberOfLines = 0
 	}
 
-	func shoppingItemStyle(l: UILabel) {
+	private func shoppingItemStyle(l: UILabel) {
 		l.font = UIFont.mainFont//UIFont(name: "AmericanTypewriter", size: 20)
 		l.textColor = UIColor.black
 	}
-	
+
+	private func colorBarStyle(i: UIImageView) {
+		i.backgroundColor = UIColor.red
+		i.width(14)
+	}
 }

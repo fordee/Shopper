@@ -8,32 +8,34 @@
 
 import IGListKit
 
-class FrequentItemsSectionController: ListSectionController {
+class FrequentItemsSectionController: ListSectionController, ListSupplementaryViewSource {
 
-	var frequentItem: FrequentItem!
+	var frequentItem: CategorizedItem!
 	var expanded = true
 
 	override init() {
 		super.init()
-		inset = UIEdgeInsets(top: 4, left: 4, bottom: 0, right: 4)
+		inset = UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0)
+		minimumInteritemSpacing = 8
+		supplementaryViewSource = self
 	}
 
 	override func numberOfItems() -> Int {
-		return 2//expanded ? 2 : 1
+		return frequentItem.items.count * 2 // 2//expanded ? 2 : 1
 	}
 
 	override func didUpdate(to object: Any) {
-		frequentItem = object as? FrequentItem
+		frequentItem = object as? CategorizedItem
 	}
 
 	override func cellForItem(at index: Int) -> UICollectionViewCell {
-		let cellClass: AnyClass = index == 0 ? FrequentItemSummaryCell.self : FrequentItemDetailCell.self
+		let cellClass: AnyClass = index % 2 == 0 ? FrequentItemSummaryCell.self : FrequentItemDetailCell.self
 		let cell = collectionContext!.dequeueReusableCell(of: cellClass, for: self, at: index)
 		if let cell = cell as? FrequentItemSummaryCell {
-			cell.frequentItemLabel.text = frequentItem.shoppingItem // Change to use render() later
+			cell.frequentItemLabel.text = frequentItem.items[index / 2].shoppingItem // Change to use render() later
 		} else if let cell = cell as? FrequentItemDetailCell {
-			cell.shoppingItem = frequentItem.shoppingItem
-			cell.frequency = frequentItem.frequency
+			cell.shoppingItem = frequentItem.items[index / 2].shoppingItem
+			cell.frequency = frequentItem.items[index / 2].frequency
 			if frequentItem.category == "" { frequentItem.category = "No Category" }
 			cell.category = frequentItem.category
 		}
@@ -44,10 +46,13 @@ class FrequentItemsSectionController: ListSectionController {
 		guard let context = collectionContext else { return .zero}
 		let width = context.containerSize.width
 
-		if index == 0 {
-			return CGSize(width: width, height: FrequentItemSummaryCell.cellHeight)
+		if index % 2 == 0 {
+			let size =  CGSize(width: width, height: FrequentItemSummaryCell.cellHeight)
+			//print("size = \(size)")
+			return size
 		} else {
-			return CGSize(width: width, height: FrequentItemDetailCell.cellHeight)
+			let size = CGSize(width: width, height: FrequentItemDetailCell.cellHeight)
+			return size
 		}
 	}
 
@@ -57,6 +62,38 @@ class FrequentItemsSectionController: ListSectionController {
 		collectionContext?.performBatch(animated: true, updates: { batchContext in
 			batchContext.reload(self)
 		})
+	}
+
+	// MARK: ListSupplementaryViewSource
+
+	func supportedElementKinds() -> [String] {
+		return [UICollectionElementKindSectionHeader]
+	}
+
+	func viewForSupplementaryElement(ofKind elementKind: String, at index: Int) -> UICollectionReusableView {
+		switch elementKind {
+		case UICollectionElementKindSectionHeader:
+			return userHeaderView(atIndex: index)
+		default:
+			fatalError()
+		}
+	}
+
+	func sizeForSupplementaryView(ofKind elementKind: String, at index: Int) -> CGSize {
+		return CGSize(width: collectionContext!.containerSize.width, height: 40)
+	}
+
+	// MARK: Private
+	private func userHeaderView(atIndex index: Int) -> UICollectionReusableView {
+		guard let view = collectionContext?.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader,
+																																				 for: self,
+																																				 class: CategoryHeaderView.self,
+																																				 at: index) as? CategoryHeaderView else {
+																																					fatalError()
+		}
+
+		view.heading = frequentItem.category//"Test Heading"
+		return view
 	}
 }
 

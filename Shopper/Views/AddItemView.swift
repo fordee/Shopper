@@ -15,6 +15,8 @@ class AddItemView: UIView {
 	let addButton = UIButton(type: .contactAdd)
 	let closeButton = UIButton()
 
+
+
 	convenience init() {
 		self.init(frame:CGRect.zero)
 		backgroundColor = UIColor.themeColor
@@ -43,7 +45,7 @@ class AddItemView: UIView {
 			t.autocapitalizationType = .none
 			t.tintColor = UIColor.themeColor
 			t.textColor = UIColor.black
-			t.font = UIFont.titleFont
+			t.font = UIFont.mainFont
 			t.becomeFirstResponder()
 		}
 

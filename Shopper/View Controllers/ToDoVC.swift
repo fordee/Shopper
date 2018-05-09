@@ -48,9 +48,15 @@ class ToDoVC: UIViewController {
 			}.finally {
 				// In any case, reload the tableView
 				self.toDos.sort() { lhs, rhs in
-					return (lhs.done != rhs.done) && lhs.done == "false"
+					if (lhs.done != rhs.done) && lhs.done == "false" {
+						return true
+					}
+					if lhs.shoppingCategory > rhs.shoppingCategory {
+						return true
+					}
+					return false
 				}
-				//self.v.tableView.reloadData()
+				
 				self.items = Array(repeating: nil, count: 20)
 				self.v.tableView.reloadData()
 				UIView.animate(views: self.v.tableView.visibleCells, animations: self.animations) {

@@ -14,7 +14,9 @@ class ShopVC: UIViewController {
 	//let v = ShopView()
 	let v = EditFrequentItemsView()
 
-	var frequentItemDataSource = FrequentItemDataSource.frequentItems//()//: [FrequentItem] = []//FrequentItem(shoppingItem: "butter", frequency: "5"), FrequentItem(shoppingItem: "eggs", frequency: "2"), FrequentItem(shoppingItem: "beer", frequency: "10")]
+	var filterSelection = false
+
+	var frequentItemDataSource = CategorizedItemsDataSource.categorizedItems//FrequentItemDataSource.frequentItems
 
 	lazy var adapter: ListAdapter = {
 		return ListAdapter(updater: ListAdapterUpdater(), viewController: self, workingRangeSize: 0)
@@ -27,26 +29,34 @@ class ShopVC: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		view.backgroundColor = UIColor.lightColor
 		adapter.collectionView = v.listView
 		adapter.dataSource = self
-		//v.tableView.dataSource = self
-		FrequentItemDataSource.delegate = self
-		FrequentItemDataSource.refresh()
+
+		v.filterControl.addTarget(self, action: #selector(filterListView), for: .valueChanged)
+
+		CategorizedItemsDataSource.delegate = self//FrequentItemDataSource.delegate = self
+		CategorizedItemsDataSource.refresh()//FrequentItemDataSource.refresh()
 	}
 
 	override var prefersStatusBarHidden: Bool {
 		return true
 	}
 
-	
-	
+	@objc func filterListView() {
+		filterSelection = v.filterControl.selectedSegmentIndex == 1
+		adapter.reloadData(completion: nil)
+	}
+
 
 }
 
 extension ShopVC: ListAdapterDataSource {
 	func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-		return FrequentItemDataSource.frequentItems
+		return /*FrequentItemDataSource*/CategorizedItemsDataSource.categorizedItems.sorted{ lhs, rhs in
+			return lhs.category < rhs.category
+		}.filter { item in
+			return filterSelection ? item.category == "No Category" : true //.category == "" || item.category == "No Category") : true
+		}
 	}
 
 	func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
@@ -61,8 +71,7 @@ extension ShopVC: ListAdapterDataSource {
 extension ShopVC: FrequentItemDelegate {
 
 	func frequentItemDidUpdateMessages() {
+		//adapter.reloadData()
 		adapter.performUpdates(animated: true)
 	}
-
-
 }

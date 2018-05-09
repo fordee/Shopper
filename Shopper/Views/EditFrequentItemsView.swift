@@ -11,21 +11,31 @@ import IGListKit
 
 class EditFrequentItemsView: UIView {
 
-	let listView = ListCollectionView(frame: CGRect.zero, listCollectionViewLayout: ListCollectionViewLayout(stickyHeaders: true, scrollDirection: .vertical, topContentInset: 8, stretchToEdge: true))
+	let listView = ListCollectionView(frame: CGRect.zero, listCollectionViewLayout: ListCollectionViewLayout(stickyHeaders: true, scrollDirection: .vertical, topContentInset: 0, stretchToEdge: true))
 
+	let filterControl = UISegmentedControl(items: ["All", "No Category"])
 
 	convenience init() {
 		self.init(frame:CGRect.zero)
-
-		// Here we use Stevia to make our constraints more readable and maintainable.
-		sv(listView)
-		listView.backgroundColor = UIColor.darkGray
-		listView.fillContainer()
-
-		// Configure Collection View
+		backgroundColor = UIColor.white
+		
 		
 
-	}
+		// Here we use Stevia to make our constraints more readable and maintainable.
+		sv(filterControl,
+			 listView)
+		listView.backgroundColor = UIColor.darkGray
 
+		filterControl.backgroundColor = UIColor.white
+		filterControl.tintColor = UIColor.themeColor
+		layout(54,
+					 filterControl.centerHorizontally().height(30),
+					 8,
+					 |listView|,
+					 0)
+
+		filterControl.selectedSegmentIndex = 0
+
+	}
 	
 }

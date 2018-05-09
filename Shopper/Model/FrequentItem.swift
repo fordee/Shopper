@@ -40,7 +40,12 @@ public class FrequentItem: Equatable {
 	}
 }
 
-extension FrequentItem: ListDiffable {
+extension FrequentItem: ListDiffable, Hashable {
+
+	public var hashValue: Int {
+		return shoppingItem.djb2hash ^ frequency.hashValue ^ category.hashValue
+	}
+
 	public func diffIdentifier() -> NSObjectProtocol {
 		return shoppingItem as NSObjectProtocol
 	}
@@ -51,32 +56,3 @@ extension FrequentItem: ListDiffable {
 }
 
 
-public class FrequentItemDataSource {
-
-	static weak var delegate: FrequentItemDelegate?
-
-	static var frequentItems: [FrequentItem] = []
-
-	@objc	static func refresh() {
-		FrequentItem.fetchFrequentItems().then { fetcheditems in
-			self.frequentItems = fetcheditems
-			}.onError { e in
-				print(e)
-			}.finally {
-				self.frequentItems.sort() { lhs, rhs in
-					return lhs.frequencyInt! > rhs.frequencyInt!
-				}
-				self.delegate?.frequentItemDidUpdateMessages()
-		}
-	}
-
-	static func updateItem(_ frequentItem: FrequentItem) {
-		for item in frequentItems {
-			if item.shoppingItem == frequentItem.shoppingItem { // shoppingItem is unique
-				item.category = frequentItem.category
-				item.frequency = frequentItem.frequency
-				return // No need to continue since it is unique
-			}
-		}
-	}
-}

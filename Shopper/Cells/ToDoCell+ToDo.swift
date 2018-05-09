@@ -20,6 +20,8 @@ extension ToDoCell {
 			shoppingItemLabel.alpha = 1.0
 		}
 		shoppingItemLabel.attributedText = attributedText
+
+		colorBar.backgroundColor = Category.color(for: with.shoppingCategory)
 	}
 
 }

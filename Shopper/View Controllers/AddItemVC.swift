@@ -20,6 +20,7 @@ class AddItemVC: UIViewController {
 
 	var toDoItem: ToDo? = nil
 	var delegate: AddDelegate?
+	var filterText = ""
 
 	override func loadView() {
 		view = v
@@ -30,7 +31,9 @@ class AddItemVC: UIViewController {
 	}
 
 	// We need to store an array of frequent items
-	var frequentItems = [FrequentItem]()
+	var frequentItems: [FrequentItem] = []
+
+	var filteredItems: [FrequentItem] = []
 
 	private var items = [Any?]()
 	private let animations = [AnimationType.from(direction: .right, offset: 30.0)]
@@ -42,8 +45,9 @@ class AddItemVC: UIViewController {
 		v.closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
 		v.tableView.dataSource = self
 		v.tableView.delegate = self
+		v.textField.delegate = self
 		refresh()
-
+		filteredItems = frequentItems // TODO: Remove
 	}
 
 	@objc	func refresh() {
@@ -56,6 +60,7 @@ class AddItemVC: UIViewController {
 					return lhs.frequencyInt! > rhs.frequencyInt!
 				}
 				self.items = Array(repeating: nil, count: 20)
+				self.filterItems()
 				self.v.tableView.reloadData()
 				UIView.animate(views: self.v.tableView.visibleCells, animations: self.animations) {
 				}
@@ -64,7 +69,7 @@ class AddItemVC: UIViewController {
 	
 	@objc func addButtonTapped() {
 		if let text = v.textField.text?.trimmingCharacters(in: .whitespacesAndNewlines), text.count > 0 {
-			toDoItem = ToDo(category: "Shopping", description: text, done: "false")
+			toDoItem = ToDo(category: "Shopping", description: text, done: "false", shoppingCategory: "No Category")
 		}
 		delegate?.addShoppingItem(addViewController: self)
 		v.textField.text = ""
@@ -74,16 +79,31 @@ class AddItemVC: UIViewController {
 		delegate?.close(addViewController: self)
 		dismiss(animated: true)
 	}
+
+	// MARK: Private Functions
+
+	private func filterItems() {
+		filteredItems = frequentItems.filter { item in
+			if filterText != "" {
+				return item.shoppingItem.lowercased().contains(filterText.lowercased())
+			} else {
+				return true
+			}
+		}
+	}
+
 }
+
+// MARK: UITableViewDataSource
 
 extension AddItemVC: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return frequentItems.count
+		return filteredItems.count
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		if let cell = tableView.dequeueReusableCell(withIdentifier: "FrequentItemCell", for: indexPath) as? FrequentItemCell {
-			let frequentItem = frequentItems[indexPath.row]
+			let frequentItem = filteredItems[indexPath.row]
 			cell.render(with: frequentItem)
 			return cell
 		}
@@ -91,8 +111,54 @@ extension AddItemVC: UITableViewDataSource {
 	}
 }
 
+// MARK: UITableViewDelegate
+
 extension AddItemVC: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		v.textField.text = frequentItems[indexPath.row].shoppingItem
+		v.textField.text = filteredItems[indexPath.row].shoppingItem
 	}
 }
+
+// MARK: UITextFieldDelegate
+
+extension AddItemVC: UITextFieldDelegate {
+
+	func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+		if let text = textField.text, let textRange = Range(range, in: text) {
+			filterText = text.replacingCharacters(in: textRange, with: string)
+			print("filterText: \(filterText)")
+			let oldItems = filteredItems
+			filterItems()
+			let changes = diff(old: oldItems, new: filteredItems)
+			let changesWithIndexPath = IndexPathConverter().convert(changes: changes, section: 0)
+			v.tableView.performBatchUpdates({
+				internalBatchUpdates(changesWithIndexPath: changesWithIndexPath)
+			})
+			changesWithIndexPath.replaces.executeIfPresent {
+				self.v.tableView.reloadRows(at: $0, with: .none)
+			}
+			//v.tableView.reloadData()
+		}
+		return true
+	}
+
+	private func internalBatchUpdates(changesWithIndexPath: ChangeWithIndexPath) {
+		changesWithIndexPath.deletes.executeIfPresent {
+			v.tableView.deleteRows(at: $0, with: .bottom)
+		}
+
+		changesWithIndexPath.inserts.executeIfPresent {
+			v.tableView.insertRows(at: $0, with: .bottom)
+		}
+
+		changesWithIndexPath.moves.executeIfPresent {
+			$0.forEach { move in
+				v.tableView.moveRow(at: move.from, to: move.to)
+			}
+		}
+	}
+
+}
+
+
+
