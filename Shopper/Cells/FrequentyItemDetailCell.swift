@@ -3,7 +3,7 @@
 //  Shopper
 //
 //  Created by John Forde on 29/4/18.
-//  Copyright © 2018 freshOS. All rights reserved.
+//  Copyright © 2018 4DWare. All rights reserved.
 //
 
 import Stevia
@@ -19,7 +19,13 @@ class FrequentItemDetailCell: UICollectionViewCell {
 
 	var category: String = "No Category" {
 		didSet {
-			setButtonText(category, on: categoryButton)
+			let backgroundColor = category == "No Category" ? UIColor.themeColor : Category.color(for: category)
+
+			let brightness = backgroundColor.brightness
+			print("Category: \(category), Brightness: \(brightness)")
+			let textColor = brightness > 0.85 ? UIColor.black : UIColor.white // TODO: Make this based on contrast
+			categoryButton.backgroundColor = backgroundColor
+			setButtonText(category, on: categoryButton, color: textColor)
 		}
 	}
 	var shoppingItem: String = ""
@@ -106,7 +112,7 @@ class FrequentItemDetailCell: UICollectionViewCell {
 
 	private func setButtonText(_ text: String, on button: UIButton, color: UIColor = UIColor.textColor) {
 		let attributedString = NSAttributedString(string: "   \(text)   ", attributes: [.font: UIFont.buttonFont,
-																																										.foregroundColor: UIColor.textColor,
+																																										.foregroundColor: color,
 																																										.underlineStyle: 0])
 		button.setAttributedTitle(attributedString, for: .normal)
 		button.sizeToFit()

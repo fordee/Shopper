@@ -32,6 +32,7 @@ class ToDoVC: UIViewController {
 		setupTableView()
 		setupFAB()
 		refresh()
+
 	}
 
 	override var prefersStatusBarHidden: Bool {
@@ -56,7 +57,8 @@ class ToDoVC: UIViewController {
 					}
 					return false
 				}
-				
+				self.getShops()
+
 				self.items = Array(repeating: nil, count: 20)
 				self.v.tableView.reloadData()
 				UIView.animate(views: self.v.tableView.visibleCells, animations: self.animations) {
@@ -64,6 +66,15 @@ class ToDoVC: UIViewController {
 				}
 				self.v.refreshControl.endRefreshing()
 		}
+	}
+
+	@objc func getShops() {
+		Shop.fetchShops().then{ shops in
+			print("Shops: \(shops)")
+		}.onError { e in
+			print(e)
+		}
+
 	}
 
 	@objc func clearItems(sender: Any) {

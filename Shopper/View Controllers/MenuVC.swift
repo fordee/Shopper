@@ -60,7 +60,7 @@ extension MenuVC: UITableViewDelegate {
 		tableView.deselectRow(at: indexPath, animated: true)
 		switch indexPath.row {
 		case 0:
-			let vc = ShopVC()
+			let vc = FrequentItemVC()
 			navigationController?.pushViewController(vc, animated: true)
 		default:
 			break

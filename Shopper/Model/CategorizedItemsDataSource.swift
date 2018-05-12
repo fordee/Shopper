@@ -3,7 +3,7 @@
 //  Shopper
 //
 //  Created by John Forde on 6/5/18.
-//  Copyright © 2018 freshOS. All rights reserved.
+//  Copyright © 2018 4DWare. All rights reserved.
 //
 
 
@@ -12,9 +12,7 @@ import Foundation
 public class CategorizedItemsDataSource {
 
 	static weak var delegate: FrequentItemDelegate?
-
 	static var categorizedItems: [CategorizedItem] = []
-
 	static var frequentItems: [FrequentItem] = []
 
 	@objc	static func refresh() {

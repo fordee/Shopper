@@ -1,5 +1,5 @@
 //
-//  ShopVC.swift
+//  frequentItemVC.swift
 //  Shopper
 //
 //  Created by John Forde on 25/4/18.
@@ -9,7 +9,7 @@
 import UIKit
 import IGListKit
 
-class ShopVC: UIViewController {
+class FrequentItemVC: UIViewController {
 
 	//let v = ShopView()
 	let v = EditFrequentItemsView()
@@ -34,8 +34,8 @@ class ShopVC: UIViewController {
 
 		v.filterControl.addTarget(self, action: #selector(filterListView), for: .valueChanged)
 
-		CategorizedItemsDataSource.delegate = self//FrequentItemDataSource.delegate = self
-		CategorizedItemsDataSource.refresh()//FrequentItemDataSource.refresh()
+		CategorizedItemsDataSource.delegate = self
+		CategorizedItemsDataSource.refresh()
 	}
 
 	override var prefersStatusBarHidden: Bool {
@@ -50,7 +50,7 @@ class ShopVC: UIViewController {
 
 }
 
-extension ShopVC: ListAdapterDataSource {
+extension FrequentItemVC: ListAdapterDataSource {
 	func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
 		return /*FrequentItemDataSource*/CategorizedItemsDataSource.categorizedItems.sorted{ lhs, rhs in
 			return lhs.category < rhs.category
@@ -68,7 +68,7 @@ extension ShopVC: ListAdapterDataSource {
 	}
 }
 
-extension ShopVC: FrequentItemDelegate {
+extension FrequentItemVC: FrequentItemDelegate {
 
 	func frequentItemDidUpdateMessages() {
 		//adapter.reloadData()

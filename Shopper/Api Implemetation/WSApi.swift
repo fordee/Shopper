@@ -61,4 +61,9 @@ class WSApi: ApiInterface {
 		return ws.post(path, params: params)
 	}
 
+	func fetchShops() -> Promise<[Shop]> {
+		print("Fetching Shops...")
+		return ws.get("/shops")
+	}
+
 }

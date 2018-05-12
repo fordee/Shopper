@@ -3,7 +3,7 @@
 //  Shopper
 //
 //  Created by John Forde on 29/4/18.
-//  Copyright © 2018 freshOS. All rights reserved.
+//  Copyright © 2018 4DWare. All rights reserved.
 //
 
 
