@@ -22,7 +22,7 @@ class MenuVC: UIViewController {
 
 	// We need to store an array of MenuItems
 	var menuItems: [MenuItem] = [MenuItem(menuName: "Edit Frequent Items", iconName: "menu_icon"),
-															 MenuItem(menuName: "Switch Shop", iconName: "menu_icon"),
+															 MenuItem(menuName: "Edit Shops", iconName: "menu_icon"),
 															 MenuItem(menuName: "Set Theme", iconName: "menu_icon")]
 
 	override func viewDidLoad() {
@@ -61,6 +61,9 @@ extension MenuVC: UITableViewDelegate {
 		switch indexPath.row {
 		case 0:
 			let vc = FrequentItemVC()
+			navigationController?.pushViewController(vc, animated: true)
+		case 1:
+			let vc = ShopVC()
 			navigationController?.pushViewController(vc, animated: true)
 		default:
 			break

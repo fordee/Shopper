@@ -57,7 +57,7 @@ class ToDoVC: UIViewController {
 					}
 					return false
 				}
-				self.getShops()
+				//self.getShops()
 
 				self.items = Array(repeating: nil, count: 20)
 				self.v.tableView.reloadData()
@@ -68,14 +68,14 @@ class ToDoVC: UIViewController {
 		}
 	}
 
-	@objc func getShops() {
-		Shop.fetchShops().then{ shops in
-			print("Shops: \(shops)")
-		}.onError { e in
-			print(e)
-		}
-
-	}
+//	@objc func getShops() {
+//		Shop.fetchShops().then{ shops in
+//			print("Shops: \(shops)")
+//		}.onError { e in
+//			print(e)
+//		}
+//
+//	}
 
 	@objc func clearItems(sender: Any) {
 		let itemsToClear = toDos.filter { toDo in

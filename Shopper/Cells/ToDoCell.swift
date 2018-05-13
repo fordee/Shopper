@@ -32,12 +32,12 @@ class ToDoCell: UITableViewCell {
 		)
 
 		// Configure visual elements
-		backgroundColor = UIColor.white//.lightYellow
+		backgroundColor = UIColor.white
 		shoppingItemLabel.numberOfLines = 0
 	}
 
 	private func shoppingItemStyle(l: UILabel) {
-		l.font = UIFont.mainFont//UIFont(name: "AmericanTypewriter", size: 20)
+		l.font = UIFont.mainFont
 		l.textColor = UIColor.black
 	}
 

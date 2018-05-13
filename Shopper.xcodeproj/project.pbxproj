@@ -44,6 +44,11 @@
 		49BAC15120A633BC00F3C4BD /* Shop+Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAC15020A633BC00F3C4BD /* Shop+Api.swift */; };
 		49BAC15320A6346E00F3C4BD /* Shop+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAC15220A6346E00F3C4BD /* Shop+JSON.swift */; };
 		49BAC15520A67EF500F3C4BD /* ShopsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAC15420A67EF500F3C4BD /* ShopsDataSource.swift */; };
+		49BAC15720A6835E00F3C4BD /* ShopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAC15620A6835E00F3C4BD /* ShopVC.swift */; };
+		49BAC15920A684B500F3C4BD /* ShopSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAC15820A684B500F3C4BD /* ShopSectionController.swift */; };
+		49BAC15B20A6873E00F3C4BD /* ShopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAC15A20A6873E00F3C4BD /* ShopCell.swift */; };
+		49BAC15D20A767AD00F3C4BD /* AisleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAC15C20A767AD00F3C4BD /* AisleCell.swift */; };
+		49BAC16020A7928E00F3C4BD /* Aisle+Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAC15F20A7928E00F3C4BD /* Aisle+Api.swift */; };
 		49C01FA7208AA69900FE4C9B /* Api.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49C01FA6208AA69900FE4C9B /* Api.plist */; };
 		49C01FA9208BFB2D00FE4C9B /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C01FA8208BFB2D00FE4C9B /* AddItemView.swift */; };
 		49C01FAB208BFD2200FE4C9B /* AddItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C01FAA208BFD2200FE4C9B /* AddItemVC.swift */; };
@@ -120,6 +125,11 @@
 		49BAC15020A633BC00F3C4BD /* Shop+Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shop+Api.swift"; sourceTree = "<group>"; };
 		49BAC15220A6346E00F3C4BD /* Shop+JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shop+JSON.swift"; sourceTree = "<group>"; };
 		49BAC15420A67EF500F3C4BD /* ShopsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopsDataSource.swift; sourceTree = "<group>"; };
+		49BAC15620A6835E00F3C4BD /* ShopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopVC.swift; sourceTree = "<group>"; };
+		49BAC15820A684B500F3C4BD /* ShopSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopSectionController.swift; sourceTree = "<group>"; };
+		49BAC15A20A6873E00F3C4BD /* ShopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCell.swift; sourceTree = "<group>"; };
+		49BAC15C20A767AD00F3C4BD /* AisleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AisleCell.swift; sourceTree = "<group>"; };
+		49BAC15F20A7928E00F3C4BD /* Aisle+Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Aisle+Api.swift"; sourceTree = "<group>"; };
 		49C01FA6208AA69900FE4C9B /* Api.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Api.plist; sourceTree = "<group>"; };
 		49C01FA8208BFB2D00FE4C9B /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
 		49C01FAA208BFD2200FE4C9B /* AddItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemVC.swift; sourceTree = "<group>"; };
@@ -181,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				494764432093B62B008813B1 /* FrequentItemsSectionController.swift */,
+				49BAC15820A684B500F3C4BD /* ShopSectionController.swift */,
 			);
 			path = "Section Controllers";
 			sourceTree = "<group>";
@@ -192,6 +203,7 @@
 				49A747F0208FD28E003F259A /* MenuVC.swift */,
 				49C01FAA208BFD2200FE4C9B /* AddItemVC.swift */,
 				49A747F9208FF34E003F259A /* FrequentItemVC.swift */,
+				49BAC15620A6835E00F3C4BD /* ShopVC.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -220,6 +232,8 @@
 				494764402093B586008813B1 /* FrequentItemSummaryCell.swift */,
 				494764452094EE5B008813B1 /* FrequentyItemDetailCell.swift */,
 				49E5DDF6209E407000F6C238 /* CategoryHeaderView.swift */,
+				49BAC15A20A6873E00F3C4BD /* ShopCell.swift */,
+				49BAC15C20A767AD00F3C4BD /* AisleCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -248,6 +262,7 @@
 				4961397F2082938C0083D3E8 /* ToDo+Api.swift */,
 				49C01FB0208C273100FE4C9B /* FrequentItem+Api.swift */,
 				49BAC15020A633BC00F3C4BD /* Shop+Api.swift */,
+				49BAC15F20A7928E00F3C4BD /* Aisle+Api.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -518,10 +533,13 @@
 				49A7480E20924D6F003F259A /* EditFrequentItemsView.swift in Sources */,
 				49D5D17420A21425006A5CF7 /* Change.swift in Sources */,
 				49C01FA9208BFB2D00FE4C9B /* AddItemView.swift in Sources */,
+				49BAC15B20A6873E00F3C4BD /* ShopCell.swift in Sources */,
+				49BAC15D20A767AD00F3C4BD /* AisleCell.swift in Sources */,
 				496139802082938C0083D3E8 /* ToDo+Api.swift in Sources */,
 				4961397E208292AC0083D3E8 /* ToDoView.swift in Sources */,
 				49D5D17A20A21630006A5CF7 /* IndexPathConverter.swift in Sources */,
 				49A747F7208FD56B003F259A /* MenuCell+MenuItem.swift in Sources */,
+				49BAC15920A684B500F3C4BD /* ShopSectionController.swift in Sources */,
 				49A291B4208E5C4E006675CC /* Animation.swift in Sources */,
 				493A3617208FC70900E2B74E /* UISideMenuNavigationController.swift in Sources */,
 				494764442093B62B008813B1 /* FrequentItemsSectionController.swift in Sources */,
@@ -546,8 +564,10 @@
 				49C01FAB208BFD2200FE4C9B /* AddItemVC.swift in Sources */,
 				49D80DE220952B5900AB8AFC /* Utility.swift in Sources */,
 				49D80DE020951E7F00AB8AFC /* PickerManger.swift in Sources */,
+				49BAC16020A7928E00F3C4BD /* Aisle+Api.swift in Sources */,
 				49A747FE2090F967003F259A /* Dimensions.swift in Sources */,
 				49A291B2208E5C11006675CC /* ViewAnimatorConfig.swift in Sources */,
+				49BAC15720A6835E00F3C4BD /* ShopVC.swift in Sources */,
 				49E5DDFD209E508700F6C238 /* CategorizedItemsDataSource.swift in Sources */,
 				49C01FB1208C273100FE4C9B /* FrequentItem+Api.swift in Sources */,
 				49BAC15120A633BC00F3C4BD /* Shop+Api.swift in Sources */,

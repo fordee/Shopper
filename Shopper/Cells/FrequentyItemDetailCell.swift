@@ -68,8 +68,8 @@ class FrequentItemDetailCell: UICollectionViewCell {
 				setButtonText("No Category", on: button)
 			},
 			deleteButton.style { button in
-				button.size(32)
-				button.setImage(UIImage(named: "close_icon"), for: .normal)
+				button.size(24)
+				button.image("delete")
 				button.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
 			},
 			spacerLabel.style { label in

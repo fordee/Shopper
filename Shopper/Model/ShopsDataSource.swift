@@ -10,7 +10,7 @@ import Foundation
 
 public class ShopsDataSource {
 
-	static weak var delegate: FrequentItemDelegate?
+	static weak var delegate: ShopDelegate?
 
 	static var shops: [Shop] = []
 
@@ -20,7 +20,7 @@ public class ShopsDataSource {
 		}.onError { e in
 			print(e)
 		}.finally {
-			self.delegate?.frequentItemDidUpdateMessages()
+			self.delegate?.shopDidUpdateMessages()
 		}
 	}
 

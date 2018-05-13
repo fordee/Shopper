@@ -9,14 +9,15 @@
 import UIKit
 import IGListKit
 
+protocol FrequentItemDelegate: class {
+	func frequentItemDidUpdateMessages()
+}
+
 class FrequentItemVC: UIViewController {
 
-	//let v = ShopView()
 	let v = EditFrequentItemsView()
-
 	var filterSelection = false
-
-	var frequentItemDataSource = CategorizedItemsDataSource.categorizedItems//FrequentItemDataSource.frequentItems
+	var frequentItemDataSource = CategorizedItemsDataSource.categorizedItems
 
 	lazy var adapter: ListAdapter = {
 		return ListAdapter(updater: ListAdapterUpdater(), viewController: self, workingRangeSize: 0)

@@ -13,10 +13,19 @@ struct Aisle: Equatable, CustomStringConvertible {
 	var aisleNumber = ""
 	var categories: [String] = []
 
+	var aisleNumberInt: Int {
+		return Int(aisleNumber)!
+	}
+
 	init(title: String, aisleNumber: String, categories: [String]) {
 		self.title = title
 		self.aisleNumber = aisleNumber
 		self.categories = categories
+	}
+
+	init(title: String, aisleNumber: String) {
+		self.title = title
+		self.aisleNumber = aisleNumber
 	}
 
 	init() {

@@ -19,6 +19,7 @@ extension UIFont {
 	static var titleFont: UIFont { return UIFont(name: "Roboto-Bold", size: 22)! }
 	static var headerFont: UIFont { return UIFont(name: "Roboto-Bold", size: 18)! }
 	static var backButtonFont: UIFont { return UIFont(name: "Roboto-Regular", size: 16)! }
+	static var cellFont: UIFont { return UIFont(name: "Roboto-Regular", size: 18)! }
 	static var mainFont: UIFont { return UIFont(name: "Roboto-Regular", size: 20)! }
 	static var menuFont: UIFont { return UIFont(name: "Roboto-Regular", size: 14)! }
 	static var detailFont: UIFont { return UIFont(name: "Roboto-Regular", size: 12)! }

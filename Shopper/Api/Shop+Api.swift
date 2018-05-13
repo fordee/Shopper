@@ -12,5 +12,4 @@ extension Shop {
 	static func fetchShops() -> Promise<[Shop]> {
 		return api.fetchShops()
 	}
-
 }

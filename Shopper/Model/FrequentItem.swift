@@ -9,10 +9,6 @@
 import Foundation
 import IGListKit
 
-protocol FrequentItemDelegate: class {
-	func frequentItemDidUpdateMessages()
-}
-
 public class FrequentItem: Equatable {
 
 	public static func == (lhs: FrequentItem, rhs: FrequentItem) -> Bool {

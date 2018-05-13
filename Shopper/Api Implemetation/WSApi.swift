@@ -28,6 +28,8 @@ class WSApi: ApiInterface {
 	}
 
 	// Set the type you want back and call the endpoint you need.
+
+	// MARK: To Do's
 	func fetchToDos() -> Promise<[ToDo]> {
 		print("Fetching To Do's...")
 		return ws.get("/items")
@@ -50,6 +52,7 @@ class WSApi: ApiInterface {
 		return ws.delete(path)
 	}
 
+	// MARK: Frequent Items
 	func fetchFrequentItems() -> Promise<[FrequentItem]> {
 		print("Fetching To Do's...")
 		return ws.get("/common-items")
@@ -61,9 +64,22 @@ class WSApi: ApiInterface {
 		return ws.post(path, params: params)
 	}
 
+	// MARK: Shops
 	func fetchShops() -> Promise<[Shop]> {
 		print("Fetching Shops...")
 		return ws.get("/shops")
+	}
+
+	// MARK: Aisles
+	func deleteAisle(path: String) -> Promise<Void> {
+		print("Deleting Aisle")
+		return ws.delete(path)
+	}
+
+	func addAisle(path: String, params: Params) -> Promise<Aisle> {
+		print("Adding Aisle")
+		ws.postParameterEncoding = JSONEncoding.default
+		return ws.post(path, params: params)
 	}
 
 }
