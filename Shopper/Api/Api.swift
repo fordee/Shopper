@@ -23,6 +23,10 @@ protocol ApiInterface {
 	// Aisles
 	func deleteAisle(path: String) -> Promise<Void>
 	func addAisle(path: String, params: Params) -> Promise<Aisle>
+
+	// Categories
+	func addCategory(path: String, params: Params) -> Promise<String>
+	func deleteCategory(path: String) -> Promise<Void>
 }
 
 var api: ApiInterface!

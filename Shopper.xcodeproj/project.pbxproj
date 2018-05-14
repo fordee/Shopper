@@ -49,6 +49,13 @@
 		49BAC15B20A6873E00F3C4BD /* ShopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAC15A20A6873E00F3C4BD /* ShopCell.swift */; };
 		49BAC15D20A767AD00F3C4BD /* AisleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAC15C20A767AD00F3C4BD /* AisleCell.swift */; };
 		49BAC16020A7928E00F3C4BD /* Aisle+Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAC15F20A7928E00F3C4BD /* Aisle+Api.swift */; };
+		49BAC16220A7DC1C00F3C4BD /* EditAisleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAC16120A7DC1C00F3C4BD /* EditAisleVC.swift */; };
+		49BAC16420A7DCD200F3C4BD /* EditAisleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAC16320A7DCD200F3C4BD /* EditAisleView.swift */; };
+		49BAC16620A7E06900F3C4BD /* AisleSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAC16520A7E06900F3C4BD /* AisleSectionController.swift */; };
+		49BAC16820A7E0E000F3C4BD /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAC16720A7E0E000F3C4BD /* CategoryCell.swift */; };
+		49BAC16A20A7FD5300F3C4BD /* AisleCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAC16920A7FD5300F3C4BD /* AisleCategory.swift */; };
+		49BAC16C20A8B43700F3C4BD /* Aisle+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAC16B20A8B43700F3C4BD /* Aisle+JSON.swift */; };
+		49BAC16E20A8B47600F3C4BD /* String+Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAC16D20A8B47600F3C4BD /* String+Api.swift */; };
 		49C01FA7208AA69900FE4C9B /* Api.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49C01FA6208AA69900FE4C9B /* Api.plist */; };
 		49C01FA9208BFB2D00FE4C9B /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C01FA8208BFB2D00FE4C9B /* AddItemView.swift */; };
 		49C01FAB208BFD2200FE4C9B /* AddItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C01FAA208BFD2200FE4C9B /* AddItemVC.swift */; };
@@ -130,6 +137,13 @@
 		49BAC15A20A6873E00F3C4BD /* ShopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCell.swift; sourceTree = "<group>"; };
 		49BAC15C20A767AD00F3C4BD /* AisleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AisleCell.swift; sourceTree = "<group>"; };
 		49BAC15F20A7928E00F3C4BD /* Aisle+Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Aisle+Api.swift"; sourceTree = "<group>"; };
+		49BAC16120A7DC1C00F3C4BD /* EditAisleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAisleVC.swift; sourceTree = "<group>"; };
+		49BAC16320A7DCD200F3C4BD /* EditAisleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAisleView.swift; sourceTree = "<group>"; };
+		49BAC16520A7E06900F3C4BD /* AisleSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AisleSectionController.swift; sourceTree = "<group>"; };
+		49BAC16720A7E0E000F3C4BD /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		49BAC16920A7FD5300F3C4BD /* AisleCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AisleCategory.swift; sourceTree = "<group>"; };
+		49BAC16B20A8B43700F3C4BD /* Aisle+JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Aisle+JSON.swift"; sourceTree = "<group>"; };
+		49BAC16D20A8B47600F3C4BD /* String+Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Api.swift"; sourceTree = "<group>"; };
 		49C01FA6208AA69900FE4C9B /* Api.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Api.plist; sourceTree = "<group>"; };
 		49C01FA8208BFB2D00FE4C9B /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
 		49C01FAA208BFD2200FE4C9B /* AddItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemVC.swift; sourceTree = "<group>"; };
@@ -192,6 +206,7 @@
 			children = (
 				494764432093B62B008813B1 /* FrequentItemsSectionController.swift */,
 				49BAC15820A684B500F3C4BD /* ShopSectionController.swift */,
+				49BAC16520A7E06900F3C4BD /* AisleSectionController.swift */,
 			);
 			path = "Section Controllers";
 			sourceTree = "<group>";
@@ -204,6 +219,7 @@
 				49C01FAA208BFD2200FE4C9B /* AddItemVC.swift */,
 				49A747F9208FF34E003F259A /* FrequentItemVC.swift */,
 				49BAC15620A6835E00F3C4BD /* ShopVC.swift */,
+				49BAC16120A7DC1C00F3C4BD /* EditAisleVC.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -216,6 +232,7 @@
 				49C01FA8208BFB2D00FE4C9B /* AddItemView.swift */,
 				49A747FB208FF359003F259A /* ShopView.swift */,
 				49A7480D20924D6F003F259A /* EditFrequentItemsView.swift */,
+				49BAC16320A7DCD200F3C4BD /* EditAisleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -234,6 +251,8 @@
 				49E5DDF6209E407000F6C238 /* CategoryHeaderView.swift */,
 				49BAC15A20A6873E00F3C4BD /* ShopCell.swift */,
 				49BAC15C20A767AD00F3C4BD /* AisleCell.swift */,
+				49BAC16720A7E0E000F3C4BD /* CategoryCell.swift */,
+				49BAC16920A7FD5300F3C4BD /* AisleCategory.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -263,6 +282,7 @@
 				49C01FB0208C273100FE4C9B /* FrequentItem+Api.swift */,
 				49BAC15020A633BC00F3C4BD /* Shop+Api.swift */,
 				49BAC15F20A7928E00F3C4BD /* Aisle+Api.swift */,
+				49BAC16D20A8B47600F3C4BD /* String+Api.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -274,6 +294,7 @@
 				99EC7ADF1E3F71DD008BBBA5 /* ToDo+JSON.swift */,
 				49C01FAE208C1D7200FE4C9B /* FrequentItem+JSON.swift */,
 				49BAC15220A6346E00F3C4BD /* Shop+JSON.swift */,
+				49BAC16B20A8B43700F3C4BD /* Aisle+JSON.swift */,
 			);
 			path = "Api Implemetation";
 			sourceTree = "<group>";
@@ -532,7 +553,9 @@
 				49E5DDF9209E4F3500F6C238 /* FrequentItemDataSource.swift in Sources */,
 				49A7480E20924D6F003F259A /* EditFrequentItemsView.swift in Sources */,
 				49D5D17420A21425006A5CF7 /* Change.swift in Sources */,
+				49BAC16A20A7FD5300F3C4BD /* AisleCategory.swift in Sources */,
 				49C01FA9208BFB2D00FE4C9B /* AddItemView.swift in Sources */,
+				49BAC16820A7E0E000F3C4BD /* CategoryCell.swift in Sources */,
 				49BAC15B20A6873E00F3C4BD /* ShopCell.swift in Sources */,
 				49BAC15D20A767AD00F3C4BD /* AisleCell.swift in Sources */,
 				496139802082938C0083D3E8 /* ToDo+Api.swift in Sources */,
@@ -540,6 +563,7 @@
 				49D5D17A20A21630006A5CF7 /* IndexPathConverter.swift in Sources */,
 				49A747F7208FD56B003F259A /* MenuCell+MenuItem.swift in Sources */,
 				49BAC15920A684B500F3C4BD /* ShopSectionController.swift in Sources */,
+				49BAC16420A7DCD200F3C4BD /* EditAisleView.swift in Sources */,
 				49A291B4208E5C4E006675CC /* Animation.swift in Sources */,
 				493A3617208FC70900E2B74E /* UISideMenuNavigationController.swift in Sources */,
 				494764442093B62B008813B1 /* FrequentItemsSectionController.swift in Sources */,
@@ -554,6 +578,7 @@
 				49D5D17820A21496006A5CF7 /* DeepDiff.swift in Sources */,
 				4961397820828F660083D3E8 /* ToDoCell.swift in Sources */,
 				49D5D17020A21332006A5CF7 /* WagnerFischer.swift in Sources */,
+				49BAC16E20A8B47600F3C4BD /* String+Api.swift in Sources */,
 				493A3615208FC70900E2B74E /* SideMenuTransition.swift in Sources */,
 				49FF5EAB20A367BC00C14A14 /* Shop.swift in Sources */,
 				49A747F1208FD28E003F259A /* MenuVC.swift in Sources */,
@@ -562,10 +587,12 @@
 				49A291AC208E5B6A006675CC /* ViewAnimator.swift in Sources */,
 				99EC7AEF1E3F71DD008BBBA5 /* WSApi.swift in Sources */,
 				49C01FAB208BFD2200FE4C9B /* AddItemVC.swift in Sources */,
+				49BAC16220A7DC1C00F3C4BD /* EditAisleVC.swift in Sources */,
 				49D80DE220952B5900AB8AFC /* Utility.swift in Sources */,
 				49D80DE020951E7F00AB8AFC /* PickerManger.swift in Sources */,
 				49BAC16020A7928E00F3C4BD /* Aisle+Api.swift in Sources */,
 				49A747FE2090F967003F259A /* Dimensions.swift in Sources */,
+				49BAC16620A7E06900F3C4BD /* AisleSectionController.swift in Sources */,
 				49A291B2208E5C11006675CC /* ViewAnimatorConfig.swift in Sources */,
 				49BAC15720A6835E00F3C4BD /* ShopVC.swift in Sources */,
 				49E5DDFD209E508700F6C238 /* CategorizedItemsDataSource.swift in Sources */,
@@ -574,6 +601,7 @@
 				49D80DE6209581E200AB8AFC /* Category.swift in Sources */,
 				49C01FAD208C1CFE00FE4C9B /* FrequentItem.swift in Sources */,
 				49A747EF208FD249003F259A /* MenuView.swift in Sources */,
+				49BAC16C20A8B43700F3C4BD /* Aisle+JSON.swift in Sources */,
 				49A291B8208E5CDB006675CC /* Direction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

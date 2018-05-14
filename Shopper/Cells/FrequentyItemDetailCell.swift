@@ -97,7 +97,7 @@ class FrequentItemDetailCell: UICollectionViewCell {
 				print("Tapped, value: \(value), index: \(index)")
 				let item = FrequentItem(shoppingItem: self.shoppingItem, frequency: self.frequency, category: self.category)
 				item.save().then { _ in
-					CategorizedItemsDataSource.updateItem(item) // TODO: Cahneg to categorized Item Data Source
+					CategorizedItemsDataSource.updateItem(item) 
 				}.onError() { e in
 					print("Error: \(e)")
 				}

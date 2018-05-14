@@ -3,7 +3,7 @@
 //  Shopper
 //
 //  Created by John Forde on 12/5/18.
-//  Copyright © 2018 freshOS. All rights reserved.
+//  Copyright © 2018 4Dware. All rights reserved.
 //
 
 import UIKit
@@ -19,6 +19,7 @@ protocol ShopDelegate: class {
 class ShopVC: UIViewController {
 	let v = ShopView()
 	var shopDataSource = ShopsDataSource.shops
+	var editAisleVC: EditAisleVC? = nil
 
 	lazy var adapter: ListAdapter = {
 		return ListAdapter(updater: ListAdapterUpdater(), viewController: self, workingRangeSize: 0)
@@ -41,8 +42,14 @@ class ShopVC: UIViewController {
 		return true
 	}
 
+	@objc private func closeButtonTapped() {
+		print("Close button tapped.")
+		editAisleVC?.dismiss(animated: true, completion: nil)
+	}
+
 }
 
+// MARK: List Adapter Data Source
 extension ShopVC: ListAdapterDataSource {
 	func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
 		return ShopsDataSource.shops
@@ -59,6 +66,7 @@ extension ShopVC: ListAdapterDataSource {
 	}
 }
 
+// MARK: Shop Delegate
 extension ShopVC: ShopDelegate {
 
 	func shopDidUpdateMessages() {
@@ -85,6 +93,13 @@ extension ShopVC: ShopDelegate {
 
 	func aisleEdit(shop: Shop, aisle: Aisle) {
 		print("Aisle Edit: \(shop),  \(aisle)")
+		editAisleVC = EditAisleVC()
+		editAisleVC?.aisleDataSource = [aisle]
+		editAisleVC?.v.closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
+		editAisleVC?.shop = shop
+		editAisleVC?.aisleNumber = aisle.aisleNumber
+		//editAisleVC?.delegate = self
+		present(editAisleVC!, animated: true, completion: nil)
 	}
 
 	func aisleAdd(shop: Shop) {

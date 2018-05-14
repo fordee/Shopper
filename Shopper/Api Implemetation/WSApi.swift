@@ -82,4 +82,16 @@ class WSApi: ApiInterface {
 		return ws.post(path, params: params)
 	}
 
+	// MARK: Categories
+	func addCategory(path: String, params: Params) -> Promise<String> {
+		print("Adding Category")
+		ws.postParameterEncoding = JSONEncoding.default
+		return ws.post(path, params: params)
+	}
+
+	func deleteCategory(path: String) -> Promise<Void> {
+		print("Deleting Category")
+		return ws.delete(path)
+	}
+
 }

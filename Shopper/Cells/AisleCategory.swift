@@ -1,4 +1,12 @@
 //
+//  AisleCategory.swift
+//  Shopper
+//
+//  Created by John Forde on 13/5/18.
+//  Copyright © 2018 freshOS. All rights reserved.
+//
+
+//
 //  AisleCell.swift
 //  Shopper
 //
@@ -9,21 +17,20 @@
 import UIKit
 import Stevia
 
-class AisleCell: UICollectionViewCell {
+class AisleCategoryCell: UICollectionViewCell {
 
-	var shop: Shop?
 	var aisle: Aisle? {
 		didSet {
 			aisleLabel.text = aisle!.title
 			aisleNumberLabel.text = aisle!.aisleNumber
 		}
 	}
+	var shopName: String? = nil
 
 	var aisleLabel = UILabel()
 	var aisleNumberLabel = UILabel()
-	var editButton = UIButton()
-	var deleteButton = UIButton()
-	weak var delegate: ShopDelegate?
+	var addButton = UIButton()
+	weak var delegate: AisleDelegate?
 
 	var cellHeight: CGFloat {
 		print(aisleLabel.numberOfLines)
@@ -50,40 +57,29 @@ class AisleCell: UICollectionViewCell {
 				l.textAlignment = .right
 				l.size(24)
 			},
-			editButton.style { b in
+			addButton.style { b in
 				b.size(24)
-				b.image("edit")
-				b.addTarget(self, action: #selector(editButtonTapped), for: .touchUpInside)
-			},
-			deleteButton.style { b in
-				b.size(24)
-				b.image("delete")
-				b.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
+				b.image("add")
+				b.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
 			}
 		)
 
 		layout(
-			6,
-			|-8-aisleNumberLabel-16-aisleLabel-(>=16)-editButton-8-deleteButton-8-|,
-			20
+				6,
+				|-8-aisleNumberLabel-16-aisleLabel-(>=16)-addButton-8-|,
+				20
 		)
-
+	
 		// Configure visual elements
 		backgroundColor = UIColor.white
 	}
 
-	@objc private func editButtonTapped() {
-		delegate?.aisleEdit(shop: shop!, aisle: aisle!)
-	}
-
-	@objc private func deleteButtonTapped() {
-		if let shop = shop, let aisle = aisle {
-			delegate?.aisleDelete(shop: shop, aisle: aisle)
+	@objc private func addButtonTapped() {
+		print("Add button tapped.")
+		if let aisle = aisle, let shopName = shopName {
+			delegate?.categoryAdd(aisle: aisle, shopName: shopName)
 		}
 	}
 
-	@objc private func addButtonTapped() {
-		print("Add button tapped.")
-	}
-
 }
+

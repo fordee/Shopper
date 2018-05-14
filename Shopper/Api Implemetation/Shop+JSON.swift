@@ -16,12 +16,5 @@ extension Shop : ArrowParsable {
 
 }
 
-extension Aisle : ArrowParsable {
 
-	public mutating func deserialize(_ json: JSON) {
-		title <-- json["title"]
-		aisleNumber <-- json["aisleNumber"]
-		categories <-- json["categories"]
-	}
-}
 

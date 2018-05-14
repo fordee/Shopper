@@ -6,9 +6,9 @@
 //  Copyright © 2018 4DWare. All rights reserved.
 //
 
-import Foundation
+import IGListKit
 
-struct Aisle: Equatable, CustomStringConvertible {
+class Aisle: Equatable, CustomStringConvertible {
 	var title = ""
 	var aisleNumber = ""
 	var categories: [String] = []
@@ -28,7 +28,7 @@ struct Aisle: Equatable, CustomStringConvertible {
 		self.aisleNumber = aisleNumber
 	}
 
-	init() {
+	required init() {
 
 	}
 
@@ -39,6 +39,16 @@ struct Aisle: Equatable, CustomStringConvertible {
 	// MARK: Equatable Protocol
 	static func == (lhs: Aisle, rhs: Aisle) -> Bool {
 		return lhs.title > rhs.title
+	}
+}
+
+extension Aisle: ListDiffable {
+	public func diffIdentifier() -> NSObjectProtocol {
+		return title as NSObjectProtocol
+	}
+
+	public func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
+		return self == object as? Aisle
 	}
 }
 

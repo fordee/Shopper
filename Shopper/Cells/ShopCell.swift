@@ -3,7 +3,7 @@
 //  Shopper
 //
 //  Created by John Forde on 12/5/18.
-//  Copyright © 2018 freshOS. All rights reserved.
+//  Copyright © 2018 4Dware. All rights reserved.
 //
 
 import Stevia
