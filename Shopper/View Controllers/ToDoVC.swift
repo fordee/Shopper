@@ -28,51 +28,30 @@ class ToDoVC: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
+		NotificationCenter.default.addObserver(self, selector: #selector(refreshShops), name: .refreshShops, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(refreshTodos), name: .refreshTodos, object: nil)
 		setupBurgerMenu()
 		setupVC()
 		setupTableView()
 		setupFAB()
-		refresh()
+		ToDosDataSource.refresh()
 		ShopsDataSource.refresh()
-		NotificationCenter.default.addObserver(self, selector: #selector(refreshShops), name: .refreshShops, object: nil)
 	}
 
 	override var prefersStatusBarHidden: Bool {
 		return true
 	}
 
-	@objc	func refresh() {
-		ToDo.fetchToDos().then { fetchedToDos in
-			self.toDos = fetchedToDos.filter { toDo in
-				return toDo.category == "Shopping"
-			}
-			}.onError { e in
-				print(e)
-			}.finally {
-				// In any case, reload the tableView
-				self.toDos.sort() { lhs, rhs in
-					if (lhs.done != rhs.done) {
-						if lhs.done == "false" {
-							return true
-						} else {
-							return false
-						}
-					}
-					if lhs.shoppingCategory > rhs.shoppingCategory {
-						return true
-					}
-					return false
-				}
-				if self.shops.count > 0 { // whichever finishes last
-					self.refreshShops()
-				}
-//				self.items = Array(repeating: nil, count: 20)
-//				self.v.tableView.reloadData()
-//				UIView.animate(views: self.v.tableView.visibleCells, animations: self.animations) {
-//				}
-				self.v.refreshControl.endRefreshing()
+	@objc func refresh() {
+		ToDosDataSource.refresh()
+	}
+
+	@objc func refreshTodos() {
+		toDos = ToDosDataSource.todos
+		if self.shops.count > 0 { // whichever finishes last
+			self.refreshShops()
 		}
+		self.v.refreshControl.endRefreshing()
 	}
 
 	@objc func refreshShops() {
@@ -83,11 +62,16 @@ class ToDoVC: UIViewController {
 			UIView.animate(views: self.v.tableView.visibleCells, animations: self.animations) {
 			}
 		}
+		self.v.refreshControl.endRefreshing()
 	}
 
 	@objc func clearItems(sender: Any) {
-		let itemsToClear = toDos.filter { toDo in
-			return toDo.isDone
+		var itemsToClear: [ToDo] = []
+		for item in shoppingItems {
+			let clear = item.toDos.filter { toDo in
+				return toDo.isDone
+			}
+			itemsToClear.append(contentsOf: clear)
 		}
 		for toDo in itemsToClear {
 			if toDo == itemsToClear.last! { // Refresh if this is the last one.
@@ -157,7 +141,7 @@ class ToDoVC: UIViewController {
 
 }
 
-// MARK: TAble View Data Source
+// MARK: Table View Data Source
 extension ToDoVC: UITableViewDataSource {
 
 	func numberOfSections(in tableView: UITableView) -> Int {
@@ -165,16 +149,16 @@ extension ToDoVC: UITableViewDataSource {
 	}
 
 	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-		return shoppingItems[section].aisleName
+		return "\(shoppingItems[section].aisleNumber)\(shoppingItems[section].aisleNumber == "" ? "" : ".") \(shoppingItems[section].aisleName)"
 	}
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return shoppingItems[section].toDos.count//toDos.count
+		return shoppingItems[section].toDos.count
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		if let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoCell", for: indexPath) as? ToDoCell {
-			let toDo = shoppingItems[indexPath.section].toDos[indexPath.row]//toDos[indexPath.row]
+			let toDo = shoppingItems[indexPath.section].toDos[indexPath.row]
 			cell.render(with: toDo)
 			return cell
 		}
@@ -185,10 +169,13 @@ extension ToDoVC: UITableViewDataSource {
 // MARK: Table View Delegate
 extension ToDoVC: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		tableView.deselectRow(at: indexPath, animated: true)
 		shoppingItems[indexPath.section].toDos[indexPath.row].toggleDone()
 		shoppingItems[indexPath.section].toDos[indexPath.row].update().then() {_ in
-			self.refresh()
+			self.v.tableView.reloadData()
 			}.onError { e in
+				// It failed, so revert item back
+				self.shoppingItems[indexPath.section].toDos[indexPath.row].toggleDone()
 				print(e)
 		}
 	}

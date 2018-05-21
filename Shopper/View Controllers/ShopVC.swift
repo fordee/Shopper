@@ -10,7 +10,6 @@ import UIKit
 import IGListKit
 
 protocol ShopDelegate: class {
-	//func shopDidUpdateMessages()
 	func aisleDelete(shop: Shop, aisle: Aisle)
 	func aisleEdit(shop: Shop, aisle: Aisle)
 	func aisleAdd(shop: Shop)
@@ -31,18 +30,15 @@ class ShopVC: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		// Setup Notification Observer
+		NotificationCenter.default.addObserver(self, selector: #selector(shopDidUpdateMessages), name: .refreshShops, object: nil)
+
 		// Add button
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
 
 		// Setup IGListView Adapter
 		adapter.collectionView = v.listView
 		adapter.dataSource = self
-
-		// Setup Data Source
-		ShopsDataSource.refresh()
-
-		// Setup Notification Observer
-		NotificationCenter.default.addObserver(self, selector: #selector(shopDidUpdateMessages), name: .refreshShops, object: nil)
 	}
 
 	override var prefersStatusBarHidden: Bool {
@@ -88,10 +84,7 @@ class ShopVC: UIViewController {
 	@objc func shopDidUpdateMessages() {
 		adapter.performUpdates(animated: true)
 	}
-
 }
-
-
 
 // MARK: List Adapter Data Source
 extension ShopVC: ListAdapterDataSource {
@@ -112,9 +105,6 @@ extension ShopVC: ListAdapterDataSource {
 
 // MARK: Shop Delegate
 extension ShopVC: ShopDelegate {
-
-
-
 	func aisleDelete(shop: Shop, aisle: Aisle) {
 		let alert = UIAlertController(title: "Delete aisle?",
 																	message: "Do you really want to delete aisle: \(aisle.title) for \(shop.name)?",
@@ -136,12 +126,10 @@ extension ShopVC: ShopDelegate {
 	func aisleEdit(shop: Shop, aisle: Aisle) {
 		print("Aisle Edit: \(shop),  \(aisle)")
 		editAisleVC = EditAisleVC()
-		//editAisleVC?.aisleDataSource = [aisle]
 		editAisleVC?.v.closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
 		editAisleVC?.shop = shop
 		editAisleVC?.aisleNumber = aisle.aisleNumber
 		editAisleVC?.aisles = [aisle]
-		//editAisleVC?.delegate = self
 		present(editAisleVC!, animated: true, completion: nil)
 	}
 
@@ -177,5 +165,4 @@ extension ShopVC: ShopDelegate {
 		alert.addAction(okAction)
 		present(alert, animated: true, completion: nil)
 	}
-
 }

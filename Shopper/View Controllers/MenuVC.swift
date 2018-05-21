@@ -29,7 +29,7 @@ class MenuVC: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		shops = ShopsDataSource.shops
+		NotificationCenter.default.addObserver(self, selector: #selector(refreshShops), name: .refreshShops, object: nil)
 
 		view.backgroundColor = UIColor.white
 		v.menuTableView.dataSource = self
@@ -43,14 +43,17 @@ class MenuVC: UIViewController {
 		v.selectorControl.completion = {
 			print("tapped...")
 			self.v.collapse = !self.v.collapse
-			self.shops = ShopsDataSource.shops
-			self.v.shopTableView.reloadData()
 		}
 
 //		for family in UIFont.familyNames.sorted() {
 //			let names = UIFont.fontNames(forFamilyName: family)
 //			print("Family: \(family) Font names: \(names)")
 //		}
+	}
+
+	@objc func refreshShops() {
+		shops = ShopsDataSource.shops
+		v.shopTableView.reloadData()
 	}
 
 }

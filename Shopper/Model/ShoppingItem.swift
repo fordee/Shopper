@@ -10,6 +10,7 @@ import Foundation
 
 struct ShoppingItem {
 
+	var aisleNumber: String
 	var aisleName: String
 	var toDos: [ToDo]
 
@@ -43,7 +44,7 @@ struct ShoppingItem {
 				}
 			}
 			if toDosToAdd.count > 0 {
-				shoppingItems.append(ShoppingItem(aisleName: aisle.title, toDos: toDosToAdd))
+				shoppingItems.append(ShoppingItem(aisleNumber: aisle.aisleNumber, aisleName: aisle.title, toDos: toDosToAdd))
 			}
 		}
 
@@ -56,7 +57,7 @@ struct ShoppingItem {
 			}
 		}
 		if uncategorized.count > 0 {
-			shoppingItems.append(ShoppingItem(aisleName: "Uncategorised", toDos: uncategorized))
+			shoppingItems.append(ShoppingItem(aisleNumber: "", aisleName: "Uncategorised", toDos: uncategorized))
 		}
 
 		return shoppingItems

@@ -71,7 +71,7 @@ class MenuView: UIView {
 					 0)
 
 		// Configure Tablview
-		tableViewHeight = UIScreen.main.bounds.height - menuTableView.frame.origin.y // - (topImageView.bounds.height + 60)
+		tableViewHeight = UIScreen.main.bounds.height - menuTableView.frame.origin.y
 		menuTableView.separatorColor = UIColor.white
 		shopTableView.separatorColor = UIColor.white
 		
