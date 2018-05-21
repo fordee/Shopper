@@ -23,7 +23,7 @@ class EditAisleView: UIView {
 	func render() {
 		// Here we use Stevia to make our constraints more readable and maintainable.
 		sv(closeButton.style { b in
-			b.backgroundColor = UIColor.themeColor
+			b.backgroundColor = UIColor.darkGray
 			b.setTitleColor(UIColor.textColor, for: .normal)
 			b.titleLabel?.font = UIFont.backButtonFont
 			b.text("Close")

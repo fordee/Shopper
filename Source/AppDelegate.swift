@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 		api = WSApi()
 
+		getCurrentShopName()
+
 		let navigationBarAppearance = UINavigationBar.appearance()
 		let barButtonItemAppearance = UIBarButtonItem.appearance()
 
@@ -34,6 +36,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		window?.rootViewController = navController
 		window?.makeKeyAndVisible()
 		return true
+	}
+
+	private func getCurrentShopName() {
+		guard let currentShopName = UserDefaults.standard.string(forKey: "CurrentShop") else { return }
+		Shop.currentShopName = currentShopName
 	}
 
 }

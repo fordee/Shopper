@@ -38,7 +38,9 @@ class ShopSectionController: ListSectionController {
 			cell.addButton.isHidden = !expanded
 			cell.delegate = delegate
 		} else if let cell = cell as? AisleCell {
-			let aisle = shop.aisles[index - 1] // subtract one from index because first cell is Shop Name
+			let aisle = shop.aisles.sorted{ lhs, rhs in
+				return lhs.aisleNumberInt < rhs.aisleNumberInt
+				}[index - 1] // subtract one from index because first cell is Shop Name
 			cell.delegate = delegate
 			cell.shop = shop
 			cell.aisle = aisle
@@ -49,7 +51,7 @@ class ShopSectionController: ListSectionController {
 	override func sizeForItem(at index: Int) -> CGSize {
 		guard let context = collectionContext else { return .zero}
 		let width = context.containerSize.width
-		let height: CGFloat = 55
+		let height: CGFloat = index == 0 ? 55 : 65
 		return CGSize(width: width, height: height)
 	}
 

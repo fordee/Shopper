@@ -10,32 +10,76 @@ import Stevia
 
 class MenuView: UIView {
 
-	let tableView = UITableView()
+	let menuTableView = UITableView()
+	let shopTableView = UITableView()
 	let topImageView = UIImageView(image: UIImage(named: "icon2"))
+	var collapse: Bool = false  {
+		didSet {
+			var duration = 0.0
+			if collapse {
+				menuTableView.height(0.0 as CGFloat)
+				shopTableView.height(tableViewHeight)
+				duration = 0.3
+			} else {
+				menuTableView.height(tableViewHeight)
+				shopTableView.height(0.0 as CGFloat)
+				duration = 0.5
+			}
+
+			UIView.animate(withDuration: duration) {
+				self.layoutIfNeeded()
+			}
+		}
+	}
+
+	let selectorControl = MenuDropDownControl(color: UIColor.themeColor) // No completion set
+	var tableViewHeight: CGFloat = 0
+
+	@objc func onTapped() {
+		collapse = !collapse
+	}
+
+	func selectShop(shopName: String) {
+		selectorControl.shopName = shopName
+		collapse = !collapse
+		selectorControl.flashButton()
+	}
 
 	convenience init() {
 		self.init(frame:CGRect.zero)
 
 		// Here we use Stevia to make our constraints more readable and maintainable.
 		sv(topImageView,
-			tableView)
+			 selectorControl,
+			 menuTableView,
+			 shopTableView)
 		backgroundColor = UIColor.white
-		tableView.backgroundColor = UIColor.white
+		menuTableView.backgroundColor = UIColor.white
 
 		topImageView.height(Dimensions.menuWidth)
 		topImageView.contentMode = .scaleToFill
-		topImageView.backgroundColor = UIColor.purple
+		//topImageView.backgroundColor = UIColor.purple
 
 		layout(0,
 					 |topImageView|,
 					 0,
-					 |tableView|,
+					 |selectorControl.height(60)|,
+					 0,
+					 |menuTableView|,
+					 0,
+					 |shopTableView.height(0)|,
 					 0)
-		//tableView.fillContainer()
 
 		// Configure Tablview
-		tableView.separatorColor = UIColor.white
-		tableView.register(MenuCell.self, forCellReuseIdentifier: "MenuCell") // Use ToDoCell
-		tableView.estimatedRowHeight = 50 // Enable self-sizing cells
+		tableViewHeight = UIScreen.main.bounds.height - menuTableView.frame.origin.y // - (topImageView.bounds.height + 60)
+		menuTableView.separatorColor = UIColor.white
+		shopTableView.separatorColor = UIColor.white
+		
+		menuTableView.register(MenuCell.self, forCellReuseIdentifier: "MenuCell")
+		menuTableView.estimatedRowHeight = 50 // Enable self-sizing cells
+
+		shopTableView.register(ShopMenuCell.self, forCellReuseIdentifier: "ShopMenuCell") 
+		shopTableView.estimatedRowHeight = 50 // Enable self-sizing cells
 	}
+
 }

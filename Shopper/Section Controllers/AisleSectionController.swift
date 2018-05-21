@@ -3,7 +3,7 @@
 //  Shopper
 //
 //  Created by John Forde on 13/5/18.
-//  Copyright © 2018 freshOS. All rights reserved.
+//  Copyright © 2018 4DWare. All rights reserved.
 //
 
 import UIKit
@@ -48,7 +48,7 @@ class AisleSectionController: ListSectionController {
 	override func sizeForItem(at index: Int) -> CGSize {
 		guard let context = collectionContext else { return .zero}
 		let width = context.containerSize.width
-		let height: CGFloat = 55
+		let height: CGFloat = index == 0 ? 65 : 45
 		return CGSize(width: width, height: height)
 	}
 

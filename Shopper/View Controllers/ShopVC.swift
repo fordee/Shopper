@@ -10,7 +10,7 @@ import UIKit
 import IGListKit
 
 protocol ShopDelegate: class {
-	func shopDidUpdateMessages()
+	//func shopDidUpdateMessages()
 	func aisleDelete(shop: Shop, aisle: Aisle)
 	func aisleEdit(shop: Shop, aisle: Aisle)
 	func aisleAdd(shop: Shop)
@@ -31,15 +31,27 @@ class ShopVC: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		// Add button
+		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+
+		// Setup IGListView Adapter
 		adapter.collectionView = v.listView
 		adapter.dataSource = self
 
-		ShopsDataSource.delegate = self
+		// Setup Data Source
 		ShopsDataSource.refresh()
+
+		// Setup Notification Observer
+		NotificationCenter.default.addObserver(self, selector: #selector(shopDidUpdateMessages), name: .refreshShops, object: nil)
 	}
 
 	override var prefersStatusBarHidden: Bool {
 		return true
+	}
+
+	@objc private func addButtonTapped() {
+		print("Add button tapped.")
+		shopAdd()
 	}
 
 	@objc private func closeButtonTapped() {
@@ -47,7 +59,39 @@ class ShopVC: UIViewController {
 		editAisleVC?.dismiss(animated: true, completion: nil)
 	}
 
+	private func shopAdd() {
+		print("Shop Add")
+		let alert = UIAlertController(title: "New Shop", message: "Add a new Shop", preferredStyle: .alert)
+		alert.addTextField { textField in
+			textField.borderStyle = .roundedRect
+			textField.placeholder("Shop Name")
+			textField.keyboardType = .alphabet
+			textField.autocapitalizationType = .words
+			textField.returnKeyType = .done
+		}
+		let okAction = UIAlertAction(title: "OK", style: .default) { [weak alert] (_) in
+			let shopName = alert!.textFields![0].text!
+			print("OK: \(shopName)")
+			let shop = Shop(name: shopName)
+			shop.save().then {_ in
+				ShopsDataSource.refresh()
+				}.onError { e in
+					print(e)
+			}
+		}
+		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+		alert.addAction(cancelAction)
+		alert.addAction(okAction)
+		present(alert, animated: true, completion: nil)
+	}
+
+	@objc func shopDidUpdateMessages() {
+		adapter.performUpdates(animated: true)
+	}
+
 }
+
+
 
 // MARK: List Adapter Data Source
 extension ShopVC: ListAdapterDataSource {
@@ -69,9 +113,7 @@ extension ShopVC: ListAdapterDataSource {
 // MARK: Shop Delegate
 extension ShopVC: ShopDelegate {
 
-	func shopDidUpdateMessages() {
-		adapter.performUpdates(animated: true)
-	}
+
 
 	func aisleDelete(shop: Shop, aisle: Aisle) {
 		let alert = UIAlertController(title: "Delete aisle?",
@@ -94,10 +136,11 @@ extension ShopVC: ShopDelegate {
 	func aisleEdit(shop: Shop, aisle: Aisle) {
 		print("Aisle Edit: \(shop),  \(aisle)")
 		editAisleVC = EditAisleVC()
-		editAisleVC?.aisleDataSource = [aisle]
+		//editAisleVC?.aisleDataSource = [aisle]
 		editAisleVC?.v.closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
 		editAisleVC?.shop = shop
 		editAisleVC?.aisleNumber = aisle.aisleNumber
+		editAisleVC?.aisles = [aisle]
 		//editAisleVC?.delegate = self
 		present(editAisleVC!, animated: true, completion: nil)
 	}

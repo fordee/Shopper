@@ -19,6 +19,7 @@ protocol ApiInterface {
 
 	// Shops
 	func fetchShops() -> Promise<[Shop]>
+	func addShop(path: String, params: Params) -> Promise<Shop>
 
 	// Aisles
 	func deleteAisle(path: String) -> Promise<Void>

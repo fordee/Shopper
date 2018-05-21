@@ -19,7 +19,9 @@ class ToDoVC: UIViewController {
 	}
 
 	// We need to store an array of ToDo's
-	var toDos = [ToDo]()
+	var toDos: [ToDo] = []
+	var shops: [Shop] = []
+	var shoppingItems: [ShoppingItem] = []
 
 	private var items = [Any?]()
 	private let animations = [AnimationType.from(direction: .right, offset: 30.0)]
@@ -32,7 +34,8 @@ class ToDoVC: UIViewController {
 		setupTableView()
 		setupFAB()
 		refresh()
-
+		ShopsDataSource.refresh()
+		NotificationCenter.default.addObserver(self, selector: #selector(refreshShops), name: .refreshShops, object: nil)
 	}
 
 	override var prefersStatusBarHidden: Bool {
@@ -49,19 +52,36 @@ class ToDoVC: UIViewController {
 			}.finally {
 				// In any case, reload the tableView
 				self.toDos.sort() { lhs, rhs in
-					if (lhs.done != rhs.done) && lhs.done == "false" {
-						return true
+					if (lhs.done != rhs.done) {
+						if lhs.done == "false" {
+							return true
+						} else {
+							return false
+						}
 					}
 					if lhs.shoppingCategory > rhs.shoppingCategory {
 						return true
 					}
 					return false
 				}
-				self.items = Array(repeating: nil, count: 20)
-				self.v.tableView.reloadData()
-				UIView.animate(views: self.v.tableView.visibleCells, animations: self.animations) {
+				if self.shops.count > 0 { // whichever finishes last
+					self.refreshShops()
 				}
+//				self.items = Array(repeating: nil, count: 20)
+//				self.v.tableView.reloadData()
+//				UIView.animate(views: self.v.tableView.visibleCells, animations: self.animations) {
+//				}
 				self.v.refreshControl.endRefreshing()
+		}
+	}
+
+	@objc func refreshShops() {
+		shops = ShopsDataSource.shops
+		if toDos.count > 0, let currentShopName = Shop.currentShopName {
+			shoppingItems = ShoppingItem.getShoppingItems(from: shops, todos: toDos, currentShopName: currentShopName)
+			v.tableView.reloadData()
+			UIView.animate(views: self.v.tableView.visibleCells, animations: self.animations) {
+			}
 		}
 	}
 
@@ -137,14 +157,24 @@ class ToDoVC: UIViewController {
 
 }
 
+// MARK: TAble View Data Source
 extension ToDoVC: UITableViewDataSource {
+
+	func numberOfSections(in tableView: UITableView) -> Int {
+		return shoppingItems.count
+	}
+
+	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		return shoppingItems[section].aisleName
+	}
+
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return toDos.count
+		return shoppingItems[section].toDos.count//toDos.count
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		if let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoCell", for: indexPath) as? ToDoCell {
-			let toDo = toDos[indexPath.row]
+			let toDo = shoppingItems[indexPath.section].toDos[indexPath.row]//toDos[indexPath.row]
 			cell.render(with: toDo)
 			return cell
 		}
@@ -152,10 +182,11 @@ extension ToDoVC: UITableViewDataSource {
 	}
 }
 
+// MARK: Table View Delegate
 extension ToDoVC: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		toDos[indexPath.row].toggleDone()
-		toDos[indexPath.row].update().then() {_ in
+		shoppingItems[indexPath.section].toDos[indexPath.row].toggleDone()
+		shoppingItems[indexPath.section].toDos[indexPath.row].update().then() {_ in
 			self.refresh()
 			}.onError { e in
 				print(e)
@@ -163,6 +194,7 @@ extension ToDoVC: UITableViewDelegate {
 	}
 }
 
+// MARK: Add Delegate
 extension ToDoVC: AddDelegate {
 	func addShoppingItem(addViewController: AddItemVC) {
 		if let item = addViewController.toDoItem {

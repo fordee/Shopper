@@ -9,7 +9,7 @@
 import UIKit
 
 struct Dimensions {
-	static let menuWidth: CGFloat = 180
+	static let menuWidth: CGFloat = 220
 	static let frequentItemListCellHeight: CGFloat = 60
 	static let cellRadius: CGFloat = 8
 }

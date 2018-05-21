@@ -70,6 +70,12 @@ class WSApi: ApiInterface {
 		return ws.get("/shops")
 	}
 
+	func addShop(path: String, params: Params) -> Promise<Shop> {
+		print("Adding Shop")
+		ws.postParameterEncoding = JSONEncoding.default
+		return ws.post(path, params: params)
+	}
+
 	// MARK: Aisles
 	func deleteAisle(path: String) -> Promise<Void> {
 		print("Deleting Aisle")

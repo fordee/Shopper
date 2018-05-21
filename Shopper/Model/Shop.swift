@@ -17,9 +17,19 @@ class Shop: Equatable, CustomStringConvertible {
 		return name + String(" Aisle: \(aisles)")
 	}
 
-	init(name: String, locationName: String, aisles: [Aisle]) {
+	static var currentShopName: String? = nil {
+		didSet {
+			UserDefaults.standard.setValue(currentShopName, forKey: "CurrentShop")
+		}
+	}
+
+	init(name: String, aisles: [Aisle]) {
 		self.name = name
 		self.aisles = aisles
+	}
+
+	init(name: String) {
+		self.name = name
 	}
 
 	required init() {
@@ -41,3 +51,5 @@ extension Shop: ListDiffable {
 		return self == object as? Shop
 	}
 }
+
+

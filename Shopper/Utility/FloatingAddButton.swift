@@ -56,8 +56,8 @@ class FloatingAddButton: UIControl {
 	}()
 
 	// MARK: init()
-	convenience init(color: UIColor = UIColor.red, completion: (()->())?) {
-		self.init()
+	init(color: UIColor = UIColor.red, completion: (()->())?) {
+		super.init(frame: .zero)
 		self.controlColor = color
 		self.completion = completion
 
@@ -67,8 +67,12 @@ class FloatingAddButton: UIControl {
 		width(controlWidth)
 		height(controlHeight)
 
-		controlBackgroundLayer.fillColor = controlColor.cgColor
+		controlBackgroundLayer.backgroundColor = controlColor.cgColor
 		addLayersToControl()
+	}
+
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
 	}
 
 	// MARK: Overrides
@@ -114,7 +118,6 @@ class FloatingAddButton: UIControl {
 			l.bounds = bounds
 		}
 		controlBackgroundLayer.cornerRadius = bounds.width / 2
-		controlBackgroundLayer.backgroundColor = controlColor.cgColor
 	}
 
 	private func addLayersToControl() {

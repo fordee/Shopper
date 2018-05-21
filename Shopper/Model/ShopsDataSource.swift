@@ -10,8 +10,6 @@ import Foundation
 
 public class ShopsDataSource {
 
-	static weak var delegate: ShopDelegate?
-
 	static var shops: [Shop] = []
 
 	@objc	static func refresh() {
@@ -20,17 +18,11 @@ public class ShopsDataSource {
 		}.onError { e in
 			print(e)
 		}.finally {
-			self.delegate?.shopDidUpdateMessages()
+			NotificationCenter.default.post(name: .refreshShops, object: nil)
 		}
 	}
+}
 
-//	static func updateItem(_ frequentItem: FrequentItem) {
-//		for item in frequentItems {
-//			if item.shoppingItem == frequentItem.shoppingItem { // shoppingItem is unique
-//				item.category = frequentItem.category
-//				item.frequency = frequentItem.frequency
-//				return // No need to continue since it is unique
-//			}
-//		}
-//	}
+extension Notification.Name {
+	static let refreshShops = Notification.Name("refreshShops")
 }

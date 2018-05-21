@@ -24,6 +24,7 @@
 		496139802082938C0083D3E8 /* ToDo+Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4961397F2082938C0083D3E8 /* ToDo+Api.swift */; };
 		4961398220829BB80083D3E8 /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4961398120829BB80083D3E8 /* Themes.swift */; };
 		49613985208518240083D3E8 /* FloatingAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49613984208518240083D3E8 /* FloatingAddButton.swift */; };
+		49909BE520B2299C00B0EB90 /* ShoppingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49909BE420B2299C00B0EB90 /* ShoppingItem.swift */; };
 		49A291AC208E5B6A006675CC /* ViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A291AB208E5B6A006675CC /* ViewAnimator.swift */; };
 		49A291AE208E5B94006675CC /* UICollectionView+ViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A291AD208E5B94006675CC /* UICollectionView+ViewAnimator.swift */; };
 		49A291B0208E5BA1006675CC /* UITableView+ViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A291AF208E5BA1006675CC /* UITableView+ViewAnimator.swift */; };
@@ -56,6 +57,10 @@
 		49BAC16A20A7FD5300F3C4BD /* AisleCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAC16920A7FD5300F3C4BD /* AisleCategory.swift */; };
 		49BAC16C20A8B43700F3C4BD /* Aisle+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAC16B20A8B43700F3C4BD /* Aisle+JSON.swift */; };
 		49BAC16E20A8B47600F3C4BD /* String+Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAC16D20A8B47600F3C4BD /* String+Api.swift */; };
+		49BAC17220ACAFCE00F3C4BD /* SetShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAC17120ACAFCE00F3C4BD /* SetShopView.swift */; };
+		49BAC17420ACB6E200F3C4BD /* MenuDropDownControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAC17320ACB6E200F3C4BD /* MenuDropDownControl.swift */; };
+		49BAC17620B1031300F3C4BD /* ShopMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAC17520B1031300F3C4BD /* ShopMenuCell.swift */; };
+		49BAC17820B103A400F3C4BD /* ShopMenuCell+ShopItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAC17720B103A400F3C4BD /* ShopMenuCell+ShopItem.swift */; };
 		49C01FA7208AA69900FE4C9B /* Api.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49C01FA6208AA69900FE4C9B /* Api.plist */; };
 		49C01FA9208BFB2D00FE4C9B /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C01FA8208BFB2D00FE4C9B /* AddItemView.swift */; };
 		49C01FAB208BFD2200FE4C9B /* AddItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C01FAA208BFD2200FE4C9B /* AddItemVC.swift */; };
@@ -112,6 +117,7 @@
 		4961397F2082938C0083D3E8 /* ToDo+Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ToDo+Api.swift"; path = "Shopper/Api/ToDo+Api.swift"; sourceTree = SOURCE_ROOT; };
 		4961398120829BB80083D3E8 /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
 		49613984208518240083D3E8 /* FloatingAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingAddButton.swift; sourceTree = "<group>"; };
+		49909BE420B2299C00B0EB90 /* ShoppingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingItem.swift; sourceTree = "<group>"; };
 		49A291AB208E5B6A006675CC /* ViewAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAnimator.swift; sourceTree = "<group>"; };
 		49A291AD208E5B94006675CC /* UICollectionView+ViewAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+ViewAnimator.swift"; sourceTree = "<group>"; };
 		49A291AF208E5BA1006675CC /* UITableView+ViewAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+ViewAnimator.swift"; sourceTree = "<group>"; };
@@ -144,6 +150,10 @@
 		49BAC16920A7FD5300F3C4BD /* AisleCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AisleCategory.swift; sourceTree = "<group>"; };
 		49BAC16B20A8B43700F3C4BD /* Aisle+JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Aisle+JSON.swift"; sourceTree = "<group>"; };
 		49BAC16D20A8B47600F3C4BD /* String+Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Api.swift"; sourceTree = "<group>"; };
+		49BAC17120ACAFCE00F3C4BD /* SetShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetShopView.swift; sourceTree = "<group>"; };
+		49BAC17320ACB6E200F3C4BD /* MenuDropDownControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDropDownControl.swift; sourceTree = "<group>"; };
+		49BAC17520B1031300F3C4BD /* ShopMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopMenuCell.swift; sourceTree = "<group>"; };
+		49BAC17720B103A400F3C4BD /* ShopMenuCell+ShopItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShopMenuCell+ShopItem.swift"; sourceTree = "<group>"; };
 		49C01FA6208AA69900FE4C9B /* Api.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Api.plist; sourceTree = "<group>"; };
 		49C01FA8208BFB2D00FE4C9B /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
 		49C01FAA208BFD2200FE4C9B /* AddItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemVC.swift; sourceTree = "<group>"; };
@@ -233,6 +243,7 @@
 				49A747FB208FF359003F259A /* ShopView.swift */,
 				49A7480D20924D6F003F259A /* EditFrequentItemsView.swift */,
 				49BAC16320A7DCD200F3C4BD /* EditAisleView.swift */,
+				49BAC17120ACAFCE00F3C4BD /* SetShopView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -253,6 +264,8 @@
 				49BAC15C20A767AD00F3C4BD /* AisleCell.swift */,
 				49BAC16720A7E0E000F3C4BD /* CategoryCell.swift */,
 				49BAC16920A7FD5300F3C4BD /* AisleCategory.swift */,
+				49BAC17520B1031300F3C4BD /* ShopMenuCell.swift */,
+				49BAC17720B103A400F3C4BD /* ShopMenuCell+ShopItem.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -270,6 +283,7 @@
 				49FF5EAC20A36C0B00C14A14 /* Aisle.swift */,
 				49FF5EAA20A367BC00C14A14 /* Shop.swift */,
 				49BAC15420A67EF500F3C4BD /* ShopsDataSource.swift */,
+				49909BE420B2299C00B0EB90 /* ShoppingItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -303,6 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				49613984208518240083D3E8 /* FloatingAddButton.swift */,
+				49BAC17320ACB6E200F3C4BD /* MenuDropDownControl.swift */,
 				4961398120829BB80083D3E8 /* Themes.swift */,
 				49A747FD2090F967003F259A /* Dimensions.swift */,
 				49D80DDF20951E7F00AB8AFC /* PickerManger.swift */,
@@ -554,6 +569,7 @@
 				49A7480E20924D6F003F259A /* EditFrequentItemsView.swift in Sources */,
 				49D5D17420A21425006A5CF7 /* Change.swift in Sources */,
 				49BAC16A20A7FD5300F3C4BD /* AisleCategory.swift in Sources */,
+				49BAC17420ACB6E200F3C4BD /* MenuDropDownControl.swift in Sources */,
 				49C01FA9208BFB2D00FE4C9B /* AddItemView.swift in Sources */,
 				49BAC16820A7E0E000F3C4BD /* CategoryCell.swift in Sources */,
 				49BAC15B20A6873E00F3C4BD /* ShopCell.swift in Sources */,
@@ -583,6 +599,7 @@
 				49FF5EAB20A367BC00C14A14 /* Shop.swift in Sources */,
 				49A747F1208FD28E003F259A /* MenuVC.swift in Sources */,
 				4961397320828DB40083D3E8 /* Api.swift in Sources */,
+				49BAC17820B103A400F3C4BD /* ShopMenuCell+ShopItem.swift in Sources */,
 				49A291B6208E5CB9006675CC /* AnimationType.swift in Sources */,
 				49A291AC208E5B6A006675CC /* ViewAnimator.swift in Sources */,
 				99EC7AEF1E3F71DD008BBBA5 /* WSApi.swift in Sources */,
@@ -595,12 +612,15 @@
 				49BAC16620A7E06900F3C4BD /* AisleSectionController.swift in Sources */,
 				49A291B2208E5C11006675CC /* ViewAnimatorConfig.swift in Sources */,
 				49BAC15720A6835E00F3C4BD /* ShopVC.swift in Sources */,
+				49BAC17220ACAFCE00F3C4BD /* SetShopView.swift in Sources */,
+				49909BE520B2299C00B0EB90 /* ShoppingItem.swift in Sources */,
 				49E5DDFD209E508700F6C238 /* CategorizedItemsDataSource.swift in Sources */,
 				49C01FB1208C273100FE4C9B /* FrequentItem+Api.swift in Sources */,
 				49BAC15120A633BC00F3C4BD /* Shop+Api.swift in Sources */,
 				49D80DE6209581E200AB8AFC /* Category.swift in Sources */,
 				49C01FAD208C1CFE00FE4C9B /* FrequentItem.swift in Sources */,
 				49A747EF208FD249003F259A /* MenuView.swift in Sources */,
+				49BAC17620B1031300F3C4BD /* ShopMenuCell.swift in Sources */,
 				49BAC16C20A8B43700F3C4BD /* Aisle+JSON.swift in Sources */,
 				49A291B8208E5CDB006675CC /* Direction.swift in Sources */,
 			);
