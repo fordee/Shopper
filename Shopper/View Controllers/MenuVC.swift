@@ -114,6 +114,7 @@ extension MenuVC: UITableViewDelegate {
 			tableView.deselectRow(at: indexPath, animated: true)
 			Shop.currentShopName = shops[indexPath.row].name
 			NotificationCenter.default.post(name: .refreshShops, object: nil)
+			self.dismiss(animated: true)
 		}
 	}
 }

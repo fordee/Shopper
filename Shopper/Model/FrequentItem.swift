@@ -34,6 +34,12 @@ public class FrequentItem: Equatable {
 		self.frequency = frequency
 		self.category = category
 	}
+
+	public init(shoppingItem: String) {
+		self.shoppingItem = shoppingItem
+		frequency = ""
+		category = ""
+	}
 }
 
 extension FrequentItem: ListDiffable, Hashable {

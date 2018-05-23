@@ -11,6 +11,7 @@ import IGListKit
 
 protocol FrequentItemDelegate: class {
 	func frequentItemDidUpdateMessages()
+	func frequentItemDelete(item: FrequentItem)
 }
 
 class FrequentItemVC: UIViewController {
@@ -18,6 +19,7 @@ class FrequentItemVC: UIViewController {
 	let v = EditFrequentItemsView()
 	var filterSelection = false
 	var frequentItemDataSource = CategorizedItemsDataSource.categorizedItems
+	weak var delegate: FrequentItemDelegate?
 
 	lazy var adapter: ListAdapter = {
 		return ListAdapter(updater: ListAdapterUpdater(), viewController: self, workingRangeSize: 0)
@@ -61,7 +63,9 @@ extension FrequentItemVC: ListAdapterDataSource {
 	}
 
 	func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
-		return FrequentItemsSectionController()
+		let sc = FrequentItemsSectionController()
+		sc.delegate = self
+		return sc
 	}
 
 	func emptyView(for listAdapter: ListAdapter) -> UIView? {
@@ -70,9 +74,20 @@ extension FrequentItemVC: ListAdapterDataSource {
 }
 
 extension FrequentItemVC: FrequentItemDelegate {
+	func frequentItemDelete(item: FrequentItem) {
+		let alert = UIAlertController(title: "Delete Frequent Item?",
+																	message: "Do you really want to delete item: \(item.shoppingItem)?",
+			preferredStyle: .alert)
+		let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: "OK"), style: .destructive) { _ in
+			CategorizedItemsDataSource.deleteItem(item)
+		}
+		let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel"), style: .cancel, handler: nil)
+		alert.addAction(cancelAction)
+		alert.addAction(okAction)
+		present(alert, animated: true, completion: nil)
+	}
 
 	func frequentItemDidUpdateMessages() {
-		//adapter.reloadData()
 		adapter.performUpdates(animated: true)
 	}
 }

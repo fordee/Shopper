@@ -16,4 +16,10 @@ extension FrequentItem {
 	func save() -> Promise<FrequentItem> {
 		return api.saveFrequentItem(path: "/common-items", params: ["Category": category, "ShoppingItem": shoppingItem, "Frequency": frequency])
 	}
+
+	func delete() -> Promise<Void> {
+		let deleteString = "/common-items/\(shoppingItem)".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed)!
+		print("Delete String: \(deleteString)")
+		return api.delete(path: deleteString)
+	}
 }

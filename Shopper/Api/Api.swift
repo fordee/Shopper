@@ -16,6 +16,7 @@ protocol ApiInterface {
 	// Frequent Items
 	func fetchFrequentItems() -> Promise<[FrequentItem]>
 	func saveFrequentItem(path: String, params: Params) -> Promise<FrequentItem>
+	func deleteFrequentItem(path: String) -> Promise<Void>
 
 	// Shops
 	func fetchShops() -> Promise<[Shop]>

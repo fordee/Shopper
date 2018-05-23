@@ -68,5 +68,18 @@ public class CategorizedItemsDataSource {
 		catgorizeItems()
 		self.delegate?.frequentItemDidUpdateMessages()
 	}
+
+	static func deleteItem(_ item: FrequentItem) {
+		item.delete().then {
+			frequentItems = frequentItems.filter { frequentItem in
+				return frequentItem.shoppingItem != item.shoppingItem
+			}
+			catgorizeItems()
+			self.delegate?.frequentItemDidUpdateMessages()
+		}.onError { e in
+				print(e)
+		}
+	}
+
 }
 

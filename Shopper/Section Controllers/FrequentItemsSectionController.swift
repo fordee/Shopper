@@ -12,6 +12,7 @@ class FrequentItemsSectionController: ListSectionController, ListSupplementaryVi
 
 	var frequentItem: CategorizedItem!
 	var expanded = true
+	weak var delegate: FrequentItemDelegate?
 
 	override init() {
 		super.init()
@@ -34,6 +35,7 @@ class FrequentItemsSectionController: ListSectionController, ListSupplementaryVi
 		if let cell = cell as? FrequentItemSummaryCell {
 			cell.frequentItemLabel.text = frequentItem.items[index / 2].shoppingItem // Change to use render() later
 		} else if let cell = cell as? FrequentItemDetailCell {
+			cell.delegate = delegate
 			cell.shoppingItem = frequentItem.items[index / 2].shoppingItem
 			cell.frequency = frequentItem.items[index / 2].frequency
 			if frequentItem.category == "" { frequentItem.category = "No Category" }

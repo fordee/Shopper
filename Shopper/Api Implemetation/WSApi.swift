@@ -64,6 +64,11 @@ class WSApi: ApiInterface {
 		return ws.post(path, params: params)
 	}
 
+	func deleteFrequentItem(path: String) -> Promise<Void> {
+		print("Deleting Frequent Item")
+		return ws.delete(path)
+	}
+
 	// MARK: Shops
 	func fetchShops() -> Promise<[Shop]> {
 		print("Fetching Shops...")

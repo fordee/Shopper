@@ -17,6 +17,8 @@ class FrequentItemDetailCell: UICollectionViewCell {
 
 	var spacerLabel  = UILabel()
 
+	weak var delegate: FrequentItemDelegate?
+
 	var category: String = "No Category" {
 		didSet {
 			let backgroundColor = category == "No Category" ? UIColor.themeColor : Category.color(for: category)
@@ -108,6 +110,15 @@ class FrequentItemDetailCell: UICollectionViewCell {
 
 	@objc func deleteButtonTapped() {
 		print("delete button tapped.")
+		if shoppingItem != "" {
+			let commonItem = FrequentItem(shoppingItem: shoppingItem)
+			delegate?.frequentItemDelete(item: commonItem)
+//			commonItem.delete().then {
+//				print("Deleted: \(self.shoppingItem)")
+//			}.onError { e in
+//					print(e)
+//			}
+		}
 	}
 
 	private func setButtonText(_ text: String, on button: UIButton, color: UIColor = UIColor.textColor) {

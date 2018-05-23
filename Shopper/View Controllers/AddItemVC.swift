@@ -73,6 +73,10 @@ class AddItemVC: UIViewController {
 		}
 		delegate?.addShoppingItem(addViewController: self)
 		v.textField.text = ""
+		filterText = ""
+		filterItems()
+		v.tableView.reloadData()
+
 	}
 
 	@objc func closeButtonTapped() {
