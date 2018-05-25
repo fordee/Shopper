@@ -13,7 +13,7 @@ class MenuView: UIView {
 	let menuTableView = UITableView()
 	let shopTableView = UITableView()
 	let topImageView = UIImageView(image: UIImage(named: "icon2"))
-	var collapse: Bool = false  {
+	var collapse: Bool = false {
 		didSet {
 			var duration = 0.0
 			if collapse {
@@ -47,7 +47,7 @@ class MenuView: UIView {
 	}
 
 	convenience init() {
-		self.init(frame:CGRect.zero)
+		self.init(frame: CGRect.zero)
 
 		// Here we use Stevia to make our constraints more readable and maintainable.
 		sv(topImageView,
@@ -75,11 +75,11 @@ class MenuView: UIView {
 		tableViewHeight = UIScreen.main.bounds.height - shopTableView.frame.origin.y
 		menuTableView.separatorColor = UIColor.white
 		shopTableView.separatorColor = UIColor.white
-		
+
 		menuTableView.register(MenuCell.self, forCellReuseIdentifier: "MenuCell")
 		menuTableView.estimatedRowHeight = 50 // Enable self-sizing cells
 
-		shopTableView.register(ShopMenuCell.self, forCellReuseIdentifier: "ShopMenuCell") 
+		shopTableView.register(ShopMenuCell.self, forCellReuseIdentifier: "ShopMenuCell")
 		shopTableView.estimatedRowHeight = 50 // Enable self-sizing cells
 	}
 

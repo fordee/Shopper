@@ -57,4 +57,3 @@ extension FrequentItem: ListDiffable, Hashable {
 	}
 }
 
-

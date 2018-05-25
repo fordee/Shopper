@@ -14,9 +14,8 @@ class EditAisleView: UIView {
 	let closeButton = UIButton()
 	let listView = ListCollectionView(frame: CGRect.zero, listCollectionViewLayout: ListCollectionViewLayout(stickyHeaders: true, scrollDirection: .vertical, topContentInset: 0, stretchToEdge: true))
 
-
 	convenience init() {
-		self.init(frame:CGRect.zero)
+		self.init(frame: CGRect.zero)
 		render()
 	}
 
@@ -39,7 +38,4 @@ class EditAisleView: UIView {
 					 |-listView-|,
 					 8)
 	}
-
-
-
 }

@@ -35,7 +35,7 @@ class Shop: Cachable, Codable, Equatable, CustomStringConvertible {
 	}
 
 	required init() {
-		
+
 	}
 
 	// MARK: Equatable Protocol
@@ -53,5 +53,4 @@ extension Shop: ListDiffable {
 		return self == object as? Shop
 	}
 }
-
 

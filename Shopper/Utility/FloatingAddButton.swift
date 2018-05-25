@@ -12,8 +12,8 @@ import Stevia
 class FloatingAddButton: UIControl {
 
 	// MARK: Public constants
-	let controlWidth  : CGFloat = 54
-	let controlHeight : CGFloat = 54
+	let controlWidth: CGFloat = 54
+	let controlHeight: CGFloat = 54
 
 	let plusWidth: CGFloat = 4
 	let plusInset: CGFloat = 10
@@ -21,9 +21,9 @@ class FloatingAddButton: UIControl {
 
 	// MARK: Private variables
 	private var controlColor: UIColor = UIColor.red
-	private var completion: (()->())?
+	private var completion: (() -> Void)?
 
-	private lazy var controlBackgroundLayer : CAShapeLayer = {
+	private lazy var controlBackgroundLayer: CAShapeLayer = {
 		let layer = CAShapeLayer()
 		layer.contentsScale = UIScreen.main.scale
 		layer.shadowColor = UIColor.black.cgColor
@@ -35,7 +35,7 @@ class FloatingAddButton: UIControl {
 		return layer
 	}()
 
-	private lazy var controlForeground1Layer : CAShapeLayer = {
+	private lazy var controlForeground1Layer: CAShapeLayer = {
 		let layer = CAShapeLayer()
 		layer.contentsScale = UIScreen.main.scale
 		layer.backgroundColor = UIColor.clear.cgColor
@@ -45,7 +45,7 @@ class FloatingAddButton: UIControl {
 		return layer
 	}()
 
-	private lazy var controlForeground2Layer : CAShapeLayer = {
+	private lazy var controlForeground2Layer: CAShapeLayer = {
 		let layer = CAShapeLayer()
 		layer.contentsScale = UIScreen.main.scale
 		layer.backgroundColor = UIColor.clear.cgColor
@@ -56,7 +56,7 @@ class FloatingAddButton: UIControl {
 	}()
 
 	// MARK: init()
-	init(color: UIColor = UIColor.red, completion: (()->())?) {
+	init(color: UIColor = UIColor.red, completion: (() -> Void)?) {
 		super.init(frame: .zero)
 		self.controlColor = color
 		self.completion = completion
@@ -80,7 +80,7 @@ class FloatingAddButton: UIControl {
 		super.layoutSubviews()
 		layoutLayers()
 	}
-	
+
 	@objc func onTouch(sender: UIButton) {
 		print("You tapped button")
 		completion?()
@@ -114,14 +114,14 @@ class FloatingAddButton: UIControl {
 
 	// MARK: Private functions
 	private func layoutLayers() {
-		for l in [controlBackgroundLayer, controlForeground1Layer, controlForeground2Layer]  {
+		for l in [controlBackgroundLayer, controlForeground1Layer, controlForeground2Layer] {
 			l.bounds = bounds
 		}
 		controlBackgroundLayer.cornerRadius = bounds.width / 2
 	}
 
 	private func addLayersToControl() {
-		for l in [controlBackgroundLayer, controlForeground1Layer, controlForeground2Layer]  {
+		for l in [controlBackgroundLayer, controlForeground1Layer, controlForeground2Layer] {
 			layer.addSublayer(l)
 		}
 	}

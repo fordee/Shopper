@@ -8,7 +8,6 @@
 
 import then
 
-
 extension ToDo {
 	static func fetchToDos() -> Promise<[ToDo]> {
 		return api.fetchToDos()

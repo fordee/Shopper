@@ -16,10 +16,8 @@ class EditFrequentItemsView: UIView {
 	let filterControl = UISegmentedControl(items: ["All", "No Category"])
 
 	convenience init() {
-		self.init(frame:CGRect.zero)
+		self.init(frame: CGRect.zero)
 		backgroundColor = UIColor.white
-		
-		
 
 		// Here we use Stevia to make our constraints more readable and maintainable.
 		sv(filterControl,
@@ -37,5 +35,5 @@ class EditFrequentItemsView: UIView {
 		filterControl.selectedSegmentIndex = 0
 
 	}
-	
+
 }

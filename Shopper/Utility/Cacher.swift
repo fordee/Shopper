@@ -42,8 +42,6 @@ final public class Cacher {
 		try? FileManager.default.createDirectory(at: self.destination, withIntermediateDirectories: true, attributes: nil)
 	}
 
-	// MARK
-
 	/// Store a `Cachable` object in the directory selected by this `Cacher` instance.
 	///
 	/// - Parameters:

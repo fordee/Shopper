@@ -15,8 +15,8 @@ import Foundation
 ///   - new: New collection
 /// - Returns: A set of changes
 public func diff<T: Hashable>(
-	old: Array<T>,
-	new: Array<T>,
+	old: [T],
+	new: [T],
 	algorithm: DiffAware = WagnerFischer()) -> [Change<T>] {
 
 	if let changes = algorithm.preprocess(old: old, new: new) {

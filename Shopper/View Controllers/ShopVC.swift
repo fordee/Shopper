@@ -18,7 +18,7 @@ protocol ShopDelegate: class {
 class ShopVC: UIViewController {
 	let v = ShopView()
 	var shopDataSource = ShopsDataSource.shops
-	var editAisleVC: EditAisleVC? = nil
+	var editAisleVC: EditAisleVC?
 
 	lazy var adapter: ListAdapter = {
 		return ListAdapter(updater: ListAdapterUpdater(), viewController: self, workingRangeSize: 0)
@@ -82,7 +82,7 @@ class ShopVC: UIViewController {
 	}
 
 	@objc func shopDidUpdateMessages(_ notification: Notification) {
-		let animated = (notification.userInfo?["animated"] as? Bool) ?? true 
+		let animated = (notification.userInfo?["animated"] as? Bool) ?? true
 		print("animated: \(animated)")
 		adapter.performUpdates(animated: animated)
 	}
@@ -156,7 +156,7 @@ extension ShopVC: ShopDelegate {
 			let aisleTitle = alert!.textFields![1].text!
 			print("OK: \(aisleNumber) \(aisleTitle)")
 			let aisle = Aisle(title: aisleTitle, aisleNumber: aisleNumber)
-			aisle.save(shop: shop).then {_ in 
+			aisle.save(shop: shop).then { _ in
 				ShopsDataSource.refresh()
 				}.onError { e in
 					print(e)

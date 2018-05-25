@@ -25,7 +25,7 @@ class FrequentItemDetailCell: UICollectionViewCell {
 
 			let brightness = backgroundColor.brightness
 			print("Category: \(category), Brightness: \(brightness)")
-			let textColor = brightness > 0.85 ? UIColor.black : UIColor.white // TODO: Make this based on contrast
+			let textColor = brightness > 0.85 ? UIColor.black : UIColor.white
 			categoryButton.backgroundColor = backgroundColor
 			setButtonText(category, on: categoryButton, color: textColor)
 		}
@@ -52,7 +52,7 @@ class FrequentItemDetailCell: UICollectionViewCell {
 
 		categoryLabel.text = "Category"
 
-		sv(numberOfItemsLabel.style{ label in
+		sv(numberOfItemsLabel.style { label in
 				label.font = UIFont.detailFont
 				label.text = "Frequecy: 1 "
 			},
@@ -99,8 +99,8 @@ class FrequentItemDetailCell: UICollectionViewCell {
 				print("Tapped, value: \(value), index: \(index)")
 				let item = FrequentItem(shoppingItem: self.shoppingItem, frequency: self.frequency, category: self.category)
 				item.save().then { _ in
-					CategorizedItemsDataSource.updateItem(item) 
-				}.onError() { e in
+					CategorizedItemsDataSource.updateItem(item)
+				}.onError { e in
 					print("Error: \(e)")
 				}
 
@@ -129,5 +129,3 @@ class FrequentItemDetailCell: UICollectionViewCell {
 		button.sizeToFit()
 	}
 }
-
-

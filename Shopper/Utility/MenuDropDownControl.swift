@@ -18,16 +18,15 @@ class MenuDropDownControl: UIControl {
 			shopTextLayer.string = shopName
 		}
 	}
-	var completion: (()->())?
+	var completion: (() -> Void)?
 
 	// MARK: Private variables
-	private let buttonWidth  : CGFloat = 35
-	private let buttonHeight : CGFloat = 35
+	private let buttonWidth: CGFloat = 35
+	private let buttonHeight: CGFloat = 35
 	private let padding: CGFloat = 4
 	private var controlColor: UIColor = UIColor.red
 
-
-	private lazy var controlBackgroundLayer : CAShapeLayer = {
+	private lazy var controlBackgroundLayer: CAShapeLayer = {
 		let layer = CAShapeLayer()
 		layer.contentsScale = UIScreen.main.scale
 		layer.masksToBounds = false
@@ -46,7 +45,7 @@ class MenuDropDownControl: UIControl {
 		return layer
 	}()
 
-	private lazy var controlButtonForegroundLayer : CAShapeLayer = {
+	private lazy var controlButtonForegroundLayer: CAShapeLayer = {
 		let layer = CAShapeLayer()
 		layer.contentsScale = UIScreen.main.scale
 		layer.masksToBounds = false
@@ -67,7 +66,7 @@ class MenuDropDownControl: UIControl {
 	}()
 
 	// MARK: init()
-	init(color: UIColor = UIColor.red,  completion: (()->())? = nil) {
+	init(color: UIColor = UIColor.red, completion: (() -> Void)? = nil) {
 		super.init(frame: .zero)
 		self.controlColor = color
 		self.completion = completion
@@ -132,10 +131,10 @@ class MenuDropDownControl: UIControl {
 
 	// MARK: Private functions
 	private func layoutLayers() {
-		for l in [controlBackgroundLayer, controlButtonForegroundLayer, shopTextLayer]  {
+		for l in [controlBackgroundLayer, controlButtonForegroundLayer, shopTextLayer] {
 			l.bounds = bounds
 		}
-		controlButtonForegroundLayer.frame = CGRect(x: bounds.maxX - buttonWidth, y: bounds.maxY - buttonHeight , width: buttonWidth, height: buttonHeight)
+		controlButtonForegroundLayer.frame = CGRect(x: bounds.maxX - buttonWidth, y: bounds.maxY - buttonHeight, width: buttonWidth, height: buttonHeight)
 		controlButtonForegroundLayer.cornerRadius = buttonHeight / 2
 
 		controlButtonForegroundLayer.anchorPoint = CGPoint(x: 0.5, y: 0.5)											// Our original triangle is drawn pointing up.
@@ -145,7 +144,7 @@ class MenuDropDownControl: UIControl {
 	}
 
 	private func addLayersToControl() {
-		for l in [controlBackgroundLayer, controlButtonForegroundLayer, shopTextLayer]  {
+		for l in [controlBackgroundLayer, controlButtonForegroundLayer, shopTextLayer] {
 			layer.addSublayer(l)
 		}
 	}

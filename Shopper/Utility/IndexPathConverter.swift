@@ -18,7 +18,7 @@ public struct ChangeWithIndexPath {
 	public init(
 		inserts: [IndexPath],
 		deletes: [IndexPath],
-		replaces:[IndexPath],
+		replaces: [IndexPath],
 		moves: [(from: IndexPath, to: IndexPath)]) {
 
 		self.inserts = inserts

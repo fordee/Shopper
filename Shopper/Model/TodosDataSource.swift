@@ -19,12 +19,12 @@ public class ToDosDataSource {
 			self.todos = fetchedToDos.filter { toDo in
 				return toDo.category == "Shopping"
 			}
-			
+
 			}.onError { e in
 				print(e)
 			}.finally {
-				self.todos.sort() { lhs, rhs in // Complex sorting logic
-					if (lhs.done != rhs.done) {
+				self.todos.sort { lhs, rhs in // Complex sorting logic
+					if lhs.done != rhs.done {
 						if lhs.done == "false" {
 							return true
 						} else {

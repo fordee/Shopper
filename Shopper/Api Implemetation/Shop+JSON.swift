@@ -7,7 +7,7 @@
 //
 import Arrow
 
-extension Shop : ArrowParsable {
+extension Shop: ArrowParsable {
 
 	public func deserialize(_ json: JSON) {
 		name  <-- json["name"]
@@ -15,6 +15,3 @@ extension Shop : ArrowParsable {
 	}
 
 }
-
-
-

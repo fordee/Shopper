@@ -27,7 +27,7 @@ class AisleCell: UICollectionViewCell {
 
 	var cellHeight: CGFloat {
 		print(aisleLabel.numberOfLines)
-		let height = 12 + UIFont.cellFont.pointSize + 4  // TODO: Work out the number of lines and size accordingly
+		let height = 12 + UIFont.cellFont.pointSize + 4
 		return height
 
 	}

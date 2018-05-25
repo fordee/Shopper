@@ -8,7 +8,7 @@
 
 import Arrow
 
-extension Aisle : ArrowParsable {
+extension Aisle: ArrowParsable {
 
 	public func deserialize(_ json: JSON) {
 		title <-- json["title"]

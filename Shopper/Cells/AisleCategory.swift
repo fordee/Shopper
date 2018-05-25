@@ -25,7 +25,7 @@ class AisleCategoryCell: UICollectionViewCell {
 			aisleNumberLabel.text = aisle!.aisleNumber
 		}
 	}
-	var shopName: String? = nil
+	var shopName: String?
 
 	var aisleLabel = UILabel()
 	var aisleNumberLabel = UILabel()
@@ -34,7 +34,7 @@ class AisleCategoryCell: UICollectionViewCell {
 
 	var cellHeight: CGFloat {
 		print(aisleLabel.numberOfLines)
-		let height = 12 + UIFont.cellFont.pointSize + 4  // TODO: Work out the number of lines and size accordingly
+		let height = 12 + UIFont.cellFont.pointSize + 4
 		return height
 
 	}
@@ -69,7 +69,6 @@ class AisleCategoryCell: UICollectionViewCell {
 				|-8-aisleNumberLabel-16-aisleLabel-(>=16)-addButton-8-|,
 				20
 		)
-	
 		// Configure visual elements
 		backgroundColor = UIColor.white
 	}

@@ -16,17 +16,17 @@ class CategoryCell: UICollectionViewCell {
 			categoryLabel.text = category!
 		}
 	}
-	var aisle: Aisle? = nil
-	var shopName: String? = nil
+	var aisle: Aisle?
+	var shopName: String?
 
 	var categoryLabel = UILabel()
 	var deleteButton = UIButton()
-	
+
 	weak var delegate: AisleDelegate?
 
 	var cellHeight: CGFloat {
 		print(categoryLabel.numberOfLines)
-		let height = 12 + UIFont.cellFont.pointSize + 4  // TODO: Work out the number of lines and size accordingly
+		let height = 12 + UIFont.cellFont.pointSize + 4
 		return height
 
 	}

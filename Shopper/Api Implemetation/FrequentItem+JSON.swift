@@ -8,7 +8,7 @@
 
 import Arrow
 
-extension FrequentItem : ArrowParsable {
+extension FrequentItem: ArrowParsable {
 
 	public func deserialize(_ json: JSON) {
 		shoppingItem  <-- json["ShoppingItem"]

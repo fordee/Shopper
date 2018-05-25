@@ -15,10 +15,8 @@ class AddItemView: UIView {
 	let addButton = UIButton(type: .contactAdd)
 	let closeButton = UIButton()
 
-
-
 	convenience init() {
-		self.init(frame:CGRect.zero)
+		self.init(frame: CGRect.zero)
 		backgroundColor = UIColor.themeColor
 		render()
 	}
@@ -54,7 +52,7 @@ class AddItemView: UIView {
 			b.tintColor = UIColor.textColor
 		}
 
-		closeButton.style() { b in
+		closeButton.style { b in
 			b.backgroundColor = UIColor.themeColor//.lightYellow
 			b.setTitleColor(UIColor.textColor, for: .normal)
 			b.titleLabel?.font = UIFont.backButtonFont
@@ -68,6 +66,4 @@ class AddItemView: UIView {
 			t.estimatedRowHeight = 50 // Enable self-sizing cells
 		}
 	}
-
-
 }

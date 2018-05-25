@@ -13,7 +13,7 @@ class ToDoVC: UIViewController {
 
 	var v = ToDoView()
 	var fab: FloatingAddButton!
-	
+
 	override func loadView() {
 		view = v
 	}
@@ -132,7 +132,7 @@ class ToDoVC: UIViewController {
 
 	private func setupFAB() {
 		// FAB = Floating Action Button
-		fab = FloatingAddButton(color: UIColor.darkColor){
+		fab = FloatingAddButton(color: UIColor.darkColor) {
 			self.addItemTapped()
 		}
 		view.sv(fab)
@@ -183,7 +183,7 @@ extension ToDoVC: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
 		shoppingItems[indexPath.section].toDos[indexPath.row].toggleDone()
-		shoppingItems[indexPath.section].toDos[indexPath.row].update().then() {_ in
+		shoppingItems[indexPath.section].toDos[indexPath.row].update().then { _ in
 			self.v.tableView.reloadData()
 			}.onError { e in
 				// It failed, so revert item back
@@ -197,7 +197,7 @@ extension ToDoVC: UITableViewDelegate {
 extension ToDoVC: AddDelegate {
 	func addShoppingItem(addViewController: AddItemVC) {
 		if let item = addViewController.toDoItem {
-			item.save().then() {_ in
+			item.save().then { _ in
 				self.refresh()
 				}.onError { e in
 					print(e)

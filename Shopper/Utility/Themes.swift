@@ -9,9 +9,9 @@
 import UIKit
 
 extension UIColor {
-	static var themeColor:	UIColor { return UIColor(named: "ThemeColor")!	}
-	static var lightColor:		UIColor {	return UIColor(named: "LightColor")!	}
-	static var darkColor:		UIColor {	return UIColor(named: "DarkColor")!	}
+	static var themeColor: UIColor { return UIColor(named: "ThemeColor")!	}
+	static var lightColor: UIColor {	return UIColor(named: "LightColor")!	}
+	static var darkColor: UIColor {	return UIColor(named: "DarkColor")!	}
 	static var textColor: UIColor { return UIColor.white }
 }
 

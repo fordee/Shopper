@@ -12,7 +12,7 @@ extension Shop {
 	static func fetchShops() -> Promise<[Shop]> {
 		return api.fetchShops()
 	}
-	
+
 	func save() -> Promise<Shop> {
 		return api.addShop(path: "/shops", params: ["name": self.name])
 	}

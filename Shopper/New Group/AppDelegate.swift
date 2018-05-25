@@ -25,7 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		navigationBarAppearance.barTintColor = UIColor.themeColor
 		navigationBarAppearance.tintColor = UIColor.textColor
 
-
 		window = UIWindow(frame: UIScreen.main.bounds)
 
 		let navController = UINavigationController(rootViewController: ToDoVC())

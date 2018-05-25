@@ -19,8 +19,8 @@ struct Category {
 
 	static func color(for category: String) -> UIColor {
 		let categories = all
-		for c in categories {
-			if c.name == category { return c.color}
+		for c in categories where c.name == category {
+			return c.color
 		}
 		return UIColor.white
 	}

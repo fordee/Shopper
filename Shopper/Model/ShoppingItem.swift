@@ -17,7 +17,7 @@ struct ShoppingItem {
 	static func getShoppingItems(from shops: [Shop], todos: [ToDo], currentShopName: String) -> [ShoppingItem] {
 		var shoppingItems: [ShoppingItem] = []
 
-		var allCategories = Set(todos.map{$0.shoppingCategory})
+		var allCategories = Set(todos.map {$0.shoppingCategory})
 
 		let currentShop = shops.filter { shop in
 			if shop.name == currentShopName {
@@ -36,11 +36,9 @@ struct ShoppingItem {
 		for aisle in aisles {
 			var toDosToAdd: [ToDo] = []
 			for category in aisle.categories {
-				for todo in todos {
-					if todo.shoppingCategory == category {
-						allCategories.remove(todo.shoppingCategory)
-						toDosToAdd.append(todo)
-					}
+				for todo in todos where todo.shoppingCategory == category {
+					allCategories.remove(todo.shoppingCategory)
+					toDosToAdd.append(todo)
 				}
 			}
 			if !toDosToAdd.isEmpty {

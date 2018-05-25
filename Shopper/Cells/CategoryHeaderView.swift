@@ -33,6 +33,4 @@ class CategoryHeaderView: UICollectionViewCell {
 		headingLabel.textColor = UIColor.white
 		headingLabel.font = UIFont.headerFont
 	}
-
-	
 }

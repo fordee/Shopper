@@ -17,7 +17,7 @@ public final class WagnerFischer: DiffAware {
 		self.reduceMove = reduceMove
 	}
 
-	public func diff<T: Hashable>(old: Array<T>, new: Array<T>) -> [Change<T>] {
+	public func diff<T: Hashable>(old: [T], new: [T]) -> [Change<T>] {
 		let previousRow = Row<T>()
 		previousRow.seed(with: new)
 		let currentRow = Row<T>()
@@ -78,7 +78,7 @@ class Row<T> {
 	var slots: [[Change<T>]] = []
 
 	/// Seed with .insert from new
-	func seed(with new: Array<T>) {
+	func seed(with new: [T]) {
 		// First slot should be empty
 		slots = Array(repeatElement([], count: new.count + 1))
 

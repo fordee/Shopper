@@ -14,7 +14,7 @@ class ToDoView: UIView {
 	let tableView = UITableView()
 
 	convenience init() {
-		self.init(frame:CGRect.zero)
+		self.init(frame: CGRect.zero)
 
 		// Here we use Stevia to make our constraints more readable and maintainable.
 		sv(tableView)

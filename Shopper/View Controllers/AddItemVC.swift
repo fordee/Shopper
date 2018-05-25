@@ -9,7 +9,7 @@
 import UIKit
 import Stevia
 
-protocol AddDelegate {
+protocol AddDelegate: class {
 	func addShoppingItem(addViewController: AddItemVC)
 	func close(addViewController: AddItemVC)
 }
@@ -18,8 +18,8 @@ class AddItemVC: UIViewController {
 
 	var v = AddItemView()
 
-	var toDoItem: ToDo? = nil
-	var delegate: AddDelegate?
+	var toDoItem: ToDo?
+	weak var delegate: AddDelegate?
 	var filterText = ""
 
 	override func loadView() {
@@ -47,7 +47,7 @@ class AddItemVC: UIViewController {
 		v.tableView.delegate = self
 		v.textField.delegate = self
 		refresh()
-		filteredItems = frequentItems // TODO: Remove
+		filteredItems = frequentItems
 	}
 
 	@objc	func refresh() {
@@ -66,7 +66,7 @@ class AddItemVC: UIViewController {
 				}
 		}
 	}
-	
+
 	@objc func addButtonTapped() {
 		if let text = v.textField.text?.trimmingCharacters(in: .whitespacesAndNewlines), !text.isEmpty {
 			toDoItem = ToDo(category: "Shopping", description: text, done: "false", shoppingCategory: "No Category")
@@ -161,8 +161,5 @@ extension AddItemVC: UITextFieldDelegate {
 			}
 		}
 	}
-
 }
-
-
 

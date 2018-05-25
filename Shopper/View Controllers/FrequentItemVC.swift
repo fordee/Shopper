@@ -24,7 +24,6 @@ class FrequentItemVC: UIViewController {
 		return ListAdapter(updater: ListAdapterUpdater(), viewController: self, workingRangeSize: 0)
 	}()
 
-
 	override func loadView() {
 		view = v
 	}
@@ -53,14 +52,12 @@ class FrequentItemVC: UIViewController {
 	@objc func refreshFrequentItems(_ notification: Notification) {
 		adapter.performUpdates(animated: true)
 	}
-
-
 }
 
 // MARK: List Adapter Data Source
 extension FrequentItemVC: ListAdapterDataSource {
 	func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-		return CategorizedItemsDataSource.categorizedItems.sorted{ lhs, rhs in
+		return CategorizedItemsDataSource.categorizedItems.sorted { lhs, rhs in
 			return lhs.category < rhs.category
 		}.filter { item in
 			return filterSelection ? item.category == "No Category" : true //.category == "" || item.category == "No Category") : true

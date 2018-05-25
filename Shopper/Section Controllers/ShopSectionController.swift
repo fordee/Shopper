@@ -38,7 +38,7 @@ class ShopSectionController: ListSectionController {
 			cell.addButton.isHidden = !expanded
 			cell.delegate = delegate
 		} else if let cell = cell as? AisleCell {
-			let aisle = shop.aisles.sorted{ lhs, rhs in
+			let aisle = shop.aisles.sorted { lhs, rhs in
 				return lhs.aisleNumberInt < rhs.aisleNumberInt
 				}[index - 1] // subtract one from index because first cell is Shop Name
 			cell.delegate = delegate

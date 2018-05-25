@@ -13,10 +13,10 @@ extension ToDoCell {
 	func render(with: ToDo) {
 		let attributedText = NSMutableAttributedString(string: with.description)
 		if with.isDone {
-			attributedText.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 1, range: NSMakeRange(0, attributedText.length))
+			attributedText.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 1, range: NSRange(location: 0, length: attributedText.length))
 			shoppingItemLabel.alpha = 0.5
 		} else {
-			attributedText.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 0, range: NSMakeRange(0, attributedText.length))
+			attributedText.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 0, range: NSRange(location: 0, length: attributedText.length))
 			shoppingItemLabel.alpha = 1.0
 		}
 		shoppingItemLabel.attributedText = attributedText
