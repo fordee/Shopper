@@ -9,7 +9,7 @@
 import Foundation
 
 // This is the bare Photo model.
-struct ToDo: Equatable { // Equatable is free with Swift 4.1!
+struct ToDo: Codable, Equatable { // Equatable is free with Swift 4.1!
 	var category = ""
 	var description = ""
 	var done = ""

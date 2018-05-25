@@ -46,23 +46,35 @@ class ToDoVC: UIViewController {
 		ToDosDataSource.refresh()
 	}
 
-	@objc func refreshTodos() {
+	@objc func refreshTodos(_ notification: Notification) {
+		let animated = (notification.userInfo?["animated"] as? Bool) ?? true
+		print("ToDo animated: \(animated)")
 		toDos = ToDosDataSource.todos
 		if self.shops.count > 0 { // whichever finishes last
-			self.refreshShops()
+			self.refreshShops(notification)
 		}
-		self.v.refreshControl.endRefreshing()
+		DispatchQueue.main.async {
+			self.v.refreshControl.endRefreshing()
+		}
 	}
 
-	@objc func refreshShops() {
+	@objc func refreshShops(_ notification: Notification) {
+		let animated = (notification.userInfo?["animated"] as? Bool) ?? true
+		print("Shop animated: \(animated)")
 		shops = ShopsDataSource.shops
 		if toDos.count > 0, let currentShopName = Shop.currentShopName {
 			shoppingItems = ShoppingItem.getShoppingItems(from: shops, todos: toDos, currentShopName: currentShopName)
-			v.tableView.reloadData()
-			UIView.animate(views: self.v.tableView.visibleCells, animations: self.animations) {
+			DispatchQueue.main.async {
+				self.v.tableView.reloadData()
+				if animated {
+					UIView.animate(views: self.v.tableView.visibleCells, animations: self.animations) {
+					}
+				}
 			}
 		}
-		self.v.refreshControl.endRefreshing()
+		DispatchQueue.main.async {
+			self.v.refreshControl.endRefreshing()
+		}
 	}
 
 	@objc func clearItems(sender: Any) {

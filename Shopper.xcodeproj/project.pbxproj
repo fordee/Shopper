@@ -26,6 +26,9 @@
 		49613985208518240083D3E8 /* FloatingAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49613984208518240083D3E8 /* FloatingAddButton.swift */; };
 		49909BE520B2299C00B0EB90 /* ShoppingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49909BE420B2299C00B0EB90 /* ShoppingItem.swift */; };
 		49909BE720B33C9500B0EB90 /* TodosDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49909BE620B33C9500B0EB90 /* TodosDataSource.swift */; };
+		49909BE920B5E94A00B0EB90 /* Cacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49909BE820B5E94A00B0EB90 /* Cacher.swift */; };
+		49909BEB20B7281600B0EB90 /* CachableShops.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49909BEA20B7281600B0EB90 /* CachableShops.swift */; };
+		49909BED20B7369400B0EB90 /* CachableToDos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49909BEC20B7369400B0EB90 /* CachableToDos.swift */; };
 		49A291AC208E5B6A006675CC /* ViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A291AB208E5B6A006675CC /* ViewAnimator.swift */; };
 		49A291AE208E5B94006675CC /* UICollectionView+ViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A291AD208E5B94006675CC /* UICollectionView+ViewAnimator.swift */; };
 		49A291B0208E5BA1006675CC /* UITableView+ViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A291AF208E5BA1006675CC /* UITableView+ViewAnimator.swift */; };
@@ -120,6 +123,9 @@
 		49613984208518240083D3E8 /* FloatingAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingAddButton.swift; sourceTree = "<group>"; };
 		49909BE420B2299C00B0EB90 /* ShoppingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingItem.swift; sourceTree = "<group>"; };
 		49909BE620B33C9500B0EB90 /* TodosDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosDataSource.swift; sourceTree = "<group>"; };
+		49909BE820B5E94A00B0EB90 /* Cacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cacher.swift; sourceTree = "<group>"; };
+		49909BEA20B7281600B0EB90 /* CachableShops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachableShops.swift; sourceTree = "<group>"; };
+		49909BEC20B7369400B0EB90 /* CachableToDos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachableToDos.swift; sourceTree = "<group>"; };
 		49A291AB208E5B6A006675CC /* ViewAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAnimator.swift; sourceTree = "<group>"; };
 		49A291AD208E5B94006675CC /* UICollectionView+ViewAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+ViewAnimator.swift"; sourceTree = "<group>"; };
 		49A291AF208E5BA1006675CC /* UITableView+ViewAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+ViewAnimator.swift"; sourceTree = "<group>"; };
@@ -287,6 +293,8 @@
 				49909BE420B2299C00B0EB90 /* ShoppingItem.swift */,
 				49BAC15420A67EF500F3C4BD /* ShopsDataSource.swift */,
 				49909BE620B33C9500B0EB90 /* TodosDataSource.swift */,
+				49909BEA20B7281600B0EB90 /* CachableShops.swift */,
+				49909BEC20B7369400B0EB90 /* CachableToDos.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -331,6 +339,7 @@
 				49D5D17520A21455006A5CF7 /* MoveReducer.swift */,
 				49D5D17720A21496006A5CF7 /* DeepDiff.swift */,
 				49D5D17920A21630006A5CF7 /* IndexPathConverter.swift */,
+				49909BE820B5E94A00B0EB90 /* Cacher.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -558,6 +567,7 @@
 				49E5DDFB209E4F9300F6C238 /* CategorizedItem.swift in Sources */,
 				4961398220829BB80083D3E8 /* Themes.swift in Sources */,
 				49E5DDF7209E407000F6C238 /* CategoryHeaderView.swift in Sources */,
+				49909BED20B7369400B0EB90 /* CachableToDos.swift in Sources */,
 				49A747F3208FD2E8003F259A /* MenuCell.swift in Sources */,
 				99EC7AED1E3F71DD008BBBA5 /* AppDelegate.swift in Sources */,
 				493A3616208FC70900E2B74E /* SideMenuManager.swift in Sources */,
@@ -595,6 +605,7 @@
 				49C01FB5208C28F100FE4C9B /* FrequentItemCell+FrequentItem.swift in Sources */,
 				49A747FA208FF34E003F259A /* FrequentItemVC.swift in Sources */,
 				49D5D17820A21496006A5CF7 /* DeepDiff.swift in Sources */,
+				49909BEB20B7281600B0EB90 /* CachableShops.swift in Sources */,
 				4961397820828F660083D3E8 /* ToDoCell.swift in Sources */,
 				49D5D17020A21332006A5CF7 /* WagnerFischer.swift in Sources */,
 				49BAC16E20A8B47600F3C4BD /* String+Api.swift in Sources */,
@@ -622,6 +633,7 @@
 				49C01FB1208C273100FE4C9B /* FrequentItem+Api.swift in Sources */,
 				49BAC15120A633BC00F3C4BD /* Shop+Api.swift in Sources */,
 				49D80DE6209581E200AB8AFC /* Category.swift in Sources */,
+				49909BE920B5E94A00B0EB90 /* Cacher.swift in Sources */,
 				49C01FAD208C1CFE00FE4C9B /* FrequentItem.swift in Sources */,
 				49A747EF208FD249003F259A /* MenuView.swift in Sources */,
 				49BAC17620B1031300F3C4BD /* ShopMenuCell.swift in Sources */,

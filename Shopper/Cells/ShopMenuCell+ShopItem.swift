@@ -5,11 +5,18 @@
 //  Created by John Forde on 20/5/18.
 //  Copyright © 2018 freshOS. All rights reserved.
 //
-import Foundation
+
+import UIKit
 
 extension ShopMenuCell {
 
 	func render(with: Shop) {
+		if with.name.lowercased().contains("countdown") {
+			menuIcon.image = UIImage(named: "countdown_logo")
+		}
+		if with.name.lowercased().contains("new world") {
+			menuIcon.image = UIImage(named: "new_world_logo")
+		}
 		shopItemLabel.text = with.name
 	}
 

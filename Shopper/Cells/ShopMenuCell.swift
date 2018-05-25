@@ -21,7 +21,7 @@ class ShopMenuCell: UITableViewCell {
 		//selectionStyle = .none
 
 		sv(
-			menuIcon,
+			menuIcon.style(menuIconStyle),
 			shopItemLabel.style(menuItemLabelStyle)
 		)
 
@@ -41,6 +41,11 @@ class ShopMenuCell: UITableViewCell {
 		l.font = UIFont.menuFont
 		l.textColor = UIColor.black
 		l.textAlignment = .left
+	}
+
+	private func menuIconStyle(i: UIImageView) {
+		i.height(16)
+		i.width(16)
 	}
 
 }

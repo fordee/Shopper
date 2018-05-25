@@ -9,7 +9,9 @@
 import Foundation
 import IGListKit
 
-class Shop: Equatable, CustomStringConvertible {
+class Shop: Cachable, Codable, Equatable, CustomStringConvertible {
+	var fileName: String = "Shop" // Cachable conformance
+
 	var name = ""
 	var aisles: [Aisle] = []
 

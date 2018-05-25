@@ -8,7 +8,8 @@
 
 import IGListKit
 
-class Aisle: Equatable, CustomStringConvertible {
+class Aisle: Codable, Equatable, CustomStringConvertible {
+
 	var title = ""
 	var aisleNumber = ""
 	var categories: [String] = []

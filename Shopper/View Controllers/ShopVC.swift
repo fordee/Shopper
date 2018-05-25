@@ -81,8 +81,10 @@ class ShopVC: UIViewController {
 		present(alert, animated: true, completion: nil)
 	}
 
-	@objc func shopDidUpdateMessages() {
-		adapter.performUpdates(animated: true)
+	@objc func shopDidUpdateMessages(_ notification: Notification) {
+		let animated = (notification.userInfo?["animated"] as? Bool) ?? true 
+		print("animated: \(animated)")
+		adapter.performUpdates(animated: animated)
 	}
 }
 

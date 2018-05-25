@@ -53,7 +53,9 @@ class MenuVC: UIViewController {
 
 	@objc func refreshShops() {
 		shops = ShopsDataSource.shops
-		v.shopTableView.reloadData()
+		DispatchQueue.main.async {
+			self.v.shopTableView.reloadData()
+		}
 	}
 
 }
@@ -113,7 +115,7 @@ extension MenuVC: UITableViewDelegate {
 			v.selectShop(shopName: shops[indexPath.row].name)
 			tableView.deselectRow(at: indexPath, animated: true)
 			Shop.currentShopName = shops[indexPath.row].name
-			NotificationCenter.default.post(name: .refreshShops, object: nil)
+			NotificationCenter.default.post(name: .refreshShops, object: nil, userInfo: ["animated": false])
 			self.dismiss(animated: true)
 		}
 	}

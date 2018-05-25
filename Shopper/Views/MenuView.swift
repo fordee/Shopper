@@ -19,16 +19,17 @@ class MenuView: UIView {
 			if collapse {
 				menuTableView.height(0.0 as CGFloat)
 				shopTableView.height(tableViewHeight)
-				duration = 0.3
+				duration = 0.2
 			} else {
 				menuTableView.height(tableViewHeight)
 				shopTableView.height(0.0 as CGFloat)
-				duration = 0.5
+				duration = 0.2
 			}
 
 			UIView.animate(withDuration: duration) {
 				self.layoutIfNeeded()
 			}
+
 		}
 	}
 
