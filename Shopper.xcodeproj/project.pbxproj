@@ -80,7 +80,7 @@
 		49D5D17620A21455006A5CF7 /* MoveReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D5D17520A21455006A5CF7 /* MoveReducer.swift */; };
 		49D5D17820A21496006A5CF7 /* DeepDiff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D5D17720A21496006A5CF7 /* DeepDiff.swift */; };
 		49D5D17A20A21630006A5CF7 /* IndexPathConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D5D17920A21630006A5CF7 /* IndexPathConverter.swift */; };
-		49D80DE020951E7F00AB8AFC /* PickerManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D80DDF20951E7F00AB8AFC /* PickerManger.swift */; };
+		49D80DE020951E7F00AB8AFC /* PickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D80DDF20951E7F00AB8AFC /* PickerManager.swift */; };
 		49D80DE220952B5900AB8AFC /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D80DE120952B5900AB8AFC /* Utility.swift */; };
 		49D80DE420952CBB00AB8AFC /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49D80DE320952CB600AB8AFC /* Roboto-Bold.ttf */; };
 		49D80DE6209581E200AB8AFC /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D80DE5209581E200AB8AFC /* Category.swift */; };
@@ -178,7 +178,7 @@
 		49D5D17520A21455006A5CF7 /* MoveReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveReducer.swift; sourceTree = "<group>"; };
 		49D5D17720A21496006A5CF7 /* DeepDiff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepDiff.swift; sourceTree = "<group>"; };
 		49D5D17920A21630006A5CF7 /* IndexPathConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexPathConverter.swift; sourceTree = "<group>"; };
-		49D80DDF20951E7F00AB8AFC /* PickerManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerManger.swift; sourceTree = "<group>"; };
+		49D80DDF20951E7F00AB8AFC /* PickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerManager.swift; sourceTree = "<group>"; };
 		49D80DE120952B5900AB8AFC /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		49D80DE320952CB600AB8AFC /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		49D80DE5209581E200AB8AFC /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -354,7 +354,7 @@
 				49BAC17320ACB6E200F3C4BD /* MenuDropDownControl.swift */,
 				4961398120829BB80083D3E8 /* Themes.swift */,
 				49A747FD2090F967003F259A /* Dimensions.swift */,
-				49D80DDF20951E7F00AB8AFC /* PickerManger.swift */,
+				49D80DDF20951E7F00AB8AFC /* PickerManager.swift */,
 				49D80DE120952B5900AB8AFC /* Utility.swift */,
 				49D5D16F20A21332006A5CF7 /* WagnerFischer.swift */,
 				49D5D17120A21385006A5CF7 /* DiffAware.swift */,
@@ -622,7 +622,7 @@
 				49BAC16220A7DC1C00F3C4BD /* EditAisleVC.swift in Sources */,
 				49D80DE220952B5900AB8AFC /* Utility.swift in Sources */,
 				49909BE720B33C9500B0EB90 /* TodosDataSource.swift in Sources */,
-				49D80DE020951E7F00AB8AFC /* PickerManger.swift in Sources */,
+				49D80DE020951E7F00AB8AFC /* PickerManager.swift in Sources */,
 				49BAC16020A7928E00F3C4BD /* Aisle+Api.swift in Sources */,
 				49A747FE2090F967003F259A /* Dimensions.swift in Sources */,
 				49BAC16620A7E06900F3C4BD /* AisleSectionController.swift in Sources */,

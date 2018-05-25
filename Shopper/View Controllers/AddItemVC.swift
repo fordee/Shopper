@@ -56,7 +56,7 @@ class AddItemVC: UIViewController {
 			}.onError { e in
 				print(e)
 			}.finally {
-				self.frequentItems.sort() { lhs, rhs in
+				self.frequentItems.sort { lhs, rhs in
 					return lhs.frequencyInt! > rhs.frequencyInt!
 				}
 				self.items = Array(repeating: nil, count: 20)
@@ -68,7 +68,7 @@ class AddItemVC: UIViewController {
 	}
 	
 	@objc func addButtonTapped() {
-		if let text = v.textField.text?.trimmingCharacters(in: .whitespacesAndNewlines), text.count > 0 {
+		if let text = v.textField.text?.trimmingCharacters(in: .whitespacesAndNewlines), !text.isEmpty {
 			toDoItem = ToDo(category: "Shopping", description: text, done: "false", shoppingCategory: "No Category")
 		}
 		delegate?.addShoppingItem(addViewController: self)

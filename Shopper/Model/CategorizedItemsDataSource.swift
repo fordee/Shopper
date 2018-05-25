@@ -62,7 +62,7 @@ public class CategorizedItemsDataSource {
 
 		for item in sortedItems {
 			if (currentCategory != item.category || sortedItems.last === item) { // The very last item needs to fall into this loop (hence the || condition)
-				if currentItemList.count > 0 {
+				if !currentItemList.isEmpty {
 					categorizedItems.append(CategorizedItem(category: currentCategory, items: currentItemList))
 					currentCategory = item.category
 					currentItemList = [item]

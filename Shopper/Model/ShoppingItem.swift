@@ -43,7 +43,7 @@ struct ShoppingItem {
 					}
 				}
 			}
-			if toDosToAdd.count > 0 {
+			if !toDosToAdd.isEmpty {
 				shoppingItems.append(ShoppingItem(aisleNumber: aisle.aisleNumber, aisleName: aisle.title, toDos: toDosToAdd))
 			}
 		}
@@ -56,7 +56,7 @@ struct ShoppingItem {
 				uncategorized.append(toDo)
 			}
 		}
-		if uncategorized.count > 0 {
+		if !uncategorized.isEmpty {
 			shoppingItems.append(ShoppingItem(aisleNumber: "", aisleName: "Uncategorised", toDos: uncategorized))
 		}
 

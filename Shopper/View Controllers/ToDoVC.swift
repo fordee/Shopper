@@ -50,7 +50,7 @@ class ToDoVC: UIViewController {
 		let animated = (notification.userInfo?["animated"] as? Bool) ?? true
 		print("ToDo animated: \(animated)")
 		toDos = ToDosDataSource.todos
-		if self.shops.count > 0 { // whichever finishes last
+		if !self.shops.isEmpty { // whichever finishes last
 			self.refreshShops(notification)
 		}
 		DispatchQueue.main.async {
@@ -62,7 +62,7 @@ class ToDoVC: UIViewController {
 		let animated = (notification.userInfo?["animated"] as? Bool) ?? true
 		print("Shop animated: \(animated)")
 		shops = ShopsDataSource.shops
-		if toDos.count > 0, let currentShopName = Shop.currentShopName {
+		if !toDos.isEmpty, let currentShopName = Shop.currentShopName {
 			shoppingItems = ShoppingItem.getShoppingItems(from: shops, todos: toDos, currentShopName: currentShopName)
 			DispatchQueue.main.async {
 				self.v.tableView.reloadData()
