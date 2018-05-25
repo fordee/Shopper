@@ -16,6 +16,7 @@ public class ShopsDataSource {
 	@objc	static func refresh() {
 		// First make a network request for shops
 		Shop.fetchShops().then { fetchedShops in
+			self.shops = fetchedShops
 			// Now cache the shops
 			let cachableShops = CachableShops(shops: self.shops)
 			cacher.persist(item: cachableShops) { url, error in

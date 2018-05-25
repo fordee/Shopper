@@ -9,7 +9,7 @@
 import Foundation
 import IGListKit
 
-public class FrequentItem: Equatable {
+public class FrequentItem: Codable, Equatable {
 
 	public static func == (lhs: FrequentItem, rhs: FrequentItem) -> Bool {
 		return lhs.frequencyInt! > rhs.frequencyInt!

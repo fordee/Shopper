@@ -11,13 +11,24 @@ import Foundation
 
 public class CategorizedItemsDataSource {
 
-	static weak var delegate: FrequentItemDelegate?
 	static var categorizedItems: [CategorizedItem] = []
 	static var frequentItems: [FrequentItem] = []
+	static let cacher: Cacher = Cacher(destination: .temporary)
 
 	@objc	static func refresh() {
+		// First make a network request for FrequentItems
 		FrequentItem.fetchFrequentItems().then { fetcheditems in
 			self.frequentItems = fetcheditems
+			// Now cache the fetcheditems
+			let cachableItems = CachableFrequentItems(frequentItems: fetcheditems)
+			cacher.persist(item: cachableItems) { url, error in
+				if let error = error {
+					print("FrequentItems failed to persist: \(error)")
+				} else {
+					print("FrequentItems persisted in \(String(describing: url))")
+				}
+				//NotificationCenter.default.post(name: .refreshFrequentItems, object: nil, userInfo: ["animated": false])
+			}
 			}.onError { e in
 				print(e)
 			}.finally {
@@ -29,16 +40,22 @@ public class CategorizedItemsDataSource {
 						item.category = "No Category"
 					}
 				}
-				self.catgorizeItems()
-				self.delegate?.frequentItemDidUpdateMessages()
+				self.catagorizeItems()
+				NotificationCenter.default.post(name: .refreshFrequentItems, object: nil, userInfo: ["animated": false])
+		}
+		// In the meantime, load our cached source
+		if let cachedItems: CachableFrequentItems = cacher.load(fileName: "frequentitems") {
+			print("FrequentItems read from cache.")
+			frequentItems = cachedItems.frequentItems
+			catagorizeItems()
+			NotificationCenter.default.post(name: .refreshFrequentItems, object: nil, userInfo: ["animated": true])
 		}
 	}
 
-	static func catgorizeItems() {
+	private static func catagorizeItems() {
 		categorizedItems = []
-
 		let sortedItems = frequentItems.sorted(by: { $0.category > $1.category}) // This only works if frequentItems is sorted
-		
+
 		var currentCategory = sortedItems.first?.category ?? ""
 		if currentCategory == "" { currentCategory = "No Category" }
 		var currentItemList: [FrequentItem] = []
@@ -65,8 +82,8 @@ public class CategorizedItemsDataSource {
 				break // No need to continue since it is unique
 			}
 		}
-		catgorizeItems()
-		self.delegate?.frequentItemDidUpdateMessages()
+		catagorizeItems()
+		NotificationCenter.default.post(name: .refreshFrequentItems, object: nil, userInfo: ["animated": true])
 	}
 
 	static func deleteItem(_ item: FrequentItem) {
@@ -74,12 +91,15 @@ public class CategorizedItemsDataSource {
 			frequentItems = frequentItems.filter { frequentItem in
 				return frequentItem.shoppingItem != item.shoppingItem
 			}
-			catgorizeItems()
-			self.delegate?.frequentItemDidUpdateMessages()
-		}.onError { e in
+			catagorizeItems()
+			NotificationCenter.default.post(name: .refreshFrequentItems, object: nil, userInfo: ["animated": true])
+			}.onError { e in
 				print(e)
 		}
 	}
+}
 
+extension Notification.Name {
+	static let refreshFrequentItems = Notification.Name("refreshFrequentItems")
 }
 
