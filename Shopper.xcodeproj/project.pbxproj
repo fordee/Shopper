@@ -424,7 +424,6 @@
 				49A7480C2092497A003F259A /* Animations */,
 				49A7480B20924962003F259A /* Slider Menu */,
 				4979978320B8B91E00DF3579 /* Resources */,
-				999127BB1E461FBC007E9B00 /* Resources */,
 			);
 			path = Shopper;
 			sourceTree = "<group>";
@@ -444,22 +443,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		999127BB1E461FBC007E9B00 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				99EC7ADC1E3F71DD008BBBA5 /* Base.lproj */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		99EC7ADC1E3F71DD008BBBA5 /* Base.lproj */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Base.lproj;
-			path = Source/Base.lproj;
-			sourceTree = SOURCE_ROOT;
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -467,6 +450,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 991E305C1E3F57810099AD2A /* Build configuration list for PBXNativeTarget "Shopper" */;
 			buildPhases = (
+				4979978520B8BB1B00DF3579 /* Run Swiftlint */,
 				991E30461E3F57810099AD2A /* Sources */,
 				991E30471E3F57810099AD2A /* Frameworks */,
 				991E30481E3F57810099AD2A /* Resources */,
@@ -533,6 +517,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4979978520B8BB1B00DF3579 /* Run Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Swiftlint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
 		991E305F1E3F58F20099AD2A /* Carthage Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
