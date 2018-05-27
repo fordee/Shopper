@@ -19,4 +19,7 @@ extension Aisle {
 		return api.addAisle(path: "/aisles", params: ["shopName": shop.name, "aisleNumber": aisleNumber, "title": title])
 	}
 
+	func update(shop: Shop) -> Promise<Aisle> {
+		return api.updateAisle(path: "/aisles", params: ["shopName": shop.name, "aisleNumber": aisleNumber, "title": title])
+	}
 }

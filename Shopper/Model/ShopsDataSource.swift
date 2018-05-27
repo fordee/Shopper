@@ -13,7 +13,7 @@ public class ShopsDataSource {
 	static var shops: [Shop] = []
 	static let cacher: Cacher = Cacher(destination: .temporary)
 
-	@objc	static func refresh() {
+	static func refresh() {
 		// First make a network request for shops
 		Shop.fetchShops().then { fetchedShops in
 			self.shops = fetchedShops
@@ -36,6 +36,21 @@ public class ShopsDataSource {
 			NotificationCenter.default.post(name: .refreshShops, object: nil, userInfo: ["animated": true])
 		}
 	}
+
+	static func swapAislesFor(shop: Shop, aisle1: inout Aisle, aisle2: inout Aisle) {
+		swap(&aisle1, &aisle2)
+		// Update aisle1
+		aisle1.update(shop: shop).then { [aisle2] _ in
+			aisle2.update(shop: shop).then { _ in
+					print("Success")
+				}.onError { e in
+					print(e)
+			}
+			}.onError { e in
+				print(e)
+		}
+	}
+
 }
 
 extension Notification.Name {

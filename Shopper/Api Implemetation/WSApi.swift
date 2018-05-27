@@ -91,6 +91,12 @@ class WSApi: ApiInterface {
 		return ws.post(path, params: params)
 	}
 
+	func updateAisle(path: String, params: Params) -> Promise<Aisle> {
+		print("Updating Aisle...")
+		ws.postParameterEncoding = JSONEncoding.default
+		return ws.put(path, params: params)
+	}
+
 	// MARK: Categories
 	func addCategory(path: String, params: Params) -> Promise<String> {
 		print("Adding Category")

@@ -14,7 +14,7 @@ public class CategorizedItemsDataSource {
 	static var frequentItems: [FrequentItem] = []
 	static let cacher: Cacher = Cacher(destination: .temporary)
 
-	@objc	static func refresh() {
+	static func refresh() {
 		// First make a network request for FrequentItems
 		FrequentItem.fetchFrequentItems().then { fetcheditems in
 			self.frequentItems = fetcheditems
@@ -46,6 +46,14 @@ public class CategorizedItemsDataSource {
 		if let cachedItems: CachableFrequentItems = cacher.load(fileName: "frequentitems") {
 			print("FrequentItems read from cache.")
 			frequentItems = cachedItems.frequentItems
+			frequentItems.sort { lhs, rhs in
+				return lhs.frequencyInt! > rhs.frequencyInt!
+			}
+			frequentItems.forEach { item in
+				if item.category == "" {
+					item.category = "No Category"
+				}
+			}
 			catagorizeItems()
 			NotificationCenter.default.post(name: .refreshFrequentItems, object: nil, userInfo: ["animated": true])
 		}
