@@ -34,7 +34,7 @@ class Aisle: Codable, Equatable, CustomStringConvertible {
 	}
 
 	var description: String {
-		return title + String(" Categories: \(categories)")
+		return aisleNumber + ": " + title + String(" Categories: \(categories)")
 	}
 
 	// MARK: Equatable Protocol

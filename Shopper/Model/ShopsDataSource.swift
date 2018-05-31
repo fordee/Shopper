@@ -37,19 +37,28 @@ public class ShopsDataSource {
 		}
 	}
 
-	static func swapAislesFor(shop: Shop, aisle1: inout Aisle, aisle2: inout Aisle) {
-		swap(&aisle1, &aisle2)
-		// Update aisle1
-		aisle1.update(shop: shop).then { [aisle2] _ in
-			aisle2.update(shop: shop).then { _ in
-					print("Success")
-				}.onError { e in
-					print(e)
-			}
-			}.onError { e in
-				print(e)
-		}
-	}
+//	static func swapAislesFor(shop: Shop, aisle1: Aisle, aisle2: Aisle) {
+//		// Swap Aisle Numbers
+//		print(shops)
+//		let tempAisleNumber = aisle1.aisleNumber
+//		aisle1.aisleNumber = aisle2.aisleNumber
+//		aisle2.aisleNumber = tempAisleNumber
+//		print(shops)
+//		// Update aisle1
+//		aisle1.update(shop: shop).then { [aisle2] _ in
+//			// Update aisle2
+//			aisle2.save(shop: shop).then { _ in
+//				print("Success")
+//				// This is just a sub operation
+//				refresh()
+//				//NotificationCenter.default.post(name: .refreshShops, object: nil, userInfo: ["animated": false])
+//			}.onError { e in
+//					print(e)
+//			}
+//			}.onError { e in
+//				print(e)
+//		}
+//	}
 
 }
 

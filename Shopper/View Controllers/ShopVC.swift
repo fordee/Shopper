@@ -13,11 +13,13 @@ protocol ShopDelegate: class {
 	func aisleDelete(shop: Shop, aisle: Aisle)
 	func aisleEdit(shop: Shop, aisle: Aisle)
 	func aisleAdd(shop: Shop)
+
+	//func aisleSwapFor(shop: Shop, aisle1: Aisle, aisle2: Aisle)
 }
 
 class ShopVC: UIViewController {
 	let v = ShopView()
-	var shopDataSource = ShopsDataSource.shops
+	var shops = ShopsDataSource.shops
 	var editAisleVC: EditAisleVC?
 
 	lazy var adapter: ListAdapter = {
@@ -84,6 +86,7 @@ class ShopVC: UIViewController {
 	@objc func shopDidUpdateMessages(_ notification: Notification) {
 		let animated = (notification.userInfo?["animated"] as? Bool) ?? true
 		print("animated: \(animated)")
+		shops = ShopsDataSource.shops
 		adapter.performUpdates(animated: animated)
 	}
 }
@@ -167,4 +170,9 @@ extension ShopVC: ShopDelegate {
 		alert.addAction(okAction)
 		present(alert, animated: true, completion: nil)
 	}
+
+//	func aisleSwapFor(shop: Shop, aisle1: Aisle, aisle2: Aisle) {
+//		print("Aisle Number: \(aisle1.aisleNumber), Ailse Number: \(aisle2.aisleNumber)")
+//		ShopsDataSource.swapAislesFor(shop: shop, aisle1: aisle1, aisle2: aisle2)
+//	}
 }

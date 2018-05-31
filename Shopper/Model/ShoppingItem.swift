@@ -3,7 +3,7 @@
 //  Shopper
 //
 //  Created by John Forde on 21/5/18.
-//  Copyright © 2018 freshOS. All rights reserved.
+//  Copyright © 2018 4DWare. All rights reserved.
 //
 
 import Foundation
@@ -31,7 +31,11 @@ struct ShoppingItem {
 			return lhs.aisleNumberInt < rhs.aisleNumberInt
 		}
 
-		guard let aisles = sortedAisles else {return shoppingItems}
+		guard let aisles = sortedAisles else {
+			// No aisles (most likely no shop selected), so return all ToDo's
+			shoppingItems.append(ShoppingItem(aisleNumber: "", aisleName: "Uncategorised", toDos: todos))
+			return shoppingItems
+		}
 
 		for aisle in aisles {
 			var toDosToAdd: [ToDo] = []

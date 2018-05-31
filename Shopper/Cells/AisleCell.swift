@@ -84,6 +84,7 @@ class AisleCell: UICollectionViewCell {
 
 	@objc private func addButtonTapped() {
 		print("Add button tapped.")
+
 	}
 
 }

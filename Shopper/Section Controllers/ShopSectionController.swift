@@ -62,6 +62,11 @@ class ShopSectionController: ListSectionController {
 			collectionContext?.performBatch(animated: true, updates: { batchContext in
 				batchContext.reload(self)
 			})
+		} else {
+			let aisleIndex = index - 1
+			print("Cell tapped. Aisle Index: \(aisleIndex)")
+//			guard shop.aisles.count > (aisleIndex + 1) else {return}
+//			delegate?.aisleSwapFor(shop: shop, aisle1: shop.aisles[aisleIndex], aisle2: shop.aisles[aisleIndex + 1])
 		}
 	}
 }

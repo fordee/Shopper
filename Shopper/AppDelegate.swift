@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 
 	private func getCurrentShopName() {
-		guard let currentShopName = UserDefaults.standard.string(forKey: "CurrentShop") else { return }
+		let currentShopName = UserDefaults.standard.string(forKey: "CurrentShop") ?? "No Shop Selected"
 		Shop.currentShopName = currentShopName
 	}
 
