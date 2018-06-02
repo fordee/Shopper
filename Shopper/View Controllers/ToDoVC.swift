@@ -183,11 +183,13 @@ extension ToDoVC: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
 		shoppingItems[indexPath.section].toDos[indexPath.row].toggleDone()
+		v.tableView.reloadData()
 		shoppingItems[indexPath.section].toDos[indexPath.row].update().then { _ in
-			self.v.tableView.reloadData()
+
 			}.onError { e in
 				// It failed, so revert item back
 				self.shoppingItems[indexPath.section].toDos[indexPath.row].toggleDone()
+				self.v.tableView.reloadData()
 				print(e)
 		}
 	}
